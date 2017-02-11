@@ -8,12 +8,12 @@
 
 #include "NodeController.hpp"
 #include "WayController.hpp"
-#include "OSMInterpreter.hpp"
+#include "MapDataController.hpp"
+#include "SoundSphereController.hpp"
 
 class ofApp : public ofBaseApp{
 
 public:
-    ofApp();
     void setup();
     void update();
     void draw();
@@ -23,17 +23,10 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    ofXml xml;
     ofEasyCam camera;
-    NodeController nodeController;
-    std::unordered_map<std::string, WayController> wayControllers;
-    WayController buildingController;
     
 private:
-    void addNode(ofXml &xml);
-    void setBounds(ofXml &xml);
-    void checkHighWay(SInt64 id, std::vector<ofVec3f>&vertices, std::unordered_map<std::string, std::string> &tags);
-    void addWay(ofXml &xml);
-    void loadDataFromXml();
     void glSetup();
+    MapDataController mapDataController;
+    SoundSphereController soundSphereController;
 };
