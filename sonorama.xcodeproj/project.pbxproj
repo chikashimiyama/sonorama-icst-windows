@@ -18,13 +18,7 @@
 		5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */; };
 		5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88333E71C9457E441C33474 /* ofxButton.cpp */; };
 		62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */; };
-		62F54E0F1E4F7F560041A768 /* Backup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62F54E091E4F7F560041A768 /* Backup.cpp */; };
-		62F54E101E4F7F560041A768 /* Column.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62F54E0A1E4F7F560041A768 /* Column.cpp */; };
-		62F54E111E4F7F560041A768 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62F54E0B1E4F7F560041A768 /* Database.cpp */; };
-		62F54E121E4F7F560041A768 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62F54E0C1E4F7F560041A768 /* Exception.cpp */; };
-		62F54E131E4F7F560041A768 /* Statement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62F54E0D1E4F7F560041A768 /* Statement.cpp */; };
-		62F54E141E4F7F560041A768 /* Transaction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62F54E0E1E4F7F560041A768 /* Transaction.cpp */; };
-		62F54E161E4F7F6D0041A768 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 62F54E151E4F7F6D0041A768 /* sqlite3.c */; };
+		62F54E281E4F917C0041A768 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 62F54E261E4F917C0041A768 /* sqlite3.c */; };
 		640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */; };
 		67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B361208CD4107E479F04E7B /* NetworkingUtils.cpp */; };
 		72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */; };
@@ -106,7 +100,7 @@
 		2CD5999FECB377786EBD6E06 /* Bounds.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Bounds.hpp; path = src/Bounds.hpp; sourceTree = SOURCE_ROOT; };
 		2FD4B0329909D3527F003494 /* UdpSocket.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UdpSocket.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/UdpSocket.h; sourceTree = SOURCE_ROOT; };
 		32466D2171E537D87163FD0C /* MapDataController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MapDataController.hpp; path = src/MapDataController.hpp; sourceTree = SOURCE_ROOT; };
-		3525D1F7E1332DC4E557589B /* Way.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Way.hpp; path = src/Way.hpp; sourceTree = SOURCE_ROOT; };
+		3525D1F7E1332DC4E557589B /* Model.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Model.hpp; path = src/Model.hpp; sourceTree = SOURCE_ROOT; };
 		36068D6C1D6D412786A5C4C1 /* ofxAssimpAnimation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAssimpAnimation.cpp; path = ../../../addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.cpp; sourceTree = SOURCE_ROOT; };
 		3B361208CD4107E479F04E7B /* NetworkingUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtils.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/posix/NetworkingUtils.cpp; sourceTree = SOURCE_ROOT; };
 		3D5F33D66F2F166A4E8EA438 /* cfileio.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cfileio.h; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/cfileio.h; sourceTree = SOURCE_ROOT; };
@@ -124,23 +118,11 @@
 		521EA8A6C3448218BD517E17 /* Stylizer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Stylizer.hpp; path = src/Stylizer.hpp; sourceTree = SOURCE_ROOT; };
 		52AFA1F08C420992CAAAE648 /* ofxSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSlider.h; path = ../../../addons/ofxGui/src/ofxSlider.h; sourceTree = SOURCE_ROOT; };
 		5B23844AA39EB4297013DB5C /* MSAOpenCLBuffer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MSAOpenCLBuffer.h; path = ../../../addons/ofxMSAOpenCL/src/MSAOpenCLBuffer.h; sourceTree = SOURCE_ROOT; };
-		62F54E091E4F7F560041A768 /* Backup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Backup.cpp; path = SQLiteCpp/src/Backup.cpp; sourceTree = "<group>"; };
-		62F54E0A1E4F7F560041A768 /* Column.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Column.cpp; path = SQLiteCpp/src/Column.cpp; sourceTree = "<group>"; };
-		62F54E0B1E4F7F560041A768 /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Database.cpp; path = SQLiteCpp/src/Database.cpp; sourceTree = "<group>"; };
-		62F54E0C1E4F7F560041A768 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Exception.cpp; path = SQLiteCpp/src/Exception.cpp; sourceTree = "<group>"; };
-		62F54E0D1E4F7F560041A768 /* Statement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Statement.cpp; path = SQLiteCpp/src/Statement.cpp; sourceTree = "<group>"; };
-		62F54E0E1E4F7F560041A768 /* Transaction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Transaction.cpp; path = SQLiteCpp/src/Transaction.cpp; sourceTree = "<group>"; };
-		62F54E151E4F7F6D0041A768 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3.c; path = SQLiteCpp/sqlite3/sqlite3.c; sourceTree = "<group>"; };
-		62F54E181E4F858A0041A768 /* Assertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Assertion.h; path = SQLiteCpp/include/SQLiteCpp/Assertion.h; sourceTree = "<group>"; };
-		62F54E191E4F858A0041A768 /* Backup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Backup.h; path = SQLiteCpp/include/SQLiteCpp/Backup.h; sourceTree = "<group>"; };
-		62F54E1A1E4F858A0041A768 /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Column.h; path = SQLiteCpp/include/SQLiteCpp/Column.h; sourceTree = "<group>"; };
-		62F54E1B1E4F858A0041A768 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Database.h; path = SQLiteCpp/include/SQLiteCpp/Database.h; sourceTree = "<group>"; };
-		62F54E1C1E4F858A0041A768 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exception.h; path = SQLiteCpp/include/SQLiteCpp/Exception.h; sourceTree = "<group>"; };
-		62F54E1D1E4F858A0041A768 /* SQLiteCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteCpp.h; path = SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h; sourceTree = "<group>"; };
-		62F54E1E1E4F858A0041A768 /* Statement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Statement.h; path = SQLiteCpp/include/SQLiteCpp/Statement.h; sourceTree = "<group>"; };
-		62F54E1F1E4F858A0041A768 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = SQLiteCpp/include/SQLiteCpp/Transaction.h; sourceTree = "<group>"; };
-		62F54E201E4F858A0041A768 /* VariadicBind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariadicBind.h; path = SQLiteCpp/include/SQLiteCpp/VariadicBind.h; sourceTree = "<group>"; };
-		62F54E211E4F85930041A768 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqlite3.h; path = SQLiteCpp/sqlite3/sqlite3.h; sourceTree = "<group>"; };
+		626DF61B1E56401F00EB0F35 /* Const.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Const.hpp; sourceTree = "<group>"; };
+		62F54E241E4F8D8A0041A768 /* sqlite_modern_cpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite_modern_cpp.h; sourceTree = "<group>"; };
+		62F54E251E4F8DD10041A768 /* function_traits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = function_traits.h; sourceTree = "<group>"; };
+		62F54E261E4F917C0041A768 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
+		62F54E271E4F917C0041A768 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
 		63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
 		65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscBundle.cpp; path = ../../../addons/ofxOsc/src/ofxOscBundle.cpp; sourceTree = SOURCE_ROOT; };
 		6813494A3B4D967876B5B49E /* MSAOpenCLMemoryObject.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MSAOpenCLMemoryObject.h; path = ../../../addons/ofxMSAOpenCL/src/MSAOpenCLMemoryObject.h; sourceTree = SOURCE_ROOT; };
@@ -155,7 +137,6 @@
 		7B454555CF8F39CFBAAFDFA2 /* camera.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = camera.h; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/camera.h; sourceTree = SOURCE_ROOT; };
 		7DF381F656E8FD352E21346E /* ofxAssimpModelLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAssimpModelLoader.h; path = ../../../addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h; sourceTree = SOURCE_ROOT; };
 		7E6A695344130C18EE0C96AD /* MSAOpenCL.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MSAOpenCL.h; path = ../../../addons/ofxMSAOpenCL/src/MSAOpenCL.h; sourceTree = SOURCE_ROOT; };
-		7EB6F6F3CAE6540D4952A71F /* SoundSphereController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SoundSphereController.hpp; path = src/SoundSphereController.hpp; sourceTree = SOURCE_ROOT; };
 		802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSliderGroup.cpp; path = ../../../addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
 		808F0EC060E7C8DA90947996 /* light.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = light.h; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/light.h; sourceTree = SOURCE_ROOT; };
 		8090B616E3293BD0E1085AE8 /* metadata.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = metadata.h; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/metadata.h; sourceTree = SOURCE_ROOT; };
@@ -163,7 +144,7 @@
 		85CEF976E2AD243C361BF1C3 /* MSAOpenCLImage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MSAOpenCLImage.h; path = ../../../addons/ofxMSAOpenCL/src/MSAOpenCLImage.h; sourceTree = SOURCE_ROOT; };
 		87F26B4B24CBD428AD9EEBAA /* ofxBaseGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBaseGui.h; path = ../../../addons/ofxGui/src/ofxBaseGui.h; sourceTree = SOURCE_ROOT; };
 		89449E3044D456F7DE7BEA14 /* ofxPanel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxPanel.h; path = ../../../addons/ofxGui/src/ofxPanel.h; sourceTree = SOURCE_ROOT; };
-		8B25670AEE747862AA563976 /* WayController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = WayController.hpp; path = src/WayController.hpp; sourceTree = SOURCE_ROOT; };
+		8B25670AEE747862AA563976 /* ModelController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ModelController.hpp; path = src/ModelController.hpp; sourceTree = SOURCE_ROOT; };
 		8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscBundle.h; path = ../../../addons/ofxOsc/src/ofxOscBundle.h; sourceTree = SOURCE_ROOT; };
 		8B473495EAE4247AC1A851F1 /* ofxAssimpTexture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAssimpTexture.h; path = ../../../addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h; sourceTree = SOURCE_ROOT; };
 		8C75AFC8774A62495DD53464 /* ofxOscReceiver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscReceiver.h; path = ../../../addons/ofxOsc/src/ofxOscReceiver.h; sourceTree = SOURCE_ROOT; };
@@ -201,7 +182,6 @@
 		C70D8946940288799E82131E /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSliderGroup.h; path = ../../../addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
 		C88333E71C9457E441C33474 /* ofxButton.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxButton.cpp; path = ../../../addons/ofxGui/src/ofxButton.cpp; sourceTree = SOURCE_ROOT; };
 		C94ECBFD927A58D2503BA78A /* TagController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TagController.hpp; path = src/TagController.hpp; sourceTree = SOURCE_ROOT; };
-		CAC3ED7B587DB983173ABB57 /* WayRenderer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = WayRenderer.hpp; path = src/WayRenderer.hpp; sourceTree = SOURCE_ROOT; };
 		D1B370068072AAB890CD42D2 /* pstdint.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = pstdint.h; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/Compiler/pstdint.h; sourceTree = SOURCE_ROOT; };
 		D501EB9AF5A65F43CB972589 /* matrix3x3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = matrix3x3.h; path = ../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp/matrix3x3.h; sourceTree = SOURCE_ROOT; };
 		D5703137AF8F134A77167BAD /* Node.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Node.hpp; path = src/Node.hpp; sourceTree = SOURCE_ROOT; };
@@ -303,37 +283,6 @@
 				EEFDD7AE0009AE6F77EF2A93 /* include */,
 			);
 			name = assimp;
-			sourceTree = "<group>";
-		};
-		62F54E081E4F7F450041A768 /* sqliteCPP */ = {
-			isa = PBXGroup;
-			children = (
-				62F54E151E4F7F6D0041A768 /* sqlite3.c */,
-				62F54E091E4F7F560041A768 /* Backup.cpp */,
-				62F54E0A1E4F7F560041A768 /* Column.cpp */,
-				62F54E0B1E4F7F560041A768 /* Database.cpp */,
-				62F54E0C1E4F7F560041A768 /* Exception.cpp */,
-				62F54E0D1E4F7F560041A768 /* Statement.cpp */,
-				62F54E0E1E4F7F560041A768 /* Transaction.cpp */,
-			);
-			name = sqliteCPP;
-			sourceTree = "<group>";
-		};
-		62F54E171E4F85780041A768 /* headers */ = {
-			isa = PBXGroup;
-			children = (
-				62F54E211E4F85930041A768 /* sqlite3.h */,
-				62F54E181E4F858A0041A768 /* Assertion.h */,
-				62F54E191E4F858A0041A768 /* Backup.h */,
-				62F54E1A1E4F858A0041A768 /* Column.h */,
-				62F54E1B1E4F858A0041A768 /* Database.h */,
-				62F54E1C1E4F858A0041A768 /* Exception.h */,
-				62F54E1D1E4F858A0041A768 /* SQLiteCpp.h */,
-				62F54E1E1E4F858A0041A768 /* Statement.h */,
-				62F54E1F1E4F858A0041A768 /* Transaction.h */,
-				62F54E201E4F858A0041A768 /* VariadicBind.h */,
-			);
-			name = headers;
 			sourceTree = "<group>";
 		};
 		641362CA659FAFEE4E81001B /* posix */ = {
@@ -544,8 +493,11 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				62F54E171E4F85780041A768 /* headers */,
-				62F54E081E4F7F450041A768 /* sqliteCPP */,
+				626DF61B1E56401F00EB0F35 /* Const.hpp */,
+				62F54E261E4F917C0041A768 /* sqlite3.c */,
+				62F54E271E4F917C0041A768 /* sqlite3.h */,
+				62F54E251E4F8DD10041A768 /* function_traits.h */,
+				62F54E241E4F8D8A0041A768 /* sqlite_modern_cpp.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
@@ -556,15 +508,13 @@
 				D8D655F2D2A87B295C8C53CA /* NodeController.hpp */,
 				686DFD125ACC7B0587D50100 /* Singleton.cpp */,
 				BC8D74E73CF6E83422225CBE /* SoundSphere.hpp */,
-				7EB6F6F3CAE6540D4952A71F /* SoundSphereController.hpp */,
 				521EA8A6C3448218BD517E17 /* Stylizer.hpp */,
 				ACEA0598E6514F89921B8530 /* StylizerFactory.cpp */,
 				979FA88E58B1CEC02EA92677 /* StylizerFactory.hpp */,
 				C94ECBFD927A58D2503BA78A /* TagController.hpp */,
 				93F5179AAD6A119EFD022CBC /* VboRenderer.hpp */,
-				3525D1F7E1332DC4E557589B /* Way.hpp */,
-				8B25670AEE747862AA563976 /* WayController.hpp */,
-				CAC3ED7B587DB983173ABB57 /* WayRenderer.hpp */,
+				3525D1F7E1332DC4E557589B /* Model.hpp */,
+				8B25670AEE747862AA563976 /* ModelController.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -704,22 +654,19 @@
 				483FA4F6D5FA6422C559B1F5 /* ofxAssimpMeshHelper.cpp in Sources */,
 				8DED5056525646FA71980866 /* ofxAssimpModelLoader.cpp in Sources */,
 				B8846EF8E504895A4A9EFEC0 /* ofxAssimpTexture.cpp in Sources */,
-				62F54E0F1E4F7F560041A768 /* Backup.cpp in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
-				62F54E161E4F7F6D0041A768 /* sqlite3.c in Sources */,
 				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
 				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
 				775DD568D4B9548749580BC9 /* MSAOpenCL.cpp in Sources */,
-				62F54E131E4F7F560041A768 /* Statement.cpp in Sources */,
 				E93CBAF94F684B4F509512C2 /* MSAOpenCLBuffer.cpp in Sources */,
 				33B32C35C83434BBEA521BB6 /* MSAOpenCLImage.cpp in Sources */,
+				62F54E281E4F917C0041A768 /* sqlite3.c in Sources */,
 				FC691B037B4B74A36E0DB176 /* MSAOpenCLKernel.cpp in Sources */,
-				62F54E141E4F7F560041A768 /* Transaction.cpp in Sources */,
 				E13B7A12948FD5C8674D8855 /* MSAOpenCLMemoryObject.cpp in Sources */,
 				7748F9F07C993F15F2868E78 /* MSAOpenCLProgram.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
@@ -728,13 +675,10 @@
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
-				62F54E121E4F7F560041A768 /* Exception.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
-				62F54E111E4F7F560041A768 /* Database.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
-				62F54E101E4F7F560041A768 /* Column.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
 			);
@@ -755,6 +699,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				"CLANG_CXX_LANGUAGE_STANDARD[arch=i386]" = "c++14";
+				"CLANG_CXX_LANGUAGE_STANDARD[arch=x86_64]" = "c++14";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
@@ -797,7 +743,7 @@
 					../../../addons/ofxOsc/libs/oscpack/src/osc,
 					../../../addons/ofxOsc/src,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
@@ -816,6 +762,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				"CLANG_CXX_LANGUAGE_STANDARD[arch=i386]" = "c++14";
+				"CLANG_CXX_LANGUAGE_STANDARD[arch=x86_64]" = "c++14";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -859,7 +807,7 @@
 					../../../addons/ofxOsc/libs/oscpack/src/osc,
 					../../../addons/ofxOsc/src,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-mtune=native",

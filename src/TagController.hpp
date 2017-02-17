@@ -1,7 +1,10 @@
 #pragma once
 #include <unordered_map>
 
+// "tag" is a specific data format of OSM XML, which consists of k and v pairs.
+
 class TagController{
+    
 public:
     TagController(std::unordered_map<std::string, std::string> tags):
     tags(tags),
@@ -13,6 +16,8 @@ public:
         if(itr == tags.end()) return "";
         return itr->second;
     }
+    
+    virtual void draw() = 0;
     
 protected:
     const std::string name;

@@ -1,5 +1,7 @@
 #pragma once
 #include "ofMain.h"
+#include "Const.hpp"
+#include "VboRenderer.hpp"
 
 class MapDataController{
     
@@ -9,9 +11,10 @@ public:
         
         std::array<std::string,8> wayTypes={{"primary", "tertiary", "path", "residential", "footway", "waterway", "railway", "leisure"}};
         for(auto wayType : wayTypes){
-            wayControllers.emplace(wayType, WayController(wayType));
+            wayControllers.emplace(wayType, ModelController<Model<VboRenderer>>(wayType));
         }
         loadDataFromXml();
+        registerToArea();
     }
 
     void draw(){
@@ -20,13 +23,41 @@ public:
         }
         buildingController.draw();
     }
-protected:
     
-    NodeController nodeController;
-    std::unordered_map<std::string, WayController> wayControllers;
-    WayController buildingController;
+    std::vector<int> surroundingAreas(int areaIndex){
+        
+        int x = areaIndex % AREA_DIVISION;
+        int z = areaIndex / AREA_DIVISION;
+        std::vector<int> indices;
+        
+        if(x != 0){
+            indices.push_back(areaIndex-1);
+            if(z != 0){indices.push_back(areaIndex-AREA_DIVISION-1);}
+            if(z != AREA_DIVISION-1){indices.push_back(areaIndex+AREA_DIVISION-1);}
+        }
+        if(x != AREA_DIVISION-1){
+            indices.push_back(areaIndex+1);
+            if(z != 0){indices.push_back(areaIndex-AREA_DIVISION+1);}
+            if(z != AREA_DIVISION-1){indices.push_back(areaIndex+AREA_DIVISION+1);}
+        }
+        if(z != 0){ indices.push_back(areaIndex-AREA_DIVISION);}
+        if(z != AREA_DIVISION-1){ indices.push_back(areaIndex+AREA_DIVISION);}
+        return indices;
+        
+    }
+    void labelArea(int centerAreaIndex, ofEasyCam &camera) {
+        
+        
+        std::vector<int> areas = surroundingAreas(centerAreaIndex);
+        
+        for(auto areaIndex : areas){
+            for(auto building :buildingDistribution[areaIndex]){
+                building->label(camera);
+            }
+        }
+    }
+private:
 
-    
     void loadDataFromXml(){
         ofFile file;
         file.open("map.osm");
@@ -40,13 +71,25 @@ protected:
             }else if(name == "bounds"){
                 setBounds(xml);
             }else if(name == "way"){
-                addWay(xml);
+                addModel(xml);
             }
         }
     }
     
-private:
-    
+    void registerToArea(){
+        buildingController.traverse([this](Model<BuildingRenderer> &model){
+            ofVec3f position = model.getPosition();
+            std::pair<bool, int> area = getArea(position);
+            if(area.first){
+                this->buildingDistribution[area.second].push_back(&model);
+            }
+        });
+//        
+//        for(int i = 0; i< 400; i++){
+//            ofLog() << "area x:" << i%20-10 << " z:" << i%20-10 << " = " << buildingDistribution[i].size();
+//            
+//        }
+    }
 
     void addNode(ofXml &xml){
         
@@ -79,7 +122,7 @@ private:
         bounds->setup(minLat,maxLat,minLon,maxLon);
     }
     
-    void addWay(ofXml &xml){
+    void addModel(ofXml &xml){
         SInt64 id = std::strtoll(xml.getAttribute("id").c_str(), nullptr, 10);
         if(xml.getNumChildren() > 0){
             
@@ -110,25 +153,35 @@ private:
                 }
             }
             {
-                auto itr = tags.find("building");
+                
+                auto itr = tags.find("building:levels");
                 if(itr != tags.end()){
-                    std::string type = itr->second;
                     buildingController.add(id, vertices, tags);
+                }else{
+                    itr = tags.find("building");
+                    if(itr != tags.end()){
+                        buildingController.add(id, vertices, tags);
+                    }
                 }
             }
-            std::array<std::string, 3> miscWayTypes = {{"waterway", "railway", "leisure"}};
-            for(std::string &miscWayType : miscWayTypes){
-                auto itr = tags.find(miscWayType);
+            std::array<std::string, 3> miscModelTypes = {{"waterway", "railway", "leisure"}};
+            for(std::string &miscModelType : miscModelTypes){
+                auto itr = tags.find(miscModelType);
                 if(itr != tags.end()){
                     std::string type = itr->second;
-                    wayControllers.at(miscWayType).add(id, vertices, tags);
+                    wayControllers.at(miscModelType).add(id, vertices, tags);
                 }
             }
         }
     }
     
     ofXml xml;
-
+    
+    NodeController nodeController;
+    std::unordered_map<std::string, ModelController<Model<VboRenderer>>> wayControllers;
+    ModelController<Model<BuildingRenderer>> buildingController;
+    std::array<std::vector<const Model<BuildingRenderer>* >, 400> buildingDistribution;
+    
 };
 
 

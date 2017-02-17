@@ -13,17 +13,14 @@ public:
         return theInstance;
     };
     
-    void drawText(ofVec3f pos, std::string str) const{
-        ofPushMatrix();
-        ofTranslate(pos);
-        font.drawString(str,0,-100);
-        ofPopMatrix();
+    void drawText(const ofVec2f &pos, const std::string &str) const{
+        font.drawString(str, pos.x, pos.y);
     }
     
 private:
     FontServer(){}; // cannot instantiate by constructor
     void initFont(){
-        font.load("zurich.ttf", 7);
+        font.load("zurich.ttf", 11);
     }
 
     ofTrueTypeFont font;
