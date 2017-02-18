@@ -22,16 +22,16 @@ public:
         return models.size();
     }
     
-    void draw(){
+    void draw() const{
         stylizer.stylize();
-        traverse([](T &model){model.draw();});
+        traverse([](const T &model){model.draw();});
     }
     
-    void label(const Camera &cam){
-        traverse([&cam ](T &model){model.label(cam);});
+    void label(const Camera &camera) const{
+        traverse([&camera ](const T &model){model.label(camera);});
     }
     
-    void traverse(std::function<void(T &model)> func){
+    void traverse(std::function<void(const T &model)> func) const{
         for(auto &model : models){func(model);}
     }
 

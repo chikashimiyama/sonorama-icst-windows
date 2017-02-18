@@ -22,8 +22,7 @@ public:
         return id;
     }
 
-
-    void draw(){
+    virtual void draw() const{
         renderer.draw();
     }
     

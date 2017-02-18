@@ -60,7 +60,7 @@ private:
     }
     
     void registerToArea(){
-        buildingController.traverse([this](Model<BuildingRenderer> &model){
+        buildingController.traverse([this](const Model<BuildingRenderer> &model){
             ofVec3f position = model.getPosition();
             std::pair<bool, int> area = getArea(position);
             if(area.first){
@@ -121,9 +121,9 @@ private:
             }while(xml.setToSibling());
             xml.setToParent();
             {
-                auto itr = tags.find("highway");
-                if(itr != tags.end()){
-                    std::string type = itr->second;
+                auto it = tags.find("highway");
+                if(it != tags.end()){
+                    std::string type = it->second;
                     auto itr = wayControllers.find(type);
                     if(itr != wayControllers.end()){
                         itr->second.add(id, vertices, tags);

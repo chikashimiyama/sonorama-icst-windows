@@ -16,7 +16,7 @@ public:
     float getLat() const{return lat;}
     float getLon() const{return lon;}
     
-    void draw(){}
+    void draw() const {}
     
 protected:
     const float lat;

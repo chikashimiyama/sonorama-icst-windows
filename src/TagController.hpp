@@ -17,7 +17,7 @@ public:
         return itr->second;
     }
     
-    virtual void draw() = 0;
+    virtual void draw() const = 0;
     
 protected:
     const std::string name;
