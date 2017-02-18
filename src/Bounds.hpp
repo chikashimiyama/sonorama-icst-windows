@@ -3,7 +3,7 @@
 
 
 #include "ofMain.h"
-
+#include "Const.hpp"
 //Singleton class Bounds
 
 class Bounds{
@@ -23,8 +23,8 @@ public:
     }
 
     ofVec3f scale(float lat, float lon){
-        float x = ((lat - minLat) / distLat ) * 2000.0 - 1000.0;
-        float z = ((lon - minLon) / distLon ) * 2000.0 - 1000.0;
+        float x = ((lat - minLat) / distLat ) * MAP_SIZE - HALF_MAP_SIZE;
+        float z = ((lon - minLon) / distLon ) * MAP_SIZE - HALF_MAP_SIZE;
         return ofVec3f(x, 0, z);
     };
 
