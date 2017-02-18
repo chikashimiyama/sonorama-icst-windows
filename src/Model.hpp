@@ -15,8 +15,13 @@ public:
     id(id),
     renderer(vertices, tags),
     TagController(tags),
-    position(vertices[0]),
-    visible(true){}
+    visible(true){
+        ofVec3f p;
+        for(ofVec3f vec : vertices){
+            p += vec;
+        }
+        position = p / static_cast<float>(vertices.size());
+    }
     
     SInt64 getId() const{
         return id;
