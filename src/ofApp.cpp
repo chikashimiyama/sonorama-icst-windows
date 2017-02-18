@@ -8,14 +8,20 @@
 
 void ofApp::glSetup(){
     ofBackground(ofColor::black);
-    camera.setNearClip(1);
-    camera.setFarClip(3000);
+    camera.setNearClip(NEAR_CLIP);
+    camera.setFarClip(FAR_CLIP);
     camera.setFov(FOV);
     camera.setAspectRatio(ASPECT_RATIO);
+    
+    debugCam.setNearClip(1);
+    debugCam.setFarClip(10000);
+    debugCam.disableMouseInput();
+    
     ofSetFrameRate(30);
 }
 
 void ofApp::setup(){
+    debug = false;
     glSetup();
     std::string path = ofToDataPath("sound_spheres.db");
     sqlite::database db(path);
@@ -32,24 +38,41 @@ void ofApp::setup(){
     currentArea = std::make_pair<bool,int>(false,0);
 }
 
-
-
 void ofApp::update(){
     ofVec3f pos = camera.getPosition();
     currentArea = getArea(pos);
-    mapDataController.update(camera);
+    camera.update();
+}
+
+void ofApp::drawContent(){
+    mapDataController.draw(camera);
+    soundSphereController.draw();
+    //drawArea();
+    //drawGrid();
 }
 
 void ofApp::draw(){
-    camera.begin();
-    mapDataController.draw();
-    soundSphereController.draw();
-    drawArea();
-    drawGrid();
-    camera.end();
+    if(debug){
+        debugCam.enableMouseInput();
+        camera.disableMouseInput();
+        debugCam.begin();
+        drawContent();
+        camera.drawFrustum();
+        debugCam.end();
+        
+        
+    }else{
+        debugCam.disableMouseInput();
+        camera.enableMouseInput();
+        
+        camera.begin();
+        drawContent();
+        camera.end();
+    }
+    
     soundSphereController.label(camera);
     if(currentArea.first){
-        mapDataController.labelArea(currentArea.second, camera);
+        mapDataController.labelArea(camera);
     }
     drawLog();
 }
@@ -63,7 +86,7 @@ void ofApp::drawLog(){
         std::string str = "x:" + ofToString(x) + " y:" + ofToString(y);
         ofSetColor(ofColor::white);
         fontServer->drawText(ofVec2f(10,20), str);
-        fontServer->drawText(ofVec2f(10,70), ofToString(camera.getPosition()));
+        fontServer->drawText(ofVec2f(10,50), ofToString(camera.getPosition()));
     }
 }
 
@@ -94,7 +117,9 @@ void ofApp::drawArea(){
 }
 
 void ofApp::keyPressed(int key){
-
+    if(key == 'D'){
+        debug = !debug;
+    }
 }
 
 void ofApp::keyReleased(int key){

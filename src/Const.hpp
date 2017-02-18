@@ -14,6 +14,24 @@ const float HEIGHT_LIMIT = 1500;
 const float HALF_MAP_SIZE = MAP_SIZE/2.0;
 const float DIVIDER = MAP_SIZE / AREA_DIVISION;
 
+//frustum
+const float NEAR_CLIP = 20;
+const float NEAR_H     = 2 * tan(FOV / 2.0) * -NEAR_CLIP;
+const float NEAR_W     = NEAR_H * ASPECT_RATIO;
+const float HALF_NEAR_H = NEAR_H/2;
+const float HALF_NEAR_W = NEAR_W/2;
+
+const float FAR_CLIP = 2000;
+const float FAR_H      = 2 * tan(FOV / 2.0) * -FAR_CLIP;
+const float FAR_W      = FAR_H * ASPECT_RATIO;
+const float HALF_FAR_H = FAR_H/2;
+const float HALF_FAR_W = FAR_W/2;
+
+
+
+
+const std::string FONT = "alien.ttf";
+
 inline std::pair<bool, int> getArea(ofVec3f &pos){
     if(pos.x < -HALF_MAP_SIZE || HALF_MAP_SIZE < pos.x) return std::make_pair(false,-1);
     if(pos.z < -HALF_MAP_SIZE || HALF_MAP_SIZE < pos.z) return std::make_pair(false,-1);

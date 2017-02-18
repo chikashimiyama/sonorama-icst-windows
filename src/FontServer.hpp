@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Const.hpp"
 
 class FontServer{
     
@@ -20,7 +21,7 @@ public:
 private:
     FontServer(){}; // cannot instantiate by constructor
     void initFont(){
-        font.load("zurich.ttf", 11);
+        font.load(FONT, 8);
     }
 
     ofTrueTypeFont font;

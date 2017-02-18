@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "Const.hpp"
+#include "Camera.hpp"
 
 class VboRenderer{
 
@@ -49,7 +50,7 @@ public:
         wallVbo.draw(GL_QUAD_STRIP, 0, wallVbo.getNumVertices());
     }
     
-    void label(ofEasyCam &camera, const std::string &text) const{
+    void label(const Camera &camera, const std::string &text) const{
         ofVec2f posOnScreen = camera.worldToScreen(centerPos, ofGetCurrentViewport());
         ofVec2f textOnScreen = posOnScreen;
         if(!(
@@ -59,7 +60,6 @@ public:
            ){return;}
         
         FontServer * fontServer = FontServer::getSingleton();
-        ofSetColor(ofColor::white);
         fontServer->drawText(textOnScreen, text);
     }
     
@@ -92,7 +92,7 @@ public:
         ofDrawSphere(centerPos, 30);
     }
     
-    void label(ofEasyCam &camera, const std::string &text) const{
+    void label(const Camera &camera, const std::string &text) const{
         ofVec2f posOnScreen = camera.worldToScreen(centerPos, ofGetCurrentViewport());
         ofVec2f textOnScreen = posOnScreen;
         textOnScreen.y -= 200.0;

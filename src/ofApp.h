@@ -10,7 +10,7 @@
 #include "ModelController.hpp"
 #include "MapDataController.hpp"
 #include "SoundSphere.hpp"
-
+#include "Camera.hpp"
 
 class ofApp : public ofBaseApp{
 
@@ -18,6 +18,7 @@ public:
     void setup();
     void update();
     void draw();
+    void drawContent();
     void drawLog();
     void drawArea();
     void drawGrid();
@@ -26,9 +27,12 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    ofEasyCam camera;
+    
     
 private:
+    ofEasyCam debugCam;
+    Camera camera;
+    bool debug;
     std::pair<bool,int> currentArea;
     void glSetup();
     MapDataController mapDataController;

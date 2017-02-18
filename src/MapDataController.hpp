@@ -16,44 +16,21 @@ public:
         loadDataFromXml();
         registerToArea();
     }
-    void update(ofEasyCam &camera){
-    }
 
-    void draw(){
+    
+    void draw(const Camera &camera){
         for(auto &controller : wayControllers){
             controller.second.draw();
         }
         buildingController.draw();
     }
     
-    std::vector<int> surroundingAreas(int areaIndex){
-        
-        int x = areaIndex % AREA_DIVISION;
-        int z = areaIndex / AREA_DIVISION;
-        std::vector<int> indices;
-        
-        if(x != 0){
-            indices.push_back(areaIndex-1);
-            if(z != 0){indices.push_back(areaIndex-AREA_DIVISION-1);}
-            if(z != AREA_DIVISION-1){indices.push_back(areaIndex+AREA_DIVISION-1);}
-        }
-        if(x != AREA_DIVISION-1){
-            indices.push_back(areaIndex+1);
-            if(z != 0){indices.push_back(areaIndex-AREA_DIVISION+1);}
-            if(z != AREA_DIVISION-1){indices.push_back(areaIndex+AREA_DIVISION+1);}
-        }
-        if(z != 0){ indices.push_back(areaIndex-AREA_DIVISION);}
-        if(z != AREA_DIVISION-1){ indices.push_back(areaIndex+AREA_DIVISION);}
-        return indices;
-        
-    }
-    void labelArea(int centerAreaIndex, ofEasyCam &camera) {
-        
-        
-        std::vector<int> areas = surroundingAreas(centerAreaIndex);
-        
-        for(auto areaIndex : areas){
-            for(auto building :buildingDistribution[areaIndex]){
+    void labelArea(const Camera &camera) {
+        const std::array<bool, NUM_AREA> &visibleAreas = camera.getVisibleAreas();
+        ofSetColor(ofColor::darkGray);
+        for(int i = 0; i < NUM_AREA;i++){
+            if(!visibleAreas[i])continue;
+            for(auto building :buildingDistribution[i]){
                 building->label(camera);
             }
         }
@@ -86,11 +63,6 @@ private:
                 this->buildingDistribution[area.second].push_back(&model);
             }
         });
-//        
-//        for(int i = 0; i< 400; i++){
-//            ofLog() << "area x:" << i%20-10 << " z:" << i%20-10 << " = " << buildingDistribution[i].size();
-//            
-//        }
     }
 
     void addNode(ofXml &xml){
@@ -185,8 +157,4 @@ private:
     std::array<std::vector<const Model<BuildingRenderer>* >, NUM_AREA> buildingDistribution;
     
 };
-
-
-
-
 

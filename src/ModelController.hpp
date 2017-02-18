@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Model.hpp"
+#include "Camera.hpp"
 #include "TagController.hpp"
 #include "StylizerFactory.hpp"
 
@@ -13,8 +14,6 @@ public:
     ModelController(const std::string &styleName):
     stylizer(StylizerFactory::getStylizer(styleName)){}
     
-    
-    
     void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags){
         models.emplace_back(id, vertices, tags);
     }
@@ -23,14 +22,12 @@ public:
         return models.size();
     }
     
-
-    
     void draw(){
         stylizer.stylize();
         traverse([](T &model){model.draw();});
     }
     
-    void label(ofEasyCam &cam){
+    void label(const Camera &cam){
         traverse([&cam ](T &model){model.label(cam);});
     }
     

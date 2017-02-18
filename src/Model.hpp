@@ -4,6 +4,7 @@
 #include "Node.hpp"
 #include "VboRenderer.hpp"
 #include "Bounds.hpp"
+#include "Camera.hpp"
 #include "ofMain.h"
 
 template <typename R>
@@ -30,7 +31,7 @@ public:
         return position;
     }
     
-    void label(ofEasyCam &camera) const{
+    void label(const Camera &camera) const{
         renderer.label(camera, name);
     }
     
