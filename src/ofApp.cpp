@@ -51,8 +51,8 @@ void ofApp::update(){
 void ofApp::drawContent(){
     mapDataController.draw(camera);
     soundSphereController.draw();
-    drawArea();
-    drawGrid();
+    //drawArea();
+    //drawGrid();
 }
 
 void ofApp::draw(){

@@ -34,9 +34,9 @@ public:
     }
     
     void draw() const {
-        ofSetColor(255,255,255,50);
+        ofSetColor(125,125,125,50);
+        baseVbo.draw(GL_LINE_LOOP, 0, baseVbo.getNumVertices());
         ceilingVbo.draw(GL_LINE_LOOP, 0, ceilingVbo.getNumVertices());
-        
 
         wallVbo.draw(GL_QUAD_STRIP, 0, wallVbo.getNumVertices());
     }
