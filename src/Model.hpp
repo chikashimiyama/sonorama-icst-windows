@@ -14,12 +14,14 @@ public:
     id(id),
     renderer(vertices, tags),
     TagController(tags),
-    position(vertices[0]){}
+    position(vertices[0]),
+    visible(true){}
     
     SInt64 getId() const{
         return id;
     }
-    
+
+
     void draw(){
         renderer.draw();
     }
@@ -36,5 +38,6 @@ private:
     const UInt64 id;
     R renderer;
     ofVec3f position;
+    bool visible;
 };
 

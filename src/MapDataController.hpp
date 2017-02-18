@@ -16,6 +16,8 @@ public:
         loadDataFromXml();
         registerToArea();
     }
+    void update(ofEasyCam &camera){
+    }
 
     void draw(){
         for(auto &controller : wayControllers){
@@ -180,7 +182,7 @@ private:
     NodeController nodeController;
     std::unordered_map<std::string, ModelController<Model<VboRenderer>>> wayControllers;
     ModelController<Model<BuildingRenderer>> buildingController;
-    std::array<std::vector<const Model<BuildingRenderer>* >, 400> buildingDistribution;
+    std::array<std::vector<const Model<BuildingRenderer>* >, NUM_AREA> buildingDistribution;
     
 };
 

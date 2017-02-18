@@ -8,8 +8,10 @@
 
 void ofApp::glSetup(){
     ofBackground(ofColor::black);
-    camera.setNearClip(0.01);
-    camera.setFarClip(6000);
+    camera.setNearClip(1);
+    camera.setFarClip(3000);
+    camera.setFov(FOV);
+    camera.setAspectRatio(ASPECT_RATIO);
     ofSetFrameRate(30);
 }
 
@@ -35,7 +37,7 @@ void ofApp::setup(){
 void ofApp::update(){
     ofVec3f pos = camera.getPosition();
     currentArea = getArea(pos);
-    
+    mapDataController.update(camera);
 }
 
 void ofApp::draw(){
@@ -61,6 +63,7 @@ void ofApp::drawLog(){
         std::string str = "x:" + ofToString(x) + " y:" + ofToString(y);
         ofSetColor(ofColor::white);
         fontServer->drawText(ofVec2f(10,20), str);
+        fontServer->drawText(ofVec2f(10,70), ofToString(camera.getPosition()));
     }
 }
 

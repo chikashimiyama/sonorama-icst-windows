@@ -23,6 +23,8 @@ public:
         return models.size();
     }
     
+
+    
     void draw(){
         stylizer.stylize();
         traverse([](T &model){model.draw();});
