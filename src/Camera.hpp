@@ -71,8 +71,16 @@ public:
         return true;
     }
     
-    const std::array<bool, NUM_AREA> &getVisibleAreas()const{
+    const std::array<bool, NUM_AREA> &getVisibleAreas() const{
         return visibleAreas;
+    }
+    
+    int getNumVisibleAreas() const{
+        int i = 0;
+        for(auto area : visibleAreas){
+            if(area)i++;
+        }
+        return i;
     }
     
 private:

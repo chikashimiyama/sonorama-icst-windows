@@ -1,7 +1,8 @@
 #pragma once
 #include "ofMain.h"
 #include "Const.hpp"
-#include "VboRenderer.hpp"
+#include "BuildingRenderer.hpp"
+#include "SoundSphereRenderer.hpp"
 
 class MapDataController{
     
@@ -27,9 +28,11 @@ public:
     
     void labelArea(const Camera &camera) {
         const std::array<bool, NUM_AREA> &visibleAreas = camera.getVisibleAreas();
-        ofSetColor(ofColor::darkGray);
+        ofSetColor(ofColor::lightGray);
+        
         for(int i = 0; i < NUM_AREA;i++){
             if(!visibleAreas[i])continue;
+            
             for(auto building :buildingDistribution[i]){
                 building->label(camera);
             }
@@ -37,6 +40,7 @@ public:
     }
 private:
 
+    
     void loadDataFromXml(){
         ofFile file;
         file.open("map.osm");

@@ -21,7 +21,7 @@ public:
 private:
     FontServer(){}; // cannot instantiate by constructor
     void initFont(){
-        font.load(FONT, 8);
+        font.load(FONT, FONT_SIZE);
     }
 
     ofTrueTypeFont font;

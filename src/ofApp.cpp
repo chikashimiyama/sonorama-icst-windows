@@ -18,6 +18,8 @@ void ofApp::glSetup(){
     debugCam.disableMouseInput();
     
     ofSetFrameRate(30);
+    ofEnableDepthTest();
+
 }
 
 void ofApp::setup(){
@@ -47,8 +49,8 @@ void ofApp::update(){
 void ofApp::drawContent(){
     mapDataController.draw(camera);
     soundSphereController.draw();
-    //drawArea();
-    //drawGrid();
+    drawArea();
+    drawGrid();
 }
 
 void ofApp::draw(){
@@ -59,8 +61,6 @@ void ofApp::draw(){
         drawContent();
         camera.drawFrustum();
         debugCam.end();
-        
-        
     }else{
         debugCam.disableMouseInput();
         camera.enableMouseInput();
@@ -86,7 +86,8 @@ void ofApp::drawLog(){
         std::string str = "x:" + ofToString(x) + " y:" + ofToString(y);
         ofSetColor(ofColor::white);
         fontServer->drawText(ofVec2f(10,20), str);
-        fontServer->drawText(ofVec2f(10,50), ofToString(camera.getPosition()));
+        fontServer->drawText(ofVec2f(10,40), ofToString(camera.getPosition()));
+        fontServer->drawText(ofVec2f(10,60), "visible area: " + ofToString(camera.getNumVisibleAreas()));
     }
 }
 

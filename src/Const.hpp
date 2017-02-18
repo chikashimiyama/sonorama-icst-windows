@@ -28,9 +28,19 @@ const float HALF_FAR_H = FAR_H/2;
 const float HALF_FAR_W = FAR_W/2;
 
 
+// building
+const float LEVEL_HEIGHT = 30;
+const float HALF_LEVEL_HEIGHT = LEVEL_HEIGHT / 2;
+const float LABEL_INDENT = 5;
+const float BUILDING_THRESHOLD = 1000.0;
+const float BUILDING_LABEL_THRESHOLD = 700.0;
 
+const float BULLET_SIZE = 1.5;
 
+// font
 const std::string FONT = "alien.ttf";
+const float FONT_SIZE = 8;
+
 
 inline std::pair<bool, int> getArea(ofVec3f &pos){
     if(pos.x < -HALF_MAP_SIZE || HALF_MAP_SIZE < pos.x) return std::make_pair(false,-1);
