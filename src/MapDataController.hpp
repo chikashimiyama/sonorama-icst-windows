@@ -12,10 +12,10 @@ public:
         
         std::array<std::string,8> wayTypes={{"primary", "tertiary", "path", "residential", "footway", "waterway", "railway", "leisure"}};
         for(auto wayType : wayTypes){
-            wayControllers.emplace(wayType, ModelController<Model<VboRenderer>>(wayType));
+            wayControllers.emplace(wayType, ModelController<VboRenderer>(wayType));
         }
         loadDataFromXml();
-        registerToArea();
+        prepareDistribution();
     }
 
     
@@ -26,17 +26,11 @@ public:
         buildingController.draw();
     }
     
-    void labelArea(const Camera &camera) {
+    void labelAreas(const Camera &camera) {
         const std::array<bool, NUM_AREA> &visibleAreas = camera.getVisibleAreas();
         ofSetColor(ofColor::lightGray);
+        buildingController.labelAreas(visibleAreas, camera);
         
-        for(int i = 0; i < NUM_AREA;i++){
-            if(!visibleAreas[i])continue;
-            
-            for(auto building :buildingDistribution[i]){
-                building->label(camera);
-            }
-        }
     }
 private:
 
@@ -59,15 +53,10 @@ private:
         }
     }
     
-    void registerToArea(){
-        buildingController.traverse([this](const Model<BuildingRenderer> &model){
-            ofVec3f position = model.getPosition();
-            std::pair<bool, int> area = getArea(position);
-            if(area.first){
-                this->buildingDistribution[area.second].push_back(&model);
-            }
-        });
+    void prepareDistribution(){
+        buildingController.prepareDistribution();
     }
+
 
     void addNode(ofXml &xml){
         
@@ -156,9 +145,8 @@ private:
     ofXml xml;
     
     NodeController nodeController;
-    std::unordered_map<std::string, ModelController<Model<VboRenderer>>> wayControllers;
-    ModelController<Model<BuildingRenderer>> buildingController;
-    std::array<std::vector<const Model<BuildingRenderer>* >, NUM_AREA> buildingDistribution;
+    std::unordered_map<std::string, ModelController<VboRenderer>> wayControllers;
+    ModelController<BuildingRenderer> buildingController;
     
 };
 

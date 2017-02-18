@@ -36,5 +36,7 @@ private:
     std::pair<bool,int> currentArea;
     void glSetup();
     MapDataController mapDataController;
-    ModelController<Model<SoundSphereRenderer>> soundSphereController;
+    ModelController<SoundSphereRenderer> soundSphereController;
+    
+    ofLight light;
 };

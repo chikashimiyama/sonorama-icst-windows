@@ -44,6 +44,8 @@ void ofApp::update(){
     ofVec3f pos = camera.getPosition();
     currentArea = getArea(pos);
     camera.update();
+    
+    
 }
 
 void ofApp::drawContent(){
@@ -72,7 +74,7 @@ void ofApp::draw(){
     
     soundSphereController.label(camera);
     if(currentArea.first){
-        mapDataController.labelArea(camera);
+        mapDataController.labelAreas(camera);
     }
     drawLog();
 }

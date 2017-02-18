@@ -12,9 +12,9 @@ class Model : public TagController {
 public:
  
     Model(SInt64 id, std::vector<ofVec3f> vertices, std::unordered_map<std::string, std::string> tags):
+    TagController(tags),
     id(id),
     renderer(vertices, tags),
-    TagController(tags),
     visible(true){
         ofVec3f p;
         for(ofVec3f vec : vertices){

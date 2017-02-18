@@ -7,9 +7,9 @@ class TagController{
     
 public:
     TagController(std::unordered_map<std::string, std::string> tags):
-    tags(tags),
-    name(extractName(tags))
-    {}
+    tags(tags){
+        name = extractName(tags);
+    }
     
     std::string getValue(std::string k) const{
         auto itr = tags.find(k);
@@ -20,14 +20,14 @@ public:
     virtual void draw() const = 0;
     
 protected:
-    const std::string name;
+    std::string name;
     
 private:
     const std::unordered_map<std::string, std::string> tags;
     
-    std::string extractName(std::unordered_map<std::string, std::string> &tags){
+    static std::string extractName(std::unordered_map<std::string, std::string> &tags){
         auto itr = tags.find("name");
         if(itr != tags.end()) return itr->second;
-        return "";
+        return std::string("");
     }
 };

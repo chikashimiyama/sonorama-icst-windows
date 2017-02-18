@@ -11,24 +11,33 @@ public:
         std::vector<ofVec3f> wallVertices;
         
         int level = getLevels(tags);
+        
         ofVec3f accum;
         for(auto &vertex : baseVertices){
-            float height = level * LEVEL_HEIGHT;
             accum += vertex;
-            ceilingVertices.emplace_back(vertex.x, vertex.y + height, vertex.z);
-            wallVertices.emplace_back(vertex.x, vertex.y, vertex.z);
-            wallVertices.emplace_back(vertex.x, vertex.y + height, vertex.z);
         }
         centerPos = accum / baseVertices.size();
-        centerPos.y = HALF_LEVEL_HEIGHT;
+
+        for(auto vertex : baseVertices){
+            float height = level * LEVEL_HEIGHT;
+            
+            vertex = (vertex - centerPos) * 0.9 + centerPos;
+            ceilingVertices.emplace_back(vertex.x, height, vertex.z);
+            wallVertices.emplace_back(vertex.x, 0, vertex.z);
+            wallVertices.emplace_back(vertex.x, height, vertex.z);
+        }
         
+        centerPos.y = HALF_LEVEL_HEIGHT;
+
         ceilingVbo.setVertexData(&ceilingVertices[0], ceilingVertices.size(), GL_STATIC_DRAW);
         wallVbo.setVertexData(&wallVertices[0], wallVertices.size(), GL_STATIC_DRAW);
     }
     
     void draw() const {
-        baseVbo.draw(GL_POLYGON, 0, baseVbo.getNumVertices());
-        ceilingVbo.draw(GL_POLYGON, 0, ceilingVbo.getNumVertices());
+        ofSetColor(255,255,255,50);
+        ceilingVbo.draw(GL_LINE_LOOP, 0, ceilingVbo.getNumVertices());
+        
+
         wallVbo.draw(GL_QUAD_STRIP, 0, wallVbo.getNumVertices());
     }
     

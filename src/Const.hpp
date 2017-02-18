@@ -21,7 +21,7 @@ const float NEAR_W     = NEAR_H * ASPECT_RATIO;
 const float HALF_NEAR_H = NEAR_H/2;
 const float HALF_NEAR_W = NEAR_W/2;
 
-const float FAR_CLIP = 2000;
+const float FAR_CLIP = 5000;
 const float FAR_H      = 2 * tan(FOV / 2.0) * -FAR_CLIP;
 const float FAR_W      = FAR_H * ASPECT_RATIO;
 const float HALF_FAR_H = FAR_H/2;
@@ -38,7 +38,7 @@ const float BUILDING_LABEL_THRESHOLD = 700.0;
 const float BULLET_SIZE = 1.5;
 
 // font
-const std::string FONT = "alien.ttf";
+const std::string FONT = "zurich.ttf";
 const float FONT_SIZE = 8;
 
 
