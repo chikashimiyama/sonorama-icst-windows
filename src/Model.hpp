@@ -31,7 +31,7 @@ public:
         renderer.draw();
     }
     
-    ofVec3f getPosition() const{
+    ofVec3f getPosition() const {
         return position;
     }
     

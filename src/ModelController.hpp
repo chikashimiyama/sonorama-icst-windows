@@ -4,6 +4,7 @@
 #include "Camera.hpp"
 #include "TagController.hpp"
 #include "StylizerFactory.hpp"
+#include "Const.hpp"
 
 template <typename R>
 class ModelController{
@@ -15,53 +16,51 @@ public:
     stylizer(StylizerFactory::getStylizer(styleName)){}
     
     void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags){
-        models.emplace_back(id, vertices, tags);
-    }
-    
-    void prepareDistribution(){
-        for(int i = 0;i < models.size(); i++){
-            ofVec3f position = models[i].getPosition();
-            std::pair<bool, int> area = getArea(position);
-            if(area.first){
-                distribution[area.second].push_back(&models[i]);
-            }
+        std::shared_ptr<Model<R>> modelPtr = std::make_shared<Model<R>>(id, vertices, tags);
+        models.push_back(modelPtr);
+        std::pair<bool, int> area = getArea(modelPtr->getPosition());
+        if(area.first){
+            distribution[area.second].push_back(modelPtr);
         }
     }
-    
+
     size_t getNumberOfModels() const {
         return models.size();
     }
     
-    void draw() const{
+    void draw(const Camera &camera) const{
         stylizer.stylize();
-        traverse([](const Model<R> &model){model.draw();});
-    }
-    
-    void drawAreas(const std::array<bool, NUM_AREA> &visibleAreas, const Camera &camera) const{
-
+        auto &visibleAreas = camera.getVisibleAreas();
+        for(int i = 0; i < NUM_AREA;i++){
+            if(!visibleAreas[i])continue;
+            for(auto model :distribution[i]){
+                model->draw();
+            }
+        }
     }
     
     void label(const Camera &camera) const{
-        traverse([&camera ](const Model<R> &model){model.label(camera);});
-    }
-    
-    void labelAreas(const std::array<bool, NUM_AREA> &visibleAreas, const Camera &camera) const{
+        auto &visibleAreas = camera.getVisibleAreas();
         for(int i = 0; i < NUM_AREA;i++){
             if(!visibleAreas[i])continue;
             for(auto model :distribution[i]){
                 model->label(camera);
             }
-        }
+        }([&camera ](const std::shared_ptr<Model<R>> model){model->label(camera);});
     }
     
-    void traverse(std::function<void(const Model<R> &model)> func) const{
-        for(auto &model : models){func(model);}
+
+    
+    void traverse(std::function<void(std::shared_ptr<Model<R>> model)> func) const{
+        for(std::shared_ptr<Model<R>> model : models){
+            func(model);
+        }
     }
 
 protected:
 
-    std::vector<Model<R>> models;
+    std::vector<std::shared_ptr<Model<R>>> models;
     const Stylizer &stylizer;
-    std::array<std::vector<const Model<R>* >, NUM_AREA> distribution;
+    std::array<std::vector<std::shared_ptr<Model<R>>>, NUM_AREA> distribution;
 
 };

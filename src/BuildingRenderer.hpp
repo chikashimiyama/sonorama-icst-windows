@@ -6,7 +6,7 @@ class BuildingRenderer: public VboRenderer{
     
 public:
     BuildingRenderer(std::vector<ofVec3f> baseVertices, const std::unordered_map<std::string, std::string> &tags):
-    VboRenderer(baseVertices, tags){
+    VboRenderer(baseVertices){
         std::vector<ofVec3f> ceilingVertices;
         std::vector<ofVec3f> wallVertices;
         
@@ -33,7 +33,7 @@ public:
         wallVbo.setVertexData(&wallVertices[0], wallVertices.size(), GL_STATIC_DRAW);
     }
     
-    void draw() const {
+    void draw() const override{
         ofSetColor(125,125,125,50);
         baseVbo.draw(GL_LINE_LOOP, 0, baseVbo.getNumVertices());
         ceilingVbo.draw(GL_LINE_LOOP, 0, ceilingVbo.getNumVertices());
@@ -41,22 +41,18 @@ public:
         wallVbo.draw(GL_QUAD_STRIP, 0, wallVbo.getNumVertices());
     }
     
-    void label(const Camera &camera, const std::string &text) const{
+    void label(const Camera &camera, const std::string &text) const override{
         if(text.size() == 0 )return;
         if(centerPos.distance(camera.getPosition()) > BUILDING_LABEL_THRESHOLD) return;
+
         ofVec2f posOnScreen = camera.worldToScreen(centerPos, ofGetCurrentViewport());
-        ofVec2f textOnScreen = posOnScreen;
-        if(!(
-             (0 < textOnScreen.x && textOnScreen.x < WIDTH) &&
-             (0 < textOnScreen.y && textOnScreen.y < HEIGHT)
-             )
-           ){return;}
-        
-        ofDrawCircle(textOnScreen.x, textOnScreen.y, BULLET_SIZE);
-        textOnScreen.x += LABEL_INDENT;
+        if(!isInScreen(posOnScreen)) return;
+
+        ofDrawCircle(posOnScreen.x, posOnScreen.y, BULLET_SIZE);
+        posOnScreen.x += LABEL_INDENT;
         
         FontServer * fontServer = FontServer::getSingleton();
-        fontServer->drawText(textOnScreen, text);
+        fontServer->drawText(posOnScreen, text);
     }
     
 protected:

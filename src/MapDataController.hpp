@@ -3,6 +3,7 @@
 #include "Const.hpp"
 #include "BuildingRenderer.hpp"
 #include "SoundSphereRenderer.hpp"
+#include "WayRenderer.hpp"
 
 class MapDataController{
     
@@ -12,25 +13,28 @@ public:
         
         std::array<std::string,8> wayTypes={{"primary", "tertiary", "path", "residential", "footway", "waterway", "railway", "leisure"}};
         for(auto wayType : wayTypes){
-            wayControllers.emplace(wayType, ModelController<VboRenderer>(wayType));
+            wayControllers.emplace(wayType, ModelController<WayRenderer>(wayType));
         }
         loadDataFromXml();
-        prepareDistribution();
     }
 
     
     void draw(const Camera &camera){
         for(auto &controller : wayControllers){
-            controller.second.draw();
+            controller.second.draw(camera);
         }
-        buildingController.draw();
+        
+        ofEnableDepthTest();
+        buildingController.draw(camera);
+        ofDisableDepthTest();
     }
     
-    void labelAreas(const Camera &camera) {
+    void label(const Camera &camera) {
         const std::array<bool, NUM_AREA> &visibleAreas = camera.getVisibleAreas();
         ofSetColor(ofColor::lightGray);
-        buildingController.labelAreas(visibleAreas, camera);
+        buildingController.label(camera);
         
+        wayControllers.at("primary").label(camera);
     }
 private:
 
@@ -52,11 +56,6 @@ private:
             }
         }
     }
-    
-    void prepareDistribution(){
-        buildingController.prepareDistribution();
-    }
-
 
     void addNode(ofXml &xml){
         
@@ -145,7 +144,7 @@ private:
     ofXml xml;
     
     NodeController nodeController;
-    std::unordered_map<std::string, ModelController<VboRenderer>> wayControllers;
+    std::unordered_map<std::string, ModelController<WayRenderer>> wayControllers;
     ModelController<BuildingRenderer> buildingController;
     
 };

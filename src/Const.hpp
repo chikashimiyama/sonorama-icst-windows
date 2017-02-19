@@ -35,14 +35,16 @@ const float LABEL_INDENT = 5;
 const float BUILDING_THRESHOLD = 1000.0;
 const float BUILDING_LABEL_THRESHOLD = 700.0;
 
+// street
 const float BULLET_SIZE = 1.5;
+const float STREET_LABEL_THRESHOLD = 200.0;
 
 // font
 const std::string FONT = "zurich.ttf";
 const float FONT_SIZE = 8;
 
 
-inline std::pair<bool, int> getArea(ofVec3f &pos){
+inline std::pair<bool, int> getArea(const ofVec3f &pos){
     if(pos.x < -HALF_MAP_SIZE || HALF_MAP_SIZE < pos.x) return std::make_pair(false,-1);
     if(pos.z < -HALF_MAP_SIZE || HALF_MAP_SIZE < pos.z) return std::make_pair(false,-1);
     if(pos.y > HEIGHT_LIMIT) return std::make_pair(false,-1);

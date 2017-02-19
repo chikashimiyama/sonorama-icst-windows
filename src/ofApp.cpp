@@ -18,7 +18,6 @@ void ofApp::glSetup(){
     debugCam.disableMouseInput();
     
     ofSetFrameRate(30);
-    ofEnableDepthTest();
 
 }
 
@@ -50,7 +49,7 @@ void ofApp::update(){
 
 void ofApp::drawContent(){
     mapDataController.draw(camera);
-    soundSphereController.draw();
+    soundSphereController.draw(camera);
     //drawArea();
     //drawGrid();
 }
@@ -74,7 +73,7 @@ void ofApp::draw(){
     
     soundSphereController.label(camera);
     if(currentArea.first){
-        mapDataController.labelAreas(camera);
+        mapDataController.label(camera);
     }
     drawLog();
 }
