@@ -2,9 +2,16 @@
 
 #include <utility>
 
-const int WIDTH = 1024;
+const std::string PD_PATCH = "pd/scape.pd";
+
+const int RECEIVER_PORT = 6000;
+const int NUM_VIEWPORTS = 1;
+
+const int WIDTH = 1280;
+const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
 const int HEIGHT = 768;
 const float ASPECT_RATIO = static_cast<float>(WIDTH)/static_cast<float>(HEIGHT);
+//const float ASPECT_RATIO = 1;
 const float FOV = 90;
 
 const int AREA_DIVISION = 40;
@@ -15,17 +22,23 @@ const float HALF_MAP_SIZE = MAP_SIZE/2.0;
 const float DIVIDER = MAP_SIZE / AREA_DIVISION;
 
 //frustum
-const float NEAR_CLIP = 20;
+const float NEAR_CLIP = 1;
 const float NEAR_H     = 2 * tan(FOV / 2.0) * -NEAR_CLIP;
 const float NEAR_W     = NEAR_H * ASPECT_RATIO;
 const float HALF_NEAR_H = NEAR_H/2;
 const float HALF_NEAR_W = NEAR_W/2;
 
-const float FAR_CLIP = 5000;
+const float FAR_CLIP = 10000;
 const float FAR_H      = 2 * tan(FOV / 2.0) * -FAR_CLIP;
 const float FAR_W      = FAR_H * ASPECT_RATIO;
 const float HALF_FAR_H = FAR_H/2;
 const float HALF_FAR_W = FAR_W/2;
+
+const float FAR_LABEL_CLIP = 1000;
+const float FAR_LABEL_H      = 2 * tan(FOV / 2.0) * -FAR_CLIP;
+const float FAR_LABEL_W      = FAR_H * ASPECT_RATIO;
+const float HALF_FAR_LABEL_H = FAR_H/2;
+const float HALF_FAR_LABEL_W = FAR_W/2;
 
 
 // building
@@ -37,11 +50,11 @@ const float BUILDING_LABEL_THRESHOLD = 700.0;
 
 // street
 const float BULLET_SIZE = 1.5;
-const float STREET_LABEL_THRESHOLD = 200.0;
+const float STREET_LABEL_THRESHOLD = 1500.0;
 
 // font
 const std::string FONT = "zurich.ttf";
-const float FONT_SIZE = 8;
+const float FONT_SIZE = 9.5;
 
 
 inline std::pair<bool, int> getArea(const ofVec3f &pos){

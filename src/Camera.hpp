@@ -71,8 +71,23 @@ public:
         return true;
     }
     
+    bool isInsideLabelFrustum(const ofVec3f &point){
+        if (top.distance(point) < 0) return false;
+        if (bottom.distance(point) < 0) return false;
+        if (left.distance(point) < 0) return false;
+        if (right.distance(point) < 0) return false;
+        if (near.distance(point) < 0) return false;
+        if (labelFar.distance(point) < 0) return false;
+        return true;
+    }
+    
+    
     const std::array<bool, NUM_AREA> &getVisibleAreas() const{
         return visibleAreas;
+    }
+    
+    const std::array<bool, NUM_AREA> &getVisibleLabelAreas() const{
+        return visibleLabelAreas;
     }
     
     int getNumVisibleAreas() const{
@@ -97,6 +112,12 @@ private:
         ofVec3f fbl = farCenter - (upDirection * HALF_FAR_H) - (rightDirection * HALF_FAR_W);
         ofVec3f fbr = farCenter - (upDirection * HALF_FAR_H) + (rightDirection * HALF_FAR_W);
         
+        ofVec3f farLabelCenter = position + lookAt * FAR_LABEL_CLIP;
+        ofVec3f fltl = farLabelCenter + (upDirection * HALF_FAR_LABEL_H) - (rightDirection * HALF_FAR_LABEL_W);
+        ofVec3f fltr = farLabelCenter + (upDirection * HALF_FAR_LABEL_H) + (rightDirection * HALF_FAR_LABEL_W);
+        ofVec3f flbl = farLabelCenter - (upDirection * HALF_FAR_LABEL_H) - (rightDirection * HALF_FAR_LABEL_W);
+        ofVec3f flbr = farLabelCenter - (upDirection * HALF_FAR_LABEL_H) + (rightDirection * HALF_FAR_LABEL_W);
+
         ofVec3f nearCenter = position + lookAt * NEAR_CLIP;
         ofVec3f ntl = nearCenter + (upDirection * HALF_NEAR_H) - (rightDirection * HALF_NEAR_W);
         ofVec3f ntr = nearCenter + (upDirection * HALF_NEAR_H) + (rightDirection * HALF_NEAR_W);
@@ -109,6 +130,7 @@ private:
         right.update(nbr,ntr,ftr,fbr);
         near.update(ntl,ntr,nbr,nbl);
         far.update(ftr,ftl,fbl,fbr);
+        labelFar.update(fltr, fltl, flbl, flbr);
     }
     
     void updateVisibleArea(){
@@ -118,8 +140,10 @@ private:
             int z = i / AREA_DIVISION;
             ofVec3f areaCenter = ofVec3f(x * DIVIDER - HALF_MAP_SIZE,0, z * DIVIDER - HALF_MAP_SIZE);
             visibleAreas[i] = isInsideFrustum(areaCenter);
+            visibleLabelAreas[i] = isInsideLabelFrustum(areaCenter);
             if(visibleAreas[i]) numVisible++;
         }
+    
     }
 
     
@@ -129,7 +153,10 @@ private:
     Plane right;
     Plane near;
     Plane far;
+    Plane labelFar;
     
     std::array<bool, NUM_AREA> visibleAreas;
+    std::array<bool, NUM_AREA> visibleLabelAreas;
+
 };
 

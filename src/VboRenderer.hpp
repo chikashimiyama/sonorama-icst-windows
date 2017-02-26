@@ -15,7 +15,7 @@ public:
         baseVbo.draw(GL_LINE_STRIP, 0, baseVbo.getNumVertices());
     }
     
-    virtual void label(const Camera &camera, const std::string &text) const = 0;
+    virtual void label(const Camera &camera, const std::string &text) const{};
     
 protected:
     ofVbo baseVbo;

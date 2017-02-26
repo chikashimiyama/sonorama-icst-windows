@@ -7,33 +7,26 @@ class WayRenderer : public VboRenderer{
 public:
     
     WayRenderer(std::vector<ofVec3f> baseVertices, const std::unordered_map<std::string, std::string> &tags):
-    VboRenderer(baseVertices),
-    vertices(baseVertices){}
+    VboRenderer(baseVertices){
+        for(auto vertex : baseVertices){
+            centerPos += vertex;
+        }
+        float divider = static_cast<float>(baseVertices.size());
+        centerPos = ofVec3f(centerPos.x / divider, centerPos.y/divider, centerPos.z/divider );
+    }
     
     virtual void label(const Camera &camera, const std::string &text) const override{
-        
-        if(text.size() == 0 )return;
-
-        ofVec3f position = camera.getPosition();
-        
-        float minDist = 1000000.0;
-        ofVec3f closestVertex = ofVec3f(-100000,-100000,-100000);
-        for(const ofVec3f &vertex : vertices){
-            float distance = vertex.distance(position);
-            if(minDist > distance){
-                minDist = distance;
-                closestVertex = vertex;
-            }
-        }
-        if(minDist > STREET_LABEL_THRESHOLD) return;
-        ofVec2f posOnScreen = camera.worldToScreen(closestVertex, ofGetCurrentViewport());
+        ofVec2f posOnScreen = camera.worldToScreen(centerPos, ofGetCurrentViewport());
         if(!isInScreen(posOnScreen)) return;
-
-        ofSetColor(ofColor::orange);
+        
+        ofDrawCircle(posOnScreen.x, posOnScreen.y, BULLET_SIZE);
+        posOnScreen.x += LABEL_INDENT;
+        
         FontServer * fontServer = FontServer::getSingleton();
         fontServer->drawText(posOnScreen, text);
+ 
     }
     
 private:
-    std::vector<ofVec3f> vertices;
+    ofVec3f centerPos;
 };

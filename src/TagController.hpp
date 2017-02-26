@@ -17,6 +17,10 @@ public:
         return itr->second;
     }
     
+    std::string getName() const{
+        return name;
+    }
+    
 protected:
     std::string name;
     

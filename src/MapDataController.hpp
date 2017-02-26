@@ -33,9 +33,12 @@ public:
         const std::array<bool, NUM_AREA> &visibleAreas = camera.getVisibleAreas();
         ofSetColor(ofColor::lightGray);
         buildingController.label(camera);
-        
-        wayControllers.at("primary").label(camera);
+        wayControllers.at("primary").closestLabel(camera);
+        wayControllers.at("tertiary").closestLabel(camera);
+        wayControllers.at("path").closestLabel(camera);
+        wayControllers.at("waterway").closestLabel(camera);
     }
+    
 private:
 
     

@@ -16,16 +16,11 @@ public:
     stylizer(StylizerFactory::getStylizer(styleName)){}
     
     void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags){
-        std::shared_ptr<Model<R>> modelPtr = std::make_shared<Model<R>>(id, vertices, tags);
-        models.push_back(modelPtr);
-        std::pair<bool, int> area = getArea(modelPtr->getPosition());
+        auto model = Model<R>(id, vertices, tags);
+        std::pair<bool, int> area = getArea(model.getPosition());
         if(area.first){
-            distribution[area.second].push_back(modelPtr);
+            distribution[area.second].push_back(model);
         }
-    }
-
-    size_t getNumberOfModels() const {
-        return models.size();
     }
     
     void draw(const Camera &camera) const{
@@ -34,7 +29,7 @@ public:
         for(int i = 0; i < NUM_AREA;i++){
             if(!visibleAreas[i])continue;
             for(auto model :distribution[i]){
-                model->draw();
+                model.draw();
             }
         }
     }
@@ -44,23 +39,48 @@ public:
         for(int i = 0; i < NUM_AREA;i++){
             if(!visibleAreas[i])continue;
             for(auto model :distribution[i]){
-                model->label(camera);
+                model.label(camera);
             }
-        }([&camera ](const std::shared_ptr<Model<R>> model){model->label(camera);});
+        }
     }
     
+    void closestLabel(const Camera &camera) const{
+        auto map = getRenderTargetMap(camera);
 
-    
-    void traverse(std::function<void(std::shared_ptr<Model<R>> model)> func) const{
-        for(std::shared_ptr<Model<R>> model : models){
-            func(model);
+        for(auto &item :map){
+            item.second.first->label(camera);
         }
     }
 
-protected:
+private:
+    std::unordered_map<std::string, std::pair<const Model<R>* , float>> getRenderTargetMap(const Camera &camera) const{
+        auto &visibleAreas = camera.getVisibleLabelAreas();
+        auto cameraPos = camera.getPosition();
+        std::unordered_map<std::string, std::pair<const Model<R>* , float>> renderTargetMap;
+        for(int i = 0; i < NUM_AREA;i++){
+            if(!visibleAreas[i]) continue;
+            for(auto &model :distribution[i]){
+                std::string name = model.getName();
+                if(name == "") continue;
+                
+                float distance = cameraPos.distance(model.getPosition());
+                
+                auto itr = renderTargetMap.find(name);
+                if(itr == renderTargetMap.end()){
+                    renderTargetMap.emplace(name, std::make_pair(&model, distance));
+                }else{
+                    auto &modelDist = itr->second;
+                    if(distance < modelDist.second){
+                        itr->second = std::make_pair(&model, distance);
+                        
+                    }
+                }
+            }
+        }
+        return  std::move(renderTargetMap);
+    }
 
-    std::vector<std::shared_ptr<Model<R>>> models;
     const Stylizer &stylizer;
-    std::array<std::vector<std::shared_ptr<Model<R>>>, NUM_AREA> distribution;
+    std::array<std::vector<Model<R>>, NUM_AREA> distribution;
 
 };
