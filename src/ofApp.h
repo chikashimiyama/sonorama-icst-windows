@@ -15,6 +15,7 @@
 class ofApp : public ofBaseApp, public pd::PdReceiver{
 
 public:
+    
     void setup();
     void update();
     void draw();
@@ -33,13 +34,13 @@ public:
 private:
     ofxPd pd;
     ofEasyCam debugCam;
-    Camera camera;
-    Camera camera2;
+    ofNode cameraGroup;
+    std::array<Camera, NUM_VIEWPORTS> cameras;
     bool debug;
     std::pair<bool,int> currentArea;
     void glSetup();
     MapDataController mapDataController;
-    ModelController<SoundSphereRenderer> soundSphereController;
+//    ModelController soundSphereController;
     std::array<ofRectangle, NUM_VIEWPORTS> viewports;
     OSCReceiver receiver;
 };

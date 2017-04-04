@@ -1,17 +1,24 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "98E6F1C3DCA9394E4D961C5265485FD60317A517",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "1E1B0571E25540D0BC57E942057A5A7CC4A2D7BC" : 9223372036854775807,
     "C7E391CFF5296CF602CBAAAAB6CD1964A75BF819" : 9223372036854775807,
-    "A82C0ABFD7ACBB96A8DACF462A005A3A654155C7" : 9223372036854775807
+    "89EC939148DF5B01DEF16D5BAE581F3D5560271C" : 9223372036854775807,
+    "A82C0ABFD7ACBB96A8DACF462A005A3A654155C7" : 9223372036854775807,
+    "98E6F1C3DCA9394E4D961C5265485FD60317A517" : 9223372036854775807,
+    "F4CCB893AFADB97238A965FD2F28717F1CAAE613" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "566DCB37-C109-4CC7-9BC4-08007D8CE3F9",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "1E1B0571E25540D0BC57E942057A5A7CC4A2D7BC" : "sonorama\/src\/SQLiteCpp\/",
     "C7E391CFF5296CF602CBAAAAB6CD1964A75BF819" : "..\/..\/addons\/ofxMSAOpenCL",
-    "A82C0ABFD7ACBB96A8DACF462A005A3A654155C7" : "..\/..\/addons\/ofxSQLiteCpp"
+    "89EC939148DF5B01DEF16D5BAE581F3D5560271C" : "..\/..\/addons\/ofxPd",
+    "A82C0ABFD7ACBB96A8DACF462A005A3A654155C7" : "..\/..\/addons\/ofxSQLiteCpp",
+    "98E6F1C3DCA9394E4D961C5265485FD60317A517" : "sonorama\/",
+    "F4CCB893AFADB97238A965FD2F28717F1CAAE613" : "..\/..\/addons\/ofxSyphon"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "sonorama",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -23,6 +30,16 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1E1B0571E25540D0BC57E942057A5A7CC4A2D7BC"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/danomatika\/ofxPd.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "89EC939148DF5B01DEF16D5BAE581F3D5560271C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/chikashimiyama\/sonorama",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "98E6F1C3DCA9394E4D961C5265485FD60317A517"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bakercp\/ofxSQLiteCpp.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A82C0ABFD7ACBB96A8DACF462A005A3A654155C7"
@@ -31,6 +48,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/memo\/ofxMSAOpenCL.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C7E391CFF5296CF602CBAAAAB6CD1964A75BF819"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/astellato\/ofxSyphon.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F4CCB893AFADB97238A965FD2F28717F1CAAE613"
     }
   ]
 }

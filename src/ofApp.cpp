@@ -8,29 +8,21 @@
 
 void ofApp::glSetup(){
     ofBackground(ofColor::black);
-    
-
-    camera.setNearClip(NEAR_CLIP);
-    camera.setFarClip(FAR_CLIP);
-    camera.setFov(FOV);
-    camera.setForceAspectRatio(true);
-    camera.setAspectRatio(ASPECT_RATIO);
-    
-//    camera2.setNearClip(NEAR_CLIP);
-//    camera2.setFarClip(FAR_CLIP);
-//    camera2.setFov(FOV);
-//    camera2.setForceAspectRatio(true);
-//    camera2.setAspectRatio(ASPECT_RATIO);
+    for(int i = 0; i < cameras.size(); i ++){
+        cameras[i].setNearClip(NEAR_CLIP);
+        cameras[i].setFarClip(FAR_CLIP);
+        cameras[i].setFov(FOV);
+        cameras[i].setForceAspectRatio(true);
+        cameras[i].setAspectRatio(ASPECT_RATIO);
+        cameras[i].rotate(-90*i,0,1,0);
+    }
     
     debugCam.setNearClip(1);
     debugCam.setFarClip(10000);
     debugCam.disableMouseInput();
     
     ofSetFrameRate(30);
-
-    
     viewports[0] = ofRectangle(0, 0, SCREEN_WIDTH, HEIGHT);
-//    viewports[1] = ofRectangle(SCREEN_WIDTH, 0, SCREEN_WIDTH, HEIGHT);
 
 }
 
@@ -47,7 +39,7 @@ void ofApp::setup(){
         
         std::unordered_map<std::string, std::string> tags;
         tags.emplace("name", name);
-        soundSphereController.add(num, position, tags);
+       // soundSphereController.add(num, position, tags);
     };
     currentArea = std::make_pair<bool,int>(false,0);
     receiver.setup(RECEIVER_PORT);
@@ -65,22 +57,19 @@ void ofApp::setup(){
 }
 
 void ofApp::update(){
-    ofVec3f pos = camera.getPosition();
+    ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
-    
-    
-//    camera.rotate(1, 0, 1, 0);
-    camera.update();
-//    camera2.setPosition(camera.getPosition());
-//    camera2.setOrientation(camera.getOrientationQuat());
-//    camera2.rotate(-90, ofVec3f(0,1,0));
-//    camera2.update();
+    for(int i = 0; i < NUM_VIEWPORTS; i ++){
+//        cameras[i].move(0, 0.1, 1);
+//        cameras[i].rotate(1, 0, 1, 0);
+        cameras[i].update();
+    }
 }
 
 void ofApp::drawContent(const Camera &targetCamera){
     
     mapDataController.draw(targetCamera);
-    soundSphereController.draw(targetCamera);
+    //soundSphereController.draw(targetCamera);
     //drawArea();
     //drawGrid();
 }
@@ -89,31 +78,27 @@ void ofApp::draw(){
     if(debug){
         debugCam.enableMouseInput();
         debugCam.begin();
-        drawContent(camera);
-        camera.drawFrustum();
+        drawContent(cameras[0]);
+        cameras[0].drawFrustum();
         debugCam.end();
     }else{
         debugCam.disableMouseInput();
-        
-//        ofPushView();
-//        ofViewport(viewports[0]);
-        camera.begin();
-        drawContent(camera);
-        camera.end();
-//        ofPopView();
-        
-//        ofPushView();
-//        ofViewport(viewports[1]);
-//        camera2.begin();
-//        drawContent(camera2);
-//        camera2.end();
-//        ofPopView();
-
+        for(int i = 0; i < NUM_VIEWPORTS; i++){
+            ofPushView();
+            ofViewport(ofRectangle(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, HEIGHT));
+            cameras[i].begin();
+            drawContent(cameras[i]);
+            cameras[i].end();
+            ofPopView();
+        }
     }
     
-    soundSphereController.label(camera);
-    if(currentArea.first){
-        mapDataController.label(camera);
+    for(int i = 0; i < NUM_VIEWPORTS; i++){
+
+        //soundSphereController.label(cameras[i]);
+        if(currentArea.first){
+            mapDataController.label(cameras[i]);
+        }
     }
     drawLog();
 }
@@ -127,8 +112,8 @@ void ofApp::drawLog(){
         std::string str = "x:" + ofToString(x) + " y:" + ofToString(y);
         ofSetColor(ofColor::white);
         fontServer->drawText(ofVec2f(10,20), str);
-        fontServer->drawText(ofVec2f(10,40), ofToString(camera.getPosition()));
-        fontServer->drawText(ofVec2f(10,60), "visible area: " + ofToString(camera.getNumVisibleAreas()));
+//        fontServer->drawText(ofVec2f(10,40), ofToString(camera.getPosition()));
+//        fontServer->drawText(ofVec2f(10,60), "visible area: " + ofToString(camera.getNumVisibleAreas()));
     }
 }
 

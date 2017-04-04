@@ -3,35 +3,20 @@
 #include "Model.hpp"
 #include "Camera.hpp"
 #include "TagController.hpp"
-#include "StylizerFactory.hpp"
 #include "Const.hpp"
 
-template <typename R>
 class ModelController{
 
 public:
-    ModelController():stylizer(StylizerFactory::getStylizer("sphere")){}
-    
-    ModelController(const std::string &styleName):
-    stylizer(StylizerFactory::getStylizer(styleName)){}
-    
-    void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags){
-        auto model = Model<R>(id, vertices, tags);
-        std::pair<bool, int> area = getArea(model.getPosition());
-        if(area.first){
-            distribution[area.second].push_back(model);
-        }
-    }
-    
-    void draw(const Camera &camera) const{
-        stylizer.stylize();
-        auto &visibleAreas = camera.getVisibleAreas();
-        for(int i = 0; i < NUM_AREA;i++){
-            if(!visibleAreas[i])continue;
-            for(auto model :distribution[i]){
-                model.draw();
-            }
-        }
+
+    ModelController(const std::string &styleName ):
+    vboRenderer(styleName){};    
+
+    virtual void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) = 0;
+    virtual void draw() const = 0;
+
+    void initVbo(){
+        vboRenderer.setup(allVertices,allIndices);
     }
     
     void label(const Camera &camera) const{
@@ -51,12 +36,27 @@ public:
             item.second.first->label(camera);
         }
     }
+    
+protected:
+    void storeInArea(Model &model){
+        std::pair<bool, int> area = getArea(model.getPosition());
+        if(area.first){
+            distribution[area.second].push_back(model);
+        }
+    }
+    
+    VboRenderer vboRenderer;
+    std::vector<ofVec3f> allVertices;
+    std::vector<ofIndexType> allIndices;
+    std::array<std::vector<Model>, NUM_AREA> distribution;
 
 private:
-    std::unordered_map<std::string, std::pair<const Model<R>* , float>> getRenderTargetMap(const Camera &camera) const{
+    virtual std::vector<ofIndexType> createIndices(int offset, size_t numVertex) = 0;
+
+    std::unordered_map<std::string, std::pair<const Model* , float>> getRenderTargetMap(const Camera &camera) const{
         auto &visibleAreas = camera.getVisibleLabelAreas();
         auto cameraPos = camera.getPosition();
-        std::unordered_map<std::string, std::pair<const Model<R>* , float>> renderTargetMap;
+        std::unordered_map<std::string, std::pair<const Model* , float>> renderTargetMap;
         for(int i = 0; i < NUM_AREA;i++){
             if(!visibleAreas[i]) continue;
             for(auto &model :distribution[i]){
@@ -79,8 +79,4 @@ private:
         }
         return  std::move(renderTargetMap);
     }
-
-    const Stylizer &stylizer;
-    std::array<std::vector<Model<R>>, NUM_AREA> distribution;
-
 };

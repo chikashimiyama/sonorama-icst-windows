@@ -1,4 +1,5 @@
-ofxAssimpModelLoader
 ofxGui
 ofxMSAOpenCL
 ofxOsc
+ofxPd
+ofxSyphon

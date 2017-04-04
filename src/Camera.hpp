@@ -62,12 +62,12 @@ public:
     }
     
     bool isInsideFrustum(const ofVec3f &point){
-        if (top.distance(point) < 0) return false;
-        if (bottom.distance(point) < 0) return false;
-        if (left.distance(point) < 0) return false;
-        if (right.distance(point) < 0) return false;
-        if (near.distance(point) < 0) return false;
-        if (far.distance(point) < 0) return false;
+        if (top.distance(point) < -100) return false;
+        if (bottom.distance(point) < -100) return false;
+        if (left.distance(point) < -100) return false;
+        if (right.distance(point) < -100) return false;
+        if (near.distance(point) < -100) return false;
+        if (far.distance(point) < -100) return false;
         return true;
     }
     

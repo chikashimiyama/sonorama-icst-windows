@@ -1,31 +1,30 @@
 #pragma once
 #include "ofMain.h"
 #include "Const.hpp"
-#include "BuildingRenderer.hpp"
-#include "SoundSphereRenderer.hpp"
-#include "WayRenderer.hpp"
+#include "WayController.hpp"
+#include "BuildingController.hpp"
 
 class MapDataController{
     
 public:
     MapDataController():
     buildingController("building"){
-        
         std::array<std::string,8> wayTypes={{"primary", "tertiary", "path", "residential", "footway", "waterway", "railway", "leisure"}};
+        
         for(auto wayType : wayTypes){
-            wayControllers.emplace(wayType, ModelController<WayRenderer>(wayType));
+            wayControllers.emplace(wayType, WayController(wayType));
         }
         loadDataFromXml();
+        initVbos();
     }
-
     
     void draw(const Camera &camera){
         for(auto &controller : wayControllers){
-            controller.second.draw(camera);
+            controller.second.draw();
         }
         
         ofEnableDepthTest();
-        buildingController.draw(camera);
+        buildingController.draw();
         ofDisableDepthTest();
     }
     
@@ -60,6 +59,13 @@ private:
         }
     }
 
+    void initVbos(){
+        for(auto &wayController : wayControllers){
+            wayController.second.initVbo();
+        }
+        buildingController.initVbo();
+        
+    }
     void addNode(ofXml &xml){
         
         SInt64 id = std::strtoll(xml.getAttribute("id").c_str(), nullptr, 10);
@@ -121,8 +127,15 @@ private:
                     }
                 }
             }
+            std::array<std::string, 3> miscModelTypes = {{"waterway", "railway", "leisure"}};
+            for(std::string &miscModelType : miscModelTypes){
+                auto itr = tags.find(miscModelType);
+                if(itr != tags.end()){
+                    std::string type = itr->second;
+                    wayControllers.at(miscModelType).add(id, vertices, tags);
+                }
+            }
             {
-                
                 auto itr = tags.find("building:levels");
                 if(itr != tags.end()){
                     buildingController.add(id, vertices, tags);
@@ -133,22 +146,14 @@ private:
                     }
                 }
             }
-            std::array<std::string, 3> miscModelTypes = {{"waterway", "railway", "leisure"}};
-            for(std::string &miscModelType : miscModelTypes){
-                auto itr = tags.find(miscModelType);
-                if(itr != tags.end()){
-                    std::string type = itr->second;
-                    wayControllers.at(miscModelType).add(id, vertices, tags);
-                }
-            }
         }
     }
     
     ofXml xml;
     
     NodeController nodeController;
-    std::unordered_map<std::string, ModelController<WayRenderer>> wayControllers;
-    ModelController<BuildingRenderer> buildingController;
+    std::unordered_map<std::string, WayController> wayControllers;
+    BuildingController buildingController;
     
 };
 

@@ -1,18 +1,31 @@
 #pragma once
 
 #include <utility>
+//#define panorama
+
+
+#ifdef panorama
+const int NUM_VIEWPORTS = 4;
+const int WIDTH = 1280;
+const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
+const int HEIGHT = 192;
+const float ASPECT_RATIO = 1;
+const float FOV = 360 / NUM_VIEWPORTS;
+
+#else
+const int NUM_VIEWPORTS = 1;
+const int WIDTH = 1280;
+const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
+const float HEIGHT = 768;
+const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(HEIGHT);
+const float FOV = 90;
+
+
+#endif
 
 const std::string PD_PATCH = "pd/scape.pd";
 
 const int RECEIVER_PORT = 6000;
-const int NUM_VIEWPORTS = 1;
-
-const int WIDTH = 1280;
-const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
-const int HEIGHT = 768;
-const float ASPECT_RATIO = static_cast<float>(WIDTH)/static_cast<float>(HEIGHT);
-//const float ASPECT_RATIO = 1;
-const float FOV = 90;
 
 const int AREA_DIVISION = 40;
 const int NUM_AREA = AREA_DIVISION * AREA_DIVISION;
