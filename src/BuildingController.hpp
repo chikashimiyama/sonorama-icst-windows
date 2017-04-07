@@ -16,11 +16,10 @@ public:
         int levels = levelsStr == "" ? 1 : ofToInt(levelsStr);
         std::vector<ofIndexType> indices = createIndices(allVertices.size(), vertices.size());
 
-        
         // scale down for anti flicker
         for(auto &vertex:vertices){
             auto delta = vertex - pos;
-            delta *= 0.9;
+            delta *= 0.95;
             vertex = pos + delta;
         }
         

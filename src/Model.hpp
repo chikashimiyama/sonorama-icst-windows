@@ -26,6 +26,7 @@ public:
     }
     
     void label(const Camera &camera) const{
+        
     }
     
     

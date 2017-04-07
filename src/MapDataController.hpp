@@ -26,6 +26,7 @@ public:
         ofEnableDepthTest();
         buildingController.draw();
         ofDisableDepthTest();
+        buildingController.label(camera);
     }
     
     void label(const Camera &camera) {
