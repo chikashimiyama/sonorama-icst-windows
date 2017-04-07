@@ -1,0 +1,11 @@
+#N canvas 404 89 450 300 10;
+#X obj 78 137 readsf~ 2, f 11;
+#X obj 77 33 r players;
+#X obj 77 62 route #1;
+#X obj 213 176 +~;
+#X msg 78 109 open \$1;
+#X connect 0 0 3 0;
+#X connect 0 1 3 1;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 4 0 0 0;
