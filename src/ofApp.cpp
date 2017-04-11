@@ -39,7 +39,7 @@ void ofApp::setup(){
         
         std::unordered_map<std::string, std::string> tags;
         tags.emplace("name", name);
-       // soundSphereController.add(num, position, tags);
+        soundSphereController.add(num, position, tags);
     };
     currentArea = std::make_pair<bool,int>(false,0);
     receiver.setup(RECEIVER_PORT);
@@ -69,7 +69,7 @@ void ofApp::update(){
 void ofApp::drawContent(const Camera &targetCamera){
     
     mapDataController.draw(targetCamera);
-    //soundSphereController.draw(targetCamera);
+    soundSphereController.draw();
     //drawArea();
     //drawGrid();
 }
@@ -95,7 +95,7 @@ void ofApp::draw(){
     
     for(int i = 0; i < NUM_VIEWPORTS; i++){
 
-        //soundSphereController.label(cameras[i]);
+        soundSphereController.label(cameras[i]);
         if(currentArea.first){
             mapDataController.label(cameras[i]);
         }

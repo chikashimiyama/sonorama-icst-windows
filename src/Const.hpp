@@ -29,7 +29,7 @@ const int RECEIVER_PORT = 6000;
 
 const int AREA_DIVISION = 40;
 const int NUM_AREA = AREA_DIVISION * AREA_DIVISION;
-const float MAP_SIZE = 2000.0;
+const float MAP_SIZE = 10000.0;
 const float HEIGHT_LIMIT = 1500;
 const float HALF_MAP_SIZE = MAP_SIZE/2.0;
 const float DIVIDER = MAP_SIZE / AREA_DIVISION;

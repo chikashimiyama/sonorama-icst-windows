@@ -1,82 +1,83 @@
 #pragma once
 
-#include "Model.hpp"
+#include "ofMain.h"
 #include "Camera.hpp"
-#include "TagController.hpp"
-#include "Const.hpp"
+#include "Model.hpp"
+/* abstract class for controlling multiple 3D models */
 
 class ModelController{
-
+    
 public:
-
-    ModelController(const std::string &styleName ):
-    vboRenderer(styleName){};    
-
+    ModelController(){}
+    
+    // add a new model
     virtual void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) = 0;
+    
+    // draw all models
     virtual void draw() const = 0;
-
-    void initVbo(){
-        vboRenderer.setup(allVertices,allIndices);
-    }
+    
+    // draw visible models from the camera
+    virtual void draw(Camera &camera) const = 0;
+    
     
     void label(const Camera &camera) const{
-        auto &visibleAreas = camera.getVisibleAreas();
+        auto &visibleAreas = camera.getVisibleLabelAreas();
         for(int i = 0; i < NUM_AREA;i++){
             if(!visibleAreas[i])continue;
             for(auto model :distribution[i]){
-                model.label(camera);
+                model->label(camera);
             }
         }
     }
     
     void closestLabel(const Camera &camera) const{
-        auto map = getRenderTargetMap(camera);
-
-        for(auto &item :map){
-            item.second.first->label(camera);
+        auto targets = getLabelTargetModelsFromCameraPosition(camera);
+        for(auto &model :targets){
+            model.second.first->label(camera);
         }
     }
     
 protected:
-    void storeInArea(Model &model){
-        std::pair<bool, int> area = getArea(model.getPosition());
+    void storeInArea(std::shared_ptr<Model> model){
+        std::pair<bool, int> area = getArea(model->getPosition());
         if(area.first){
             distribution[area.second].push_back(model);
         }
     }
     
-    VboRenderer vboRenderer;
-    std::vector<ofVec3f> allVertices;
-    std::vector<ofIndexType> allIndices;
-    std::array<std::vector<Model>, NUM_AREA> distribution;
+    std::array<std::vector<std::shared_ptr<Model>>, NUM_AREA> distribution;
 
 private:
-    virtual std::vector<ofIndexType> createIndices(int offset, size_t numVertex) = 0;
-
-    std::unordered_map<std::string, std::pair<const Model* , float>> getRenderTargetMap(const Camera &camera) const{
+    std::unordered_map<std::string, std::pair<std::shared_ptr<Model> , float>> getLabelTargetModelsFromCameraPosition(const Camera &camera) const{
         auto &visibleAreas = camera.getVisibleLabelAreas();
         auto cameraPos = camera.getPosition();
-        std::unordered_map<std::string, std::pair<const Model* , float>> renderTargetMap;
+        std::unordered_map<std::string, std::pair<std::shared_ptr<Model> , float>> renderTargets;
         for(int i = 0; i < NUM_AREA;i++){
             if(!visibleAreas[i]) continue;
+            
+            
             for(auto &model :distribution[i]){
-                std::string name = model.getName();
+                std::string name = model->getName();
                 if(name == "") continue;
                 
-                float distance = cameraPos.distance(model.getPosition());
+                float distance = cameraPos.distance(model->getPosition());
                 
-                auto itr = renderTargetMap.find(name);
-                if(itr == renderTargetMap.end()){
-                    renderTargetMap.emplace(name, std::make_pair(&model, distance));
+                // try to find in the std::map if there is a model named "name"
+                auto itr = renderTargets.find(name);
+                if(itr == renderTargets.end()){
+                    //if not add model to std::map
+                    renderTargets.emplace(name, std::make_pair(model, distance));
                 }else{
+                    // if already exists replace with the new one if the new one is closer to the camera
                     auto &modelDist = itr->second;
                     if(distance < modelDist.second){
-                        itr->second = std::make_pair(&model, distance);
-                        
+                        itr->second = std::make_pair(model, distance);
                     }
                 }
             }
         }
-        return  std::move(renderTargetMap);
+        return   renderTargets;
     }
+
 };
+

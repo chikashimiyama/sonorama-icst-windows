@@ -10,6 +10,6 @@ std::unordered_map<std::string, Stylizer> StylizerFactory::styleCatalog = {{
     {"footway", Stylizer(ofColor(90), 1)},
     {"service", Stylizer(ofColor(90), 1)},
     {"residential", Stylizer(ofColor(90), 1)},
-    {"building", Stylizer(ofColor(255, 255, 255, 10), 1)},
+    {"building", Stylizer(ofColor(255, 255, 255, 25), 1)},
     {"sphere", Stylizer(ofColor(255, 125, 125, 100), 1)}
 }};

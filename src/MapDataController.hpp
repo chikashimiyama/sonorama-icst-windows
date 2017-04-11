@@ -19,15 +19,15 @@ public:
     }
     
     void draw(const Camera &camera){
-        for(auto &controller : wayControllers){
-            controller.second.draw();
+        for(auto &wayController : wayControllers){
+            wayController.second.draw();
         }
         
         ofEnableDepthTest();
         buildingController.draw();
         ofDisableDepthTest();
-        buildingController.label(camera);
     }
+    
     
     void label(const Camera &camera) {
         const std::array<bool, NUM_AREA> &visibleAreas = camera.getVisibleAreas();

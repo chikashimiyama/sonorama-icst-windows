@@ -1,18 +1,18 @@
 #pragma once
 
-#include "ModelController.hpp"
+#include "VboModelController.hpp"
 
-class BuildingController : public ModelController{
+class BuildingController : public VboModelController{
 public:
     BuildingController(const std::string &styleName):
-    ModelController(styleName){}
+    VboModelController(styleName){}
     
     void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) override{
         
-        auto model = Model(id, vertices, tags);
-        ofVec3f pos = model.getPosition();
+        auto model = std::make_shared<Model>(id, vertices, tags);
+        ofVec3f pos = model->getPosition();
         
-        std::string levelsStr = model.getValue("building:levels");
+        std::string levelsStr = model->getValue("building:levels");
         int levels = levelsStr == "" ? 1 : ofToInt(levelsStr);
         std::vector<ofIndexType> indices = createIndices(allVertices.size(), vertices.size());
 
@@ -30,7 +30,7 @@ public:
         allIndices.insert(std::end(allIndices), std::begin(indices), std::end(indices));
 
         
-        std::pair<bool, int> area = getArea(model.getPosition());
+        std::pair<bool, int> area = getArea(model->getPosition());
         if(area.first){
             distribution[area.second].push_back(model);
         }
@@ -39,6 +39,11 @@ public:
     void draw() const override{
         vboRenderer.drawElement(GL_QUADS);
     }
+    
+    void draw(Camera &camera) const override{
+        draw(); // since vbo is a big static object. frustum cull doesn't make sense
+    }
+
 private:
     std::vector<ofVec3f> createCeiling(const std::vector<ofVec3f> &baseVertices, float height){
         

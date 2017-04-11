@@ -8,7 +8,7 @@
 #include "NodeController.hpp"
 #include "ModelController.hpp"
 #include "MapDataController.hpp"
-#include "SoundSphere.hpp"
+#include "SoundSphereController.hpp"
 #include "Camera.hpp"
 #include "OSCReceiver.hpp"
 
@@ -40,7 +40,7 @@ private:
     std::pair<bool,int> currentArea;
     void glSetup();
     MapDataController mapDataController;
-//    ModelController soundSphereController;
+    SoundSphereController soundSphereController;
     std::array<ofRectangle, NUM_VIEWPORTS> viewports;
     OSCReceiver receiver;
 };

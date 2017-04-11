@@ -76,7 +76,7 @@ public:
         if (bottom.distance(point) < 0) return false;
         if (left.distance(point) < 0) return false;
         if (right.distance(point) < 0) return false;
-        if (near.distance(point) < 0) return false;
+        if (near.distance(point) < 100) return false; // too near models are not labeled
         if (labelFar.distance(point) < 0) return false;
         return true;
     }

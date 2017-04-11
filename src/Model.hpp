@@ -7,6 +7,11 @@
 #include "Camera.hpp"
 #include "ofMain.h"
 
+/* 
+    this class represents the position and optionally shape of POI
+    The way of drawing POI should be externally defined by a functor (default = nullptr).
+ */
+
 class Model : public TagController {
 public:
  
@@ -25,11 +30,27 @@ public:
         return position;
     }
     
-    void label(const Camera &camera) const{
-        
+    virtual void draw() const{
     }
     
+    virtual void label(const Camera &camera) const{
+        if(name.size() == 0 )return;
+        if(position.distance(camera.getPosition()) > BUILDING_LABEL_THRESHOLD) return;
+        
+        ofVec2f posOnScreen = camera.worldToScreen(position, ofGetCurrentViewport());
+        
+        ofDrawCircle(posOnScreen.x, posOnScreen.y, BULLET_SIZE);
+        posOnScreen.x += LABEL_INDENT;
+        
+        FontServer * fontServer = FontServer::getSingleton();
+        fontServer->drawText(posOnScreen, name);
+    }
     
+protected:
+    const UInt64 id;
+    ofVec3f position;
+    bool visible;
+
 private:
     ofVec3f calcAverage(std::vector<ofVec3f>  &vertices){
         ofVec3f p;
@@ -38,10 +59,5 @@ private:
         }
         return p / static_cast<float>(vertices.size());
     }
-    
-    const UInt64 id;
-    ofVec3f position;
-    bool visible;
-    
 };
 

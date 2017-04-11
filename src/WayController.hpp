@@ -1,26 +1,30 @@
 #pragma once
 
-#include "ModelController.hpp"
+#include "VboModelController.hpp"
 
-class WayController : public ModelController{
+class WayController : public VboModelController{
 public:
     WayController(const std::string &styleName):
-    ModelController(styleName){}
+    VboModelController(styleName){}
     
     void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) override{
         
-        auto model = Model(id, vertices, tags);
+		std::shared_ptr<Model> model = std::make_shared<Model>(id, vertices, tags);
         std::vector<ofIndexType> indices = createIndices(allVertices.size(), vertices.size());
         allIndices.insert(std::end(allIndices), std::begin(indices), std::end(indices));
 
         allVertices.insert(std::end(allVertices), std::begin(vertices), std::end(vertices));
         storeInArea(model);
-
     }
 
     void draw() const override{
         vboRenderer.drawElement(GL_LINES);
     }
+    
+    void draw(Camera &camera) const override{
+        draw(); // since vbo is a big static object. frustum cull doesn't make sense
+    }
+
     
 private:
     std::vector<ofIndexType> createIndices(int offset, size_t numVertex) override{
