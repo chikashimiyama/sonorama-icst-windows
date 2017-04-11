@@ -7,13 +7,16 @@ class SyphonAdapter{
     
 public:
     void setup(std::string syphonIP, int syphonPort){
+        syphonServer.setName("sonorama");
+        
         oscSender.setup(syphonIP, syphonPort);
         ofxOscMessage mes;
         mes.setAddress( "/SwitchSyphonClient" );
-        mes.addStringArg( "sonorama" );
+        mes.addStringArg( "sonoramaDebug" );
         mes.addStringArg( "sonorama" );
         mes.addFloatArg( 1.0 );
         oscSender.sendMessage( mes );
+        
         texture.allocate(SCREEN_WIDTH, SCREEN_HEIGHT, GL_RGBA);
     }
     
