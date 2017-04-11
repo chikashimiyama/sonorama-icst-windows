@@ -25,9 +25,8 @@ const float FOV = 90;
 
 const std::string PD_PATCH = "pd/scape.pd";
 
-const int RECEIVER_PORT = 6000;
 
-const int AREA_DIVISION = 40;
+const int AREA_DIVISION = 50;
 const int NUM_AREA = AREA_DIVISION * AREA_DIVISION;
 const float MAP_SIZE = 10000.0;
 const float HEIGHT_LIMIT = 1500;
@@ -74,7 +73,7 @@ const float FONT_SIZE = 9.5;
 const std::string TRACK_MASTER_IP = "224.0.0.1";
 const int TRACK_MASTER_PORT = 64000;
 const int MY_TUIO_PORT = 23456;
-const int MAX_BLOBS = 100;
+const int MAX_BLOBS = 48;
 const int MAX_TRACKS = 4;
 
 // syphon

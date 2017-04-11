@@ -1,33 +1,26 @@
 #pragma once
 #include "ofxOscSender.h"
 #include "ofxOSCReceiver.h"
-
-typedef struct {
-    int ID;
-    int	parentID;
-    double x;
-    double y;
-    double z;
-    bool active;
-    double age;
-    int impactPartner;
-    bool bound;
-    double originDistance;
-    double parentDistance;
-    double angle;
-    bool newTrigger;
-    bool prevTrigger;
-    bool canTrigger;
-    int colorCode;
-    ofColor color;
-    
-    ofRectangle rect;
-    bool direction;
-} Blob;
+#include "Blob.hpp"
 
 class TuioAdapter{
     
 public:
+    void drawBlobs(){
+        ofSetLineWidth(2.0);
+        ofSetCircleResolution(50);
+
+        
+        for(int i = 0; i < MAX_BLOBS; i++) { // loop running the blobs
+            if(blobs[i].active == true) { // we have a live blob
+                ofSetColor(255, 255, 127, 255);
+                ofDrawCircle( blobs[i].x*WIDTH, blobs[i].y*SCREEN_HEIGHT, 6);
+//                ofSetColor(125, 125, 255, 100);
+                
+//                ofDrawBitmapString(ofToString(i) + " " + ofToString(blobs[i].x) + " " + ofToString(blobs[i].y), blobs[i].x*1280+20, blobs[i].y*720+10);
+            }
+        }
+    }
     
     void setup(std::string trackMasterIP, int trackMasterPort, int myPort){
         oscReceiver.setup(myPort);

@@ -29,11 +29,10 @@ void ofApp::update(){
 }
 
 void ofApp::drawContent(const Camera &camera){
-    
     mapDataController.draw(camera);
     soundSphereController.draw();
-    //drawArea();
     //drawGrid();
+    //drawArea();
 }
 
 void ofApp::draw(){
@@ -56,13 +55,14 @@ void ofApp::draw(){
     }
     
     for(int i = 0; i < NUM_VIEWPORTS; i++){
-
         soundSphereController.label(cameras[i]);
         if(currentArea.first){
             mapDataController.label(cameras[i]);
         }
     }
-    drawLog();
+    tuioAdapter.drawBlobs();
+    syphonAdapter.sendToSyphon();
+//  drawLog();
 }
 
 void ofApp::drawLog(){
