@@ -1,13 +1,13 @@
 #pragma once
 
 #include <utility>
-//#define panorama
+#define panorama
 
 
 #ifdef panorama
 const int NUM_VIEWPORTS = 4;
 const int WIDTH = 1280;
-const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
+const int SCREEN_WIDTH =  WIDTH*NUM_VIEWPORTS;
 const int SCREEN_HEIGHT = 720;
 const float ASPECT_RATIO = 1;
 const float FOV = 360 / NUM_VIEWPORTS;

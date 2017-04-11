@@ -23,7 +23,6 @@ void ofApp::update(){
     ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
     for(int i = 0; i < NUM_VIEWPORTS; i++){
-        cameras[i].rotate(90*i, 0, 1, 0);
         cameras[i].update();
     }
 }
@@ -46,7 +45,7 @@ void ofApp::draw(){
         debugCam.disableMouseInput();
         for(int i = 0; i < NUM_VIEWPORTS; i++){
             ofPushView();
-            ofViewport(ofRectangle(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+            ofViewport(ofRectangle(WIDTH * i, 0, WIDTH, SCREEN_HEIGHT));
             cameras[i].begin();
             drawContent(cameras[i]);
             cameras[i].end();
