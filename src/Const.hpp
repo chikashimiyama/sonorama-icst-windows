@@ -8,7 +8,7 @@
 const int NUM_VIEWPORTS = 4;
 const int WIDTH = 1280;
 const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
-const int HEIGHT = 192;
+const int SCREEN_HEIGHT = 720;
 const float ASPECT_RATIO = 1;
 const float FOV = 360 / NUM_VIEWPORTS;
 
@@ -16,8 +16,8 @@ const float FOV = 360 / NUM_VIEWPORTS;
 const int NUM_VIEWPORTS = 1;
 const int WIDTH = 1280;
 const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
-const float HEIGHT = 768;
-const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(HEIGHT);
+const float SCREEN_HEIGHT = 768;
+const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(SCREEN_HEIGHT);
 const float FOV = 90;
 
 

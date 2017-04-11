@@ -5,55 +5,16 @@
 #include <array>
 #include "sqlite_modern_cpp.h"
 
-
-void ofApp::glSetup(){
-    ofBackground(ofColor::black);
-    for(int i = 0; i < cameras.size(); i ++){
-        cameras[i].setNearClip(NEAR_CLIP);
-        cameras[i].setFarClip(FAR_CLIP);
-        cameras[i].setFov(FOV);
-        cameras[i].setForceAspectRatio(true);
-        cameras[i].setAspectRatio(ASPECT_RATIO);
-        cameras[i].rotate(-90*i,0,1,0);
-    }
-    
-    debugCam.setNearClip(1);
-    debugCam.setFarClip(10000);
-    debugCam.disableMouseInput();
-    
-    ofSetFrameRate(30);
-    viewports[0] = ofRectangle(0, 0, SCREEN_WIDTH, HEIGHT);
-
-}
-
+#pragma mark public functions
 void ofApp::setup(){
-    debug = false;
+
     glSetup();
-    std::string path = ofToDataPath("sound_spheres.db");
-    sqlite::database db(path);
-    db << "select * from sound_sphere;"
-    >>[this](int num, std::string name, double latitude, double longitude ){
-        Bounds * bounds = Bounds::getSingleton();
-        std::vector<ofVec3f> position;
-        position.push_back(bounds->scale(latitude, longitude));
-        
-        std::unordered_map<std::string, std::string> tags;
-        tags.emplace("name", name);
-        soundSphereController.add(num, position, tags);
-    };
+    initializeSessionsWithExternalSystems();
+    loadSoundSpheres();
+    startPd();
+    
+    debug = false;
     currentArea = std::make_pair<bool,int>(false,0);
-    tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
-    
-    int ticksPerBuffer = 8;
-    ofSoundStreamSetup(2, 0, this, 44100, ofxPd::blockSize()*ticksPerBuffer, 3);
-    if(!pd.init(2, 0, 44100, ticksPerBuffer, false)) {
-        OF_EXIT_APP(1);
-    }
-    
-    pd.subscribe("toOF");
-    pd.addReceiver(*this);
-    pd::Patch patch = pd.openPatch(PD_PATCH);
-    
 }
 
 void ofApp::update(){
@@ -61,16 +22,15 @@ void ofApp::update(){
     
     ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
-    for(int i = 0; i < NUM_VIEWPORTS; i ++){
-//        cameras[i].move(0, 0.1, 1);
-//        cameras[i].rotate(1, 0, 1, 0);
+    for(int i = 0; i < NUM_VIEWPORTS; i++){
+        cameras[i].rotate(90*i, 0, 1, 0);
         cameras[i].update();
     }
 }
 
-void ofApp::drawContent(const Camera &targetCamera){
+void ofApp::drawContent(const Camera &camera){
     
-    mapDataController.draw(targetCamera);
+    mapDataController.draw(camera);
     soundSphereController.draw();
     //drawArea();
     //drawGrid();
@@ -87,7 +47,7 @@ void ofApp::draw(){
         debugCam.disableMouseInput();
         for(int i = 0; i < NUM_VIEWPORTS; i++){
             ofPushView();
-            ofViewport(ofRectangle(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, HEIGHT));
+            ofViewport(ofRectangle(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
             cameras[i].begin();
             drawContent(cameras[i]);
             cameras[i].end();
@@ -168,4 +128,59 @@ void ofApp::gotMessage(ofMessage msg){
 
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
+}
+
+#pragma mark private functions
+
+void ofApp::glSetup(){
+    ofBackground(ofColor::black);
+    for(int i = 0; i < cameras.size(); i ++){
+        cameras[i].setNearClip(NEAR_CLIP);
+        cameras[i].setFarClip(FAR_CLIP);
+        cameras[i].setFov(FOV);
+        cameras[i].setForceAspectRatio(true);
+        cameras[i].setAspectRatio(ASPECT_RATIO);
+        cameras[i].rotate(-90*i,0,1,0);
+    }
+    
+    debugCam.setNearClip(1);
+    debugCam.setFarClip(10000);
+    debugCam.disableMouseInput();
+    
+    ofSetFrameRate(30);
+    viewports[0] = ofRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+}
+
+void ofApp::initializeSessionsWithExternalSystems(){
+    tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
+    syphonAdapter.setup(SYPHON_IP, SYPHON_PORT);
+}
+
+void ofApp::loadSoundSpheres(){
+    std::string path = ofToDataPath("sound_spheres.db");
+    sqlite::database db(path);
+    db << "select * from sound_sphere;"
+    >>[this](int num, std::string name, double latitude, double longitude ){
+        Bounds * bounds = Bounds::getSingleton();
+        std::vector<ofVec3f> position;
+        position.push_back(bounds->scale(latitude, longitude));
+        
+        std::unordered_map<std::string, std::string> tags;
+        tags.emplace("name", name);
+        soundSphereController.add(num, position, tags);
+    };
+}
+
+void ofApp::startPd(){
+    int ticksPerBuffer = 8;
+    ofSoundStreamSetup(2, 0, this, 44100, ofxPd::blockSize()*ticksPerBuffer, 3);
+    if(!pd.init(2, 0, 44100, ticksPerBuffer, false)) {
+        OF_EXIT_APP(1);
+    }
+    
+    pd.subscribe("toOF");
+    pd.addReceiver(*this);
+    pd::Patch patch = pd.openPatch(PD_PATCH);
+    
 }

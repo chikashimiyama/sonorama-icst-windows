@@ -33,6 +33,10 @@ public:
 
     
 private:
+    void initializeSessionsWithExternalSystems();
+    void loadSoundSpheres();
+    void startPd();
+    
     ofxPd pd;
     ofEasyCam debugCam;
     ofNode cameraGroup;
