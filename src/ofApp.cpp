@@ -42,7 +42,7 @@ void ofApp::setup(){
         soundSphereController.add(num, position, tags);
     };
     currentArea = std::make_pair<bool,int>(false,0);
-    receiver.setup(RECEIVER_PORT);
+    tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
     
     int ticksPerBuffer = 8;
     ofSoundStreamSetup(2, 0, this, 44100, ofxPd::blockSize()*ticksPerBuffer, 3);
@@ -57,6 +57,8 @@ void ofApp::setup(){
 }
 
 void ofApp::update(){
+    tuioAdapter.processReceivedOSCMessages();
+    
     ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
     for(int i = 0; i < NUM_VIEWPORTS; i ++){

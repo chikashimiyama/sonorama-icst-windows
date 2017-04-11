@@ -10,7 +10,8 @@
 #include "MapDataController.hpp"
 #include "SoundSphereController.hpp"
 #include "Camera.hpp"
-#include "OSCReceiver.hpp"
+#include "TuioAdapter.hpp"
+#include "SyphonAdapter.hpp"
 
 class ofApp : public ofBaseApp, public pd::PdReceiver{
 
@@ -42,5 +43,6 @@ private:
     MapDataController mapDataController;
     SoundSphereController soundSphereController;
     std::array<ofRectangle, NUM_VIEWPORTS> viewports;
-    OSCReceiver receiver;
+    TuioAdapter tuioAdapter;
+    SyphonAdapter syphonAdapter;
 };

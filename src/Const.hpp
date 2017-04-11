@@ -70,6 +70,17 @@ const std::string FONT = "zurich.ttf";
 const float FONT_SIZE = 9.5;
 
 
+// tuio
+const std::string TRACK_MASTER_IP = "224.0.0.1";
+const int TRACK_MASTER_PORT = 64000;
+const int MY_TUIO_PORT = 23456;
+const int MAX_BLOBS = 100;
+const int MAX_TRACKS = 4;
+
+// syphon
+const std::string SYPHON_IP = "224.0.0.1";
+const int SYPHON_PORT = 8400;
+
 inline std::pair<bool, int> getArea(const ofVec3f &pos){
     if(pos.x < -HALF_MAP_SIZE || HALF_MAP_SIZE < pos.x) return std::make_pair(false,-1);
     if(pos.z < -HALF_MAP_SIZE || HALF_MAP_SIZE < pos.z) return std::make_pair(false,-1);
