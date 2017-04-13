@@ -9,12 +9,19 @@
 void ofApp::setup(){
 
     glSetup();
-    initializeSessionsWithExternalSystems();
     loadSoundSpheres();
     startPd();
     
     debug = false;
     currentArea = std::make_pair<bool,int>(false,0);
+    position.y = 120;
+    for(auto &camera: cameras){
+        camera.setPosition(position);
+    }
+    
+    tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
+    syphonAdapter.setup(SYPHON_IP, SYPHON_PORT);
+
 }
 
 void ofApp::update(){
@@ -22,8 +29,9 @@ void ofApp::update(){
     
     ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
-    for(int i = 0; i < NUM_VIEWPORTS; i++){
-        cameras[i].update();
+    for(auto &camera: cameras){
+        camera.setPosition(position);
+        camera.update();
     }
 }
 
@@ -35,25 +43,14 @@ void ofApp::drawContent(const Camera &camera){
 }
 
 void ofApp::draw(){
-    if(debug){
-        debugCam.enableMouseInput();
-        debugCam.begin();
-        drawContent(cameras[0]);
-        cameras[0].drawFrustum();
-        debugCam.end();
-    }else{
-        debugCam.disableMouseInput();
-        for(int i = 0; i < NUM_VIEWPORTS; i++){
-            ofPushView();
-            ofViewport(ofRectangle(WIDTH * i, 0, WIDTH, SCREEN_HEIGHT));
-            cameras[i].begin();
-            drawContent(cameras[i]);
-            cameras[i].end();
-            ofPopView();
-        }
-    }
     
     for(int i = 0; i < NUM_VIEWPORTS; i++){
+        ofPushView();
+        ofViewport(ofRectangle(WIDTH * i, 0, WIDTH, SCREEN_HEIGHT));
+        cameras[i].begin();
+        drawContent(cameras[i]);
+        cameras[i].end();
+        ofPopView();
         soundSphereController.label(cameras[i]);
         if(currentArea.first){
             mapDataController.label(cameras[i]);
@@ -112,9 +109,21 @@ void ofApp::audioRequested(float * output, int bufferSize, int nChannels) {
 }
 
 void ofApp::keyPressed(int key){
-    if(key == 'D'){
-        debug = !debug;
+    switch(key){
+        case 'w':
+            position.z += 10.0;
+            break;
+        case 'a':
+            position.x -= 10.0;
+            break;
+        case 'd':
+            position.x += 10.0;
+            break;
+        case 's':
+            position.z -= 10.0;
+            break;
     }
+
 }
 
 void ofApp::keyReleased(int key){
@@ -152,8 +161,6 @@ void ofApp::glSetup(){
 }
 
 void ofApp::initializeSessionsWithExternalSystems(){
-    tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
-    syphonAdapter.setup(SYPHON_IP, SYPHON_PORT);
 }
 
 void ofApp::loadSoundSpheres(){

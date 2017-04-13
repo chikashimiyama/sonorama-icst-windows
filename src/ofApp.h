@@ -49,4 +49,5 @@ private:
     std::array<ofRectangle, NUM_VIEWPORTS> viewports;
     TuioAdapter tuioAdapter;
     SyphonAdapter syphonAdapter;
+    ofVec3f position;
 };

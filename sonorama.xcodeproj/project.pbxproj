@@ -250,6 +250,10 @@
 		62269C101E9BE69700BFDB02 /* ModelController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelController.hpp; sourceTree = "<group>"; };
 		62269C111E9BEBDB00BFDB02 /* SoundSphereController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SoundSphereController.hpp; sourceTree = "<group>"; };
 		62269C121E9BFBF000BFDB02 /* SphereModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereModel.h; sourceTree = "<group>"; };
+		62269C161E9CBE6900BFDB02 /* SyphonAdapter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SyphonAdapter.hpp; sourceTree = "<group>"; };
+		62269C181E9CC0D500BFDB02 /* TuioAdapter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TuioAdapter.hpp; sourceTree = "<group>"; };
+		62269C191E9CD9E300BFDB02 /* Blob.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Blob.hpp; sourceTree = "<group>"; };
+		6238AC0A1E9D928B006B8747 /* Plane.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Plane.hpp; sourceTree = "<group>"; };
 		62A018821E94400000091A56 /* BuildingController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BuildingController.hpp; sourceTree = "<group>"; };
 		62A018841E94408700091A56 /* WayController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WayController.hpp; sourceTree = "<group>"; };
 		63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
@@ -348,7 +352,6 @@
 		D97E3DFCF296D060DA07EA28 /* g_vslider.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = g_vslider.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/g_vslider.c"; sourceTree = SOURCE_ROOT; };
 		D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscTypes.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.cpp; sourceTree = SOURCE_ROOT; };
 		DC0D9EDA99DA7C6B6A1510BF /* g_mycanvas.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = g_mycanvas.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/g_mycanvas.c"; sourceTree = SOURCE_ROOT; };
-		DC0FEB352B794B290ECDD449 /* OSCReceiver.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OSCReceiver.hpp; path = src/OSCReceiver.hpp; sourceTree = SOURCE_ROOT; };
 		DF49C6D7242AB1B9C40EF2D0 /* x_array.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = x_array.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/x_array.c"; sourceTree = SOURCE_ROOT; };
 		DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscMessage.cpp; path = ../../../addons/ofxOsc/src/ofxOscMessage.cpp; sourceTree = SOURCE_ROOT; };
 		E0A7F4D96739AAA8844FBEA0 /* d_ugen.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = d_ugen.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/d_ugen.c"; sourceTree = SOURCE_ROOT; };
@@ -630,11 +633,21 @@
 		6206AC151E93C66500F74CA4 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				62269C191E9CD9E300BFDB02 /* Blob.hpp */,
 				D5703137AF8F134A77167BAD /* Node.hpp */,
 				F5AAC52851768570FE602C6B /* Model.hpp */,
 				62269C121E9BFBF000BFDB02 /* SphereModel.h */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		62269C171E9CBF4300BFDB02 /* adapters */ = {
+			isa = PBXGroup;
+			children = (
+				62269C161E9CBE6900BFDB02 /* SyphonAdapter.hpp */,
+				62269C181E9CC0D500BFDB02 /* TuioAdapter.hpp */,
+			);
+			name = adapters;
 			sourceTree = "<group>";
 		};
 		62A018851E94413800091A56 /* ModelController */ = {
@@ -990,15 +1003,16 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				DC0FEB352B794B290ECDD449 /* OSCReceiver.hpp */,
-				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				701927FFAFFD81C2A7AE9A7F /* Const.hpp */,
+				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				B1A08DF9109205CC575788CA /* Camera.hpp */,
-				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				6238AC0A1E9D928B006B8747 /* Plane.hpp */,
 				6206AC111E93C50000F74CA4 /* singleton */,
 				6206AC101E93C4E500F74CA4 /* renderer */,
 				6206AC151E93C66500F74CA4 /* model */,
+				62269C171E9CBF4300BFDB02 /* adapters */,
 				6206AC131E93C62600F74CA4 /* controller */,
 				6206AC121E93C51600F74CA4 /* sqlite */,
 				6206AC141E93C64000F74CA4 /* stylizer */,
