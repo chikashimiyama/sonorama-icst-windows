@@ -2,13 +2,21 @@
 
 #include <utility>
 #define panorama
+//#define mini
 
+#ifdef mini
+const int WIDTH = 320;
+const int HEIGHT = 180;
+#else
+const int WIDTH = 1280;
+const int HEIGHT = 720;
+#endif
 
 #ifdef panorama
 const int NUM_VIEWPORTS = 4;
-const int WIDTH = 320;
+const int SCREEN_HEIGHT = HEIGHT;
+
 const int SCREEN_WIDTH =  WIDTH*NUM_VIEWPORTS;
-const int SCREEN_HEIGHT = 180;
 const float ASPECT_RATIO = 1;
 const float FOV = 360 / NUM_VIEWPORTS;
 
@@ -16,7 +24,7 @@ const float FOV = 360 / NUM_VIEWPORTS;
 const int NUM_VIEWPORTS = 1;
 const int WIDTH = 1280;
 const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
-const float SCREEN_HEIGHT = 768;
+const float SCREEN_HEIGHT = HEIGHT;
 const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(SCREEN_HEIGHT);
 const float FOV = 90;
 
@@ -33,14 +41,15 @@ const float HEIGHT_LIMIT = 1500;
 const float HALF_MAP_SIZE = MAP_SIZE/2.0;
 const float DIVIDER = MAP_SIZE / AREA_DIVISION;
 
-//frustum
+//frustum-camera
+const float CAMERA_HEIGHT = 250;
 const float NEAR_CLIP = 1;
 const float NEAR_H     = 2 * tan(FOV / 2.0) * -NEAR_CLIP;
 const float NEAR_W     = NEAR_H * ASPECT_RATIO;
 const float HALF_NEAR_H = NEAR_H/2;
 const float HALF_NEAR_W = NEAR_W/2;
 
-const float FAR_CLIP = 10000;
+const float FAR_CLIP = 20000;
 const float FAR_H      = 2 * tan(FOV / 2.0) * -FAR_CLIP;
 const float FAR_W      = FAR_H * ASPECT_RATIO;
 const float HALF_FAR_H = FAR_H/2;

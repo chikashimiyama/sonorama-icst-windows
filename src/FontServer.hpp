@@ -15,13 +15,13 @@ public:
     };
     
     void drawText(const ofVec2f &pos, const std::string &str) const{
-        font.drawString(str, pos.x, pos.y);
+        font.drawStringAsShapes(str, pos.x, pos.y);
     }
     
 private:
     FontServer(){}; // cannot instantiate by constructor
     void initFont(){
-        font.load(FONT, FONT_SIZE);
+        font.load(FONT, FONT_SIZE,true,true,true);
     }
 
     ofTrueTypeFont font;

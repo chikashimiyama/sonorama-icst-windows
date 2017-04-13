@@ -35,13 +35,11 @@ public:
     
     virtual void label(const Camera &camera) const{
         if(name.size() == 0 )return;
-        if(position.distance(camera.getPosition()) > BUILDING_LABEL_THRESHOLD) return;
-        
-        ofVec2f posOnScreen = camera.worldToScreen(position, ofGetCurrentViewport());
-        
+        ofVec2f posOnScreen = camera.worldToScreen(position, ofRectangle(camera.getCameraID() * WIDTH, 0, WIDTH, HEIGHT));
+      
+      
         ofDrawCircle(posOnScreen.x, posOnScreen.y, BULLET_SIZE);
         posOnScreen.x += LABEL_INDENT;
-        
         FontServer * fontServer = FontServer::getSingleton();
         fontServer->drawText(posOnScreen, name);
     }
