@@ -1,24 +1,27 @@
 #pragma once
 
-typedef struct {
-    int ID;
-    int	parentID;
-    double x;
-    double y;
-    double z;
-    bool active;
-    double age;
-    int impactPartner;
-    bool bound;
-    double originDistance;
-    double parentDistance;
-    double angle;
-    bool newTrigger;
-    bool prevTrigger;
-    bool canTrigger;
-    int colorCode;
-    ofColor color;
-    
-    ofRectangle rect;
-    bool direction;
-} Blob;
+class Blob {
+public:
+
+	Blob():
+	age(0),
+	absence(0){};
+	
+    int ID; // ID provided by tuio, the first number represents the screen
+	int age; // the age of blob, young blob should not be trusted
+	int absence; // if this point exceeds the threshold, considered as dead.
+	long frameOfBirth;
+	float x;
+	float y;
+	
+	void draw(){
+		if(age > BLOB_MATURITY_THRESH){
+			ofSetColor(ofColor::blue); // matured
+		}else if(absence > 2){
+			ofSetColor(ofColor::red); // deadly
+		}else{
+			ofSetColor(ofColor::orange);
+		}
+		ofDrawCircle(x,y, BLOB_SIZE);
+	}
+};

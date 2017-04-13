@@ -18,7 +18,6 @@ const int SCREEN_HEIGHT = HEIGHT;
 
 const int SCREEN_WIDTH =  WIDTH*NUM_VIEWPORTS;
 const float ASPECT_RATIO = 1;
-const float FOV = 360 / NUM_VIEWPORTS;
 
 #else
 const int NUM_VIEWPORTS = 1;
@@ -26,10 +25,27 @@ const int WIDTH = 1280;
 const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
 const float SCREEN_HEIGHT = HEIGHT;
 const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(SCREEN_HEIGHT);
-const float FOV = 90;
-
-
 #endif
+
+const float FOV = 360 / NUM_VIEWPORTS;
+
+
+// touch prompter
+const float BLOB_SIZE = 10.0;
+const int ABSENCE_TO_DEATH = 5;
+const int BLOB_MATURITY_THRESH = 6;
+const float TOUCH_ICON_VOFFSET = 200;
+const float TOUCH_ICON_SIZE = 70;
+const float DETECTION_PANEL_SIZE = 180;
+
+const ofColor TOUCH_READY_COLOR = ofColor(170,170,255, 200);
+const ofColor TOUCH_ACTIVE_COLOR = ofColor(255,170,170, 200);
+const ofColor TOUCH_UNAVAILABLE_COLOR = ofColor(80,80,80, 200);
+
+const std::string TOUCH_ICON_IMAGE_FILE = "touch.tiff";
+const int NUMBER_OF_TOUCH_ICONS = 8;
+const int TOUCH_ICON_DISTANCE = SCREEN_WIDTH / NUMBER_OF_TOUCH_ICONS;
+const int TOUCH_ICON_OFFSET = TOUCH_ICON_DISTANCE / 2;
 
 const std::string PD_PATCH = "pd/scape.pd";
 
@@ -82,8 +98,7 @@ const float FONT_SIZE = 9.5;
 const std::string TRACK_MASTER_IP = "224.0.0.1";
 const int TRACK_MASTER_PORT = 64000;
 const int MY_TUIO_PORT = 23456;
-const int MAX_BLOBS = 48;
-const int MAX_TRACKS = 4;
+const int MAX_BLOBS = 96;
 
 // syphon
 const std::string SYPHON_IP = "224.0.0.1";
