@@ -26,7 +26,7 @@ void ofApp::setup(){
 
 void ofApp::update(){
     tuioAdapter.processReceivedOSCMessages();
-    
+	tuioAdapter.evaluateTouch();
     ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
     for(auto &camera: cameras){
@@ -57,6 +57,7 @@ void ofApp::draw(){
       if(currentArea.first)
 		mapDataController.label(cameras[i]);
     }
+	tuioAdapter.draw();
 	
 	syphonAdapter.sendToSyphon();
 //  drawLog();

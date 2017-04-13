@@ -13,10 +13,28 @@ public:
 		}
 	}
 	
-	void update(std::unordered_map<int, Blob> &blobMap){
-		for(auto &blob : blobMap){
-		
+	void evaluate(std::unordered_map<int, Blob> &blobMap){
+		if(touched < 0){
+			
+			for(int i = 0; i<  detectionPanels.size(); i++){
+				int count = 0;
+				auto panel = detectionPanels[i];
+				for(auto &blob : blobMap){
+					if(blob.second.age > BLOB_MATURITY_THRESH){
+						panel.inside(blob.second.position);
+					}
+					count++;
+				}
+				if(count >= 2){
+					touched = i;
+					break;
+				}
+			}
+
+		}else{
+			
 		}
+
 	}
 	
 	void draw(){

@@ -17,7 +17,9 @@ public:
         initiateSessionWithTrackMaster(trackMasterIP, trackMasterPort);
 		touchPrompter.setup();
     }
-    
+	
+	
+	
     void processReceivedOSCMessages(){
         while(oscReceiver.hasWaitingMessages()) {
             ofxOscMessage mes;
@@ -25,6 +27,9 @@ public:
             interpretOSCMessage(mes);
         }
     }
+	void evaluateTouch(){
+		touchPrompter.evaluate(blobs);
+	}
     
 private:
 	void drawBlobs(){
@@ -90,8 +95,7 @@ private:
 		if(m.getArgType(3) != OFXOSC_TYPE_FLOAT) return;
 		
 		int blobID = m.getArgAsInt32(1);
-		blobs[blobID].x = m.getArgAsFloat(2) * WIDTH;
-		blobs[blobID].y = m.getArgAsFloat(3) * HEIGHT;
+		blobs[blobID].position = ofPoint(m.getArgAsFloat(2) * WIDTH, m.getArgAsFloat(3) * HEIGHT);
     }
     
     void processFseqMessage(const ofxOscMessage &m){

@@ -50,4 +50,5 @@ private:
     TuioAdapter tuioAdapter;
     SyphonAdapter syphonAdapter;
     ofVec3f position;
+	
 };

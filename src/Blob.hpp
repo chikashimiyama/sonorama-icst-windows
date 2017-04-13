@@ -11,8 +11,7 @@ public:
 	int age; // the age of blob, young blob should not be trusted
 	int absence; // if this point exceeds the threshold, considered as dead.
 	long frameOfBirth;
-	float x;
-	float y;
+	ofPoint position;
 	
 	void draw(){
 		if(age > BLOB_MATURITY_THRESH){
@@ -22,6 +21,6 @@ public:
 		}else{
 			ofSetColor(ofColor::orange);
 		}
-		ofDrawCircle(x,y, BLOB_SIZE);
+		ofDrawCircle(position, BLOB_SIZE);
 	}
 };
