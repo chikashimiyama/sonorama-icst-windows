@@ -16,11 +16,11 @@ void ofApp::setup(){
     
     debug = false;
     currentArea = std::make_pair<bool,int>(false,0);
-    position.y = 120;
-    for(auto &camera: cameras){
-        camera.setPosition(position);
+    position.y = CAMERA_HEIGHT;
+	for(int i = 0; i < cameras.size(); i++){
+		cameras[i].setup(i, position); // ID position
     }
-    
+	
     tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
     syphonAdapter.setup(SYPHON_IP, SYPHON_PORT);
 
@@ -28,7 +28,7 @@ void ofApp::setup(){
 
 void ofApp::update(){
     tuioAdapter.processReceivedOSCMessages();
-    
+	tuioAdapter.evaluateTouch();
     ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
     for(auto &camera: cameras){
@@ -45,21 +45,23 @@ void ofApp::drawContent(const Camera &camera){
 }
 
 void ofApp::draw(){
-    
+  
     for(int i = 0; i < NUM_VIEWPORTS; i++){
-        ofPushView();
+      ofPushView();
         ofViewport(ofRectangle(WIDTH * i, 0, WIDTH, SCREEN_HEIGHT));
         cameras[i].begin();
         drawContent(cameras[i]);
         cameras[i].end();
-        ofPopView();
-        soundSphereController.label(cameras[i]);
-        if(currentArea.first){
-            mapDataController.label(cameras[i]);
-        }
+      ofPopView();
+      
+      ofViewport(ofRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+      soundSphereController.label(cameras[i]);
+      if(currentArea.first)
+		mapDataController.label(cameras[i]);
     }
-    tuioAdapter.drawBlobs();
-    syphonAdapter.sendToSyphon();
+	tuioAdapter.draw();
+	
+	syphonAdapter.sendToSyphon();
 //  drawLog();
 }
 

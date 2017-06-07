@@ -50,4 +50,5 @@ private:
     SoundEngine soundEngine;
     SyphonAdapter syphonAdapter;
     ofVec3f position;
+	
 };

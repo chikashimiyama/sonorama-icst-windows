@@ -6,7 +6,14 @@
 
 class Camera : public ofCamera{
 public:
-    
+	void setup(int camID, ofVec3f position){
+		this->camID = camID;
+		setPosition(position);
+
+	}
+	int getCameraID() const{
+		return camID;
+	}
     void update(){
         updateFrustum();
         updateVisibleArea();
@@ -114,7 +121,8 @@ private:
     Plane near;
     Plane far;
     Plane labelFar;
-    
+    int camID;
+  
     std::array<bool, NUM_AREA> visibleAreas;
     std::array<bool, NUM_AREA> visibleLabelAreas;
 
