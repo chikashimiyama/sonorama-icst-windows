@@ -1,0 +1,16 @@
+#N canvas 1154 475 368 264 10;
+#X msg 112 85 \$1, f 2;
+#X obj 112 108 == -1;
+#X obj 85 139 spigot;
+#X obj 159 53 inlet;
+#X obj 53 23 inlet;
+#X obj 56 55 t a a;
+#X obj 84 195 outlet;
+#X text 181 122 lile route but more flexible;
+#X connect 0 0 1 0;
+#X connect 1 0 2 1;
+#X connect 2 0 6 0;
+#X connect 3 0 1 1;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 5 1 0 0;
