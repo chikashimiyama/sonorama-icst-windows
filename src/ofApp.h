@@ -12,8 +12,9 @@
 #include "Camera.hpp"
 #include "TuioAdapter.hpp"
 #include "SyphonAdapter.hpp"
+#include "SoundEngine.hpp"
 
-class ofApp : public ofBaseApp, public pd::PdReceiver{
+class ofApp : public ofBaseApp{
 
 public:
     
@@ -35,9 +36,7 @@ public:
 private:
     void initializeSessionsWithExternalSystems();
     void loadSoundSpheres();
-    void startPd();
     
-    ofxPd pd;
     ofEasyCam debugCam;
     ofNode cameraGroup;
     std::array<Camera, NUM_VIEWPORTS> cameras;
@@ -48,6 +47,7 @@ private:
     SoundSphereController soundSphereController;
     std::array<ofRectangle, NUM_VIEWPORTS> viewports;
     TuioAdapter tuioAdapter;
+    SoundEngine soundEngine;
     SyphonAdapter syphonAdapter;
     ofVec3f position;
 };

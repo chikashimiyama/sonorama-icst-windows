@@ -16,8 +16,9 @@ public:
     }
     
 protected:
-    VboRenderer vboRenderer;
     virtual std::vector<ofIndexType> createIndices(int offset, size_t numVertex) = 0;
+    
+    VboRenderer vboRenderer;
     std::vector<ofVec3f> allVertices;
     std::vector<ofIndexType> allIndices;
 };

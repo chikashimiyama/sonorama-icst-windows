@@ -23,7 +23,8 @@ const float FOV = 90;
 
 #endif
 
-const std::string PD_PATCH = "pd/scape.pd";
+const std::string PD_PATCH = "pd/main.pd";
+const int TICKS_PER_BUFFER = 8;
 
 
 const int AREA_DIVISION = 50;

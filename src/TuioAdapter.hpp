@@ -9,14 +9,11 @@ public:
     void drawBlobs(){
         ofSetLineWidth(2.0);
         ofSetCircleResolution(50);
-
-        
         for(int i = 0; i < MAX_BLOBS; i++) { // loop running the blobs
             if(blobs[i].active == true) { // we have a live blob
                 ofSetColor(255, 255, 127, 255);
                 ofDrawCircle( blobs[i].x*WIDTH, blobs[i].y*SCREEN_HEIGHT, 6);
 //                ofSetColor(125, 125, 255, 100);
-                
 //                ofDrawBitmapString(ofToString(i) + " " + ofToString(blobs[i].x) + " " + ofToString(blobs[i].y), blobs[i].x*1280+20, blobs[i].y*720+10);
             }
         }
