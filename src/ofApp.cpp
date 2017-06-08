@@ -6,12 +6,16 @@
 #include "sqlite_modern_cpp.h"
 
 #pragma mark public functions
+
+ofApp::ofApp():
+soundSphereController(soundEngine){}
+
 void ofApp::setup(){
 
     glSetup();
     loadSoundSpheres();
     
-    ofSoundStreamSetup(2, 0, this, 44100, ofxPd::blockSize()*TICKS_PER_BUFFER, 3);
+    ofSoundStreamSetup(2, 0, this, SAMPLE_RATE, ofxPd::blockSize()*TICKS_PER_BUFFER, 3);
     soundEngine.setup();
     
     debug = false;
@@ -31,15 +35,29 @@ void ofApp::update(){
 	tuioAdapter.evaluateTouch();
     ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
+    
     for(auto &camera: cameras){
         camera.setPosition(position);
         camera.update();
+    }
+    
+    soundEngine.updateLevels();
+    soundSphereController.updateLevel();
+    
+    warp();
+    
+}
+
+void ofApp::warp(){
+    if(position.distance(INITIAL_POS) > AREA_RADIUS){
+        position = INITIAL_POS;
     }
 }
 
 void ofApp::drawContent(const Camera &camera){
     mapDataController.draw(camera);
     soundSphereController.draw();
+    drawBorder();
     //drawGrid();
     //drawArea();
 }
@@ -47,22 +65,44 @@ void ofApp::drawContent(const Camera &camera){
 void ofApp::draw(){
   
     for(int i = 0; i < NUM_VIEWPORTS; i++){
-      ofPushView();
-        ofViewport(ofRectangle(WIDTH * i, 0, WIDTH, SCREEN_HEIGHT));
-        cameras[i].begin();
-        drawContent(cameras[i]);
-        cameras[i].end();
-      ofPopView();
+        ofPushView();
+            ofViewport(ofRectangle(WIDTH * i, 0, WIDTH, SCREEN_HEIGHT));
+            cameras[i].begin();
+            drawContent(cameras[i]);
+            cameras[i].end();
+        ofPopView();
       
-      ofViewport(ofRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-      soundSphereController.label(cameras[i]);
-      if(currentArea.first)
-		mapDataController.label(cameras[i]);
+        ofViewport(ofRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+        soundSphereController.label(cameras[i]);
+        if(currentArea.first){
+            mapDataController.label(cameras[i]);
+        }
     }
-	tuioAdapter.draw();
-	
-	syphonAdapter.sendToSyphon();
+    tuioAdapter.draw();
+    drawCredit();
+    
+    syphonAdapter.sendToSyphon();
+
 //  drawLog();
+}
+
+void ofApp::drawBorder(){
+    ofSetColor(255, 255, 255, 50);
+    ofNoFill();
+    ofSetLineWidth(40);
+    ofPushMatrix();
+    ofTranslate(0,600,0);
+    ofRotate(90,1,0,0);
+    ofDrawCircle(0, 0, AREA_RADIUS);
+    ofPopMatrix();
+    ofFill();
+
+}
+
+void ofApp::drawCredit(){
+    ofSetColor(255);
+    FontServer * fontServer = FontServer::getSingleton();
+    fontServer->drawText(ofVec2f(5,10), CREDIT_TEXT);
 }
 
 void ofApp::drawLog(){
@@ -125,8 +165,10 @@ void ofApp::keyPressed(int key){
         case 's':
             position.z -= 10.0;
             break;
+        default:
+            return;
     }
-
+    soundSphereController.updateSound(position);
 }
 
 void ofApp::keyReleased(int key){
@@ -145,6 +187,8 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 void ofApp::glSetup(){
     ofBackground(ofColor::black);
+    ofSetCircleResolution(CIRCLE_RESOLUTION);
+
     for(int i = 0; i < cameras.size(); i ++){
         cameras[i].setNearClip(NEAR_CLIP);
         cameras[i].setFarClip(FAR_CLIP);
@@ -161,9 +205,6 @@ void ofApp::glSetup(){
     ofSetFrameRate(30);
     viewports[0] = ofRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     
-}
-
-void ofApp::initializeSessionsWithExternalSystems(){
 }
 
 void ofApp::loadSoundSpheres(){

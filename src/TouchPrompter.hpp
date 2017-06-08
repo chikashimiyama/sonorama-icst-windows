@@ -9,19 +9,24 @@ public:
 		iconImage.load(TOUCH_ICON_IMAGE_FILE);
 		touched = -1;
 		for(int i = 0; i < NUMBER_OF_TOUCH_ICONS;i++){
-			detectionPanels.push_back(getRectFromIconID(i, DETECTION_PANEL_SIZE));
+			detectionCircles.push_back(getCircleCenterFromIconID(i));
 		}
+        touchReadyColor = TOUCH_READY_COLOR;
+        alphaIncrement = 0.05;
 	}
 	
 	void evaluate(std::unordered_map<int, Blob> &blobMap){
 		if(touched < 0){
 			
-			for(int i = 0; i<  detectionPanels.size(); i++){
+			for(int i = 0; i<  detectionCircles.size(); i++){
 				int count = 0;
-				auto panel = detectionPanels[i];
+				auto panel = detectionCircles[i];
 				for(auto &blob : blobMap){
 					if(blob.second.age > BLOB_MATURITY_THRESH){
-						panel.inside(blob.second.position);
+                        ofVec2f blobPos = blob.second.position;
+                        if(detectionCircles[i].distance(blobPos) < 100.0){
+                            // hit
+                        }
 					}
 					count++;
 				}
@@ -30,20 +35,20 @@ public:
 					break;
 				}
 			}
-
-		}else{
-			
 		}
-
 	}
 	
 	void draw(){
+        if(touchReadyColor.a > 1.0f) alphaIncrement = -0.02f;
+        if(touchReadyColor.a < 0.0f) alphaIncrement = 0.02f;
+        touchReadyColor.a += alphaIncrement;
+        ofSetColor(touchReadyColor);
+        
 		if(touched < 0){
 			drawUntouched();
 		}else{
 			drawTouched();
 		}
-		
 		drawDetectionPanel();
 	}
 	
@@ -57,15 +62,15 @@ public:
 	}
 
 private:
-	ofRectangle getRectFromIconID(int i, float size){
-		float x = TOUCH_ICON_OFFSET + TOUCH_ICON_DISTANCE * i - size / 2;
-		float y = TOUCH_ICON_VOFFSET - size / 2;
-		return ofRectangle(x, y, size, size );
+	ofVec2f getCircleCenterFromIconID(int i){
+		float x = TOUCH_ICON_OFFSET + TOUCH_ICON_DISTANCE * i;
+		float y = TOUCH_ICON_VOFFSET;
+        return ofVec2f(x, y);
 	}
 	void drawUntouched(){
-		ofSetColor(TOUCH_READY_COLOR);
 		for (int i = 0; i < NUMBER_OF_TOUCH_ICONS; i++) {
-			iconImage.draw(getRectFromIconID(i, TOUCH_ICON_SIZE));
+            ofVec2f center = getCircleCenterFromIconID(i);
+			iconImage.draw(center.x - HALF_RADIUS, center.y - HALF_RADIUS, CIRCLE_RADIUS, CIRCLE_RADIUS);
 		}
 	}
 	void drawTouched(){
@@ -75,18 +80,25 @@ private:
 			}else{
 				ofSetColor(TOUCH_ACTIVE_COLOR);
 			}
-			iconImage.draw(getRectFromIconID(i, DETECTION_PANEL_SIZE));
+            ofVec2f center = getCircleCenterFromIconID(i);
+            iconImage.draw(center.x - HALF_RADIUS, center.y - HALF_RADIUS, CIRCLE_RADIUS, CIRCLE_RADIUS);
 		}
 	}
 	void drawDetectionPanel(){
-		for (auto &panel: detectionPanels){
-			ofSetColor(255,0,0,40);
-			ofDrawRectangle(panel);
-		}
+        ofNoFill();
+        ofSetLineWidth(CIRCLE_LINE_WIDTH);
+    
+		for (auto &circle: detectionCircles){
+            ofDrawCircle(circle,CIRCLE_RADIUS);
 
+		}
+        ofFill();
+        ofSetLineWidth(0);
 	}
 
 	int touched;
-	std::vector<ofRectangle> detectionPanels;
+	std::vector<ofVec2f> detectionCircles;
 	ofImage iconImage;
+    ofFloatColor touchReadyColor;
+    float alphaIncrement;
 };

@@ -17,12 +17,14 @@
 class ofApp : public ofBaseApp{
 
 public:
-    
+    ofApp();
     void setup();
     void update();
     void draw();
     void drawContent(const Camera &targetCamera);
     void drawLog();
+    void drawBorder();
+    void drawCredit();
     void drawArea();
     void drawGrid();
     void keyPressed(int key);
@@ -31,10 +33,9 @@ public:
     void gotMessage(ofMessage msg);
     void audioReceived(float * input, int bufferSize, int nChannels);
     void audioRequested(float * output, int bufferSize, int nChannels);
-
+    void warp();
     
 private:
-    void initializeSessionsWithExternalSystems();
     void loadSoundSpheres();
     
     ofEasyCam debugCam;

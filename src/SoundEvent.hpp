@@ -1,14 +1,27 @@
-//
-//  SoundEvent.hpp
-//  sonorama
-//
-//  Created by Chikashi Miyama on 07.06.17.
-//
-//
+#pragma once
 
-#ifndef SoundEvent_hpp
-#define SoundEvent_hpp
+#include "ofMain.h"
 
-#include <stdio.h>
+enum class SoundEventType{ PLAY, STOP, VOLUME, ANGLE};
 
-#endif /* SoundEvent_hpp */
+class SoundEvent : public ofEventArgs {
+    
+public:
+
+    static ofEvent <SoundEvent> events;
+
+    SoundEvent(SoundEventType tp, int sfID, float param = 0.0):
+    type(tp),
+    soundFileID(sfID),
+    parameter(param)
+    {}
+
+    SoundEventType getType(){return type;}
+    int getSoundFileID(){return soundFileID;}
+    float getParameter(){return parameter;}
+    
+private:
+    const SoundEventType type;
+    const int soundFileID;
+    const float parameter;
+};

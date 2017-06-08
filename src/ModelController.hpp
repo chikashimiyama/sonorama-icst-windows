@@ -21,7 +21,7 @@ public:
     
     
     void label(const Camera &camera) const{
-        auto &visibleAreas = camera.getVisibleLabelAreas();
+        auto &visibleAreas = camera.getVisibleAreas();
         for(int i = 0; i < NUM_AREA;i++){
             if(!visibleAreas[i])continue;
             for(auto model :distribution[i]){
@@ -49,7 +49,7 @@ protected:
 
 private:
     std::unordered_map<std::string, std::pair<std::shared_ptr<Model> , float>> getLabelTargetModelsFromCameraPosition(const Camera &camera) const{
-        auto &visibleAreas = camera.getVisibleLabelAreas();
+        auto &visibleAreas = camera.getVisibleAreas();
         auto cameraPos = camera.getPosition();
         std::unordered_map<std::string, std::pair<std::shared_ptr<Model> , float>> renderTargets;
         for(int i = 0; i < NUM_AREA;i++){

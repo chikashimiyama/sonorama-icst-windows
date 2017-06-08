@@ -35,8 +35,10 @@ public:
     
     virtual void label(const Camera &camera) const{
         if(name.size() == 0 )return;
-        ofVec2f posOnScreen = camera.worldToScreen(position, ofRectangle(camera.getCameraID() * WIDTH, 0, WIDTH, HEIGHT));
-      
+        
+        ofRectangle viewPort = ofRectangle(camera.getCameraID() * WIDTH, 0, WIDTH, HEIGHT);
+        ofVec2f posOnScreen = camera.worldToScreen(position, viewPort);
+        if(!viewPort.inside(posOnScreen))return;
       
         ofDrawCircle(posOnScreen.x, posOnScreen.y, BULLET_SIZE);
         posOnScreen.x += LABEL_INDENT;

@@ -2,11 +2,11 @@
 
 #include <utility>
 #define panorama
-//#define mini
+#define mini
 
 #ifdef mini
-const int WIDTH = 320;
-const int HEIGHT = 180;
+const int WIDTH = 640;
+const int HEIGHT = 360;
 #else
 const int WIDTH = 1280;
 const int HEIGHT = 720;
@@ -20,8 +20,7 @@ const int SCREEN_WIDTH =  WIDTH*NUM_VIEWPORTS;
 const float ASPECT_RATIO = 1;
 
 #else
-const int NUM_VIEWPORTS = 1;
-const int WIDTH = 1280;
+const int NUM_VIEWPORTS = 4;
 const int SCREEN_WIDTH =  WIDTH/NUM_VIEWPORTS;
 const float SCREEN_HEIGHT = HEIGHT;
 const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(SCREEN_HEIGHT);
@@ -36,7 +35,6 @@ const int ABSENCE_TO_DEATH = 5;
 const int BLOB_MATURITY_THRESH = 6;
 const float TOUCH_ICON_VOFFSET = 200;
 const float TOUCH_ICON_SIZE = 70;
-const float DETECTION_PANEL_SIZE = 180;
 
 const ofColor TOUCH_READY_COLOR = ofColor(170,170,255, 200);
 const ofColor TOUCH_ACTIVE_COLOR = ofColor(255,170,170, 200);
@@ -49,7 +47,10 @@ const int TOUCH_ICON_OFFSET = TOUCH_ICON_DISTANCE / 2;
 
 const std::string PD_PATCH = "pd/main.pd";
 const int TICKS_PER_BUFFER = 8;
-
+const float SOUND_DISTANCE_THRESHOLD = 2000.0;
+const std::string PD_RECEIVE_NAME = "fromOF";
+const int NUM_PLAYERS = 64;
+const int SAMPLE_RATE = 44100;
 
 const int AREA_DIVISION = 50;
 const int NUM_AREA = AREA_DIVISION * AREA_DIVISION;
@@ -67,16 +68,18 @@ const float HALF_NEAR_H = NEAR_H/2;
 const float HALF_NEAR_W = NEAR_W/2;
 
 const float FAR_CLIP = 20000;
-const float FAR_H      = 2 * tan(FOV / 2.0) * -FAR_CLIP;
+const float LABEL_FAR_CLIP = 1000;
+const float FAR_H      = 2 * tan(FOV / 2.0) * -LABEL_FAR_CLIP;
 const float FAR_W      = FAR_H * ASPECT_RATIO;
 const float HALF_FAR_H = FAR_H/2;
 const float HALF_FAR_W = FAR_W/2;
+const ofVec3f INITIAL_POS = ofVec3f(0,CAMERA_HEIGHT,0);
+const float AREA_RADIUS = 4000;
 
-const float FAR_LABEL_CLIP = 1000;
-const float FAR_LABEL_H      = 2 * tan(FOV / 2.0) * -FAR_CLIP;
-const float FAR_LABEL_W      = FAR_H * ASPECT_RATIO;
-const float HALF_FAR_LABEL_H = FAR_H/2;
-const float HALF_FAR_LABEL_W = FAR_W/2;
+// sound sphere
+const float CORE_RADIUS = 10;
+const ofColor SPHERE_COLOR = ofColor(100,255,255, 40);
+const ofColor CORE_COLOR = ofColor(100,250,255, 255);
 
 
 // building
@@ -100,6 +103,16 @@ const std::string TRACK_MASTER_IP = "224.0.0.1";
 const int TRACK_MASTER_PORT = 64000;
 const int MY_TUIO_PORT = 23456;
 const int MAX_BLOBS = 96;
+const float CIRCLE_RADIUS = 55;
+const float HALF_RADIUS = CIRCLE_RADIUS / 2;
+const float CIRCLE_LINE_WIDTH = 2.0;
+const int CIRCLE_RESOLUTION = 40;
+
+const ofColor CIRCLE_COLOR = ofColor(0,255,255,255);
+
+
+// credit
+const std::string CREDIT_TEXT = "(c) OpenStreetMap";
 
 // syphon
 const std::string SYPHON_IP = "224.0.0.1";
