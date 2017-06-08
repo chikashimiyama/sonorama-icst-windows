@@ -44,6 +44,7 @@
 		5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */; };
 		5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88333E71C9457E441C33474 /* ofxButton.cpp */; };
 		60CEF052E3D03AF6216E6390 /* x_acoustics.c in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5752FE9F3922F36D2C46B /* x_acoustics.c */; };
+		6226AFC11EE835F400A40DBD /* SoundEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6226AFBF1EE835F400A40DBD /* SoundEvent.cpp */; };
 		62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */; };
 		640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */; };
 		65DA614285C35696FE4C302E /* g_scalar.c in Sources */ = {isa = PBXBuildFile; fileRef = FE5C604568BC1ECAE7CAD2E6 /* g_scalar.c */; };
@@ -227,7 +228,6 @@
 		48974F980F51769171D0B2F5 /* IpEndpointName.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IpEndpointName.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.h; sourceTree = SOURCE_ROOT; };
 		4BE14A515B465F9F94740B1E /* x_midi.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = x_midi.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/x_midi.c"; sourceTree = SOURCE_ROOT; };
 		4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscPrintReceivedElements.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.h; sourceTree = SOURCE_ROOT; };
-		4F35AD49E85DA1849268ED41 /* SoundSphereRenderer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SoundSphereRenderer.hpp; path = src/SoundSphereRenderer.hpp; sourceTree = SOURCE_ROOT; };
 		515E593073CA88F62A0C63DE /* s_audio.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = s_audio.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/s_audio.c"; sourceTree = SOURCE_ROOT; };
 		51D837462D91A0E2799F53D4 /* x_gui.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = x_gui.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/x_gui.c"; sourceTree = SOURCE_ROOT; };
 		521EA8A6C3448218BD517E17 /* Stylizer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Stylizer.hpp; path = src/Stylizer.hpp; sourceTree = SOURCE_ROOT; };
@@ -237,6 +237,9 @@
 		59F628DE75E715DA81DABB03 /* d_resample.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = d_resample.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/d_resample.c"; sourceTree = SOURCE_ROOT; };
 		5FDBB0B1AB551B8E8BAB7EFE /* ModelController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ModelController.hpp; path = src/ModelController.hpp; sourceTree = SOURCE_ROOT; };
 		617194FA95231E474992737C /* g_traversal.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = g_traversal.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/g_traversal.c"; sourceTree = SOURCE_ROOT; };
+		622391B91EE988E2005F9535 /* TouchPrompter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchPrompter.hpp; sourceTree = "<group>"; };
+		6226AFBF1EE835F400A40DBD /* SoundEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEvent.cpp; sourceTree = "<group>"; };
+		6226AFC01EE835F400A40DBD /* SoundEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundEvent.hpp; sourceTree = "<group>"; };
 		62B065AC1EE802E700BF0CDD /* SoundEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SoundEngine.hpp; sourceTree = "<group>"; };
 		63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
 		65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscBundle.cpp; path = ../../../addons/ofxOsc/src/ofxOscBundle.cpp; sourceTree = SOURCE_ROOT; };
@@ -303,7 +306,6 @@
 		B1A08DF9109205CC575788CA /* Camera.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Camera.hpp; path = src/Camera.hpp; sourceTree = SOURCE_ROOT; };
 		B2FBF75C8D0B52F7B6D96BAC /* function_traits.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = function_traits.h; path = src/function_traits.h; sourceTree = SOURCE_ROOT; };
 		B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscParameterSync.h; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.h; sourceTree = SOURCE_ROOT; };
-		B5F35B492238D7E48C6FC826 /* BuildingRenderer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BuildingRenderer.hpp; path = src/BuildingRenderer.hpp; sourceTree = SOURCE_ROOT; };
 		B87C60311EC1FE841C1ECD89 /* ofxLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxLabel.h; path = ../../../addons/ofxGui/src/ofxLabel.h; sourceTree = SOURCE_ROOT; };
 		B946076A9958A7012DF0A6BF /* sigmund~.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = "sigmund~.c"; path = "../../../addons/ofxPd/libs/libpd/pure-data/extra/sigmund~/sigmund~.c"; sourceTree = SOURCE_ROOT; };
 		BB7AD905C0E049138E942045 /* m_atom.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = m_atom.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/m_atom.c"; sourceTree = SOURCE_ROOT; };
@@ -324,7 +326,6 @@
 		C94ECBFD927A58D2503BA78A /* TagController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TagController.hpp; path = src/TagController.hpp; sourceTree = SOURCE_ROOT; };
 		C9B05326BD9454C385DB235F /* x_text.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = x_text.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/x_text.c"; sourceTree = SOURCE_ROOT; };
 		C9E0672172ADE339EA1B2B5C /* g_readwrite.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = g_readwrite.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/g_readwrite.c"; sourceTree = SOURCE_ROOT; };
-		CAC3ED7B587DB983173ABB57 /* WayRenderer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = WayRenderer.hpp; path = src/WayRenderer.hpp; sourceTree = SOURCE_ROOT; };
 		CD76ED997B6BEC8886C6B28E /* z_queued.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = z_queued.c; path = ../../../addons/ofxPd/libs/libpd/libpd_wrapper/util/z_queued.c; sourceTree = SOURCE_ROOT; };
 		CE2B6BAF505C3182CCE624E9 /* d_misc.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = d_misc.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/d_misc.c"; sourceTree = SOURCE_ROOT; };
 		D1E976B635AC494DF0C59727 /* PdTypes.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PdTypes.cpp; path = ../../../addons/ofxPd/libs/libpd/cpp/PdTypes.cpp; sourceTree = SOURCE_ROOT; };
@@ -569,6 +570,8 @@
 			isa = PBXGroup;
 			children = (
 				62B065AC1EE802E700BF0CDD /* SoundEngine.hpp */,
+				6226AFC01EE835F400A40DBD /* SoundEvent.hpp */,
+				6226AFBF1EE835F400A40DBD /* SoundEvent.cpp */,
 			);
 			name = SoundEngine;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 			children = (
 				C828FFF228A81A53F586476F /* TuioAdapter.hpp */,
 				28D0BD144AE4A3ABC7144D7A /* Blob.hpp */,
+				622391B91EE988E2005F9535 /* TouchPrompter.hpp */,
 			);
 			name = Interaction;
 			sourceTree = "<group>";
@@ -646,9 +650,6 @@
 			isa = PBXGroup;
 			children = (
 				93F5179AAD6A119EFD022CBC /* VboRenderer.hpp */,
-				B5F35B492238D7E48C6FC826 /* BuildingRenderer.hpp */,
-				4F35AD49E85DA1849268ED41 /* SoundSphereRenderer.hpp */,
-				CAC3ED7B587DB983173ABB57 /* WayRenderer.hpp */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -1179,6 +1180,7 @@
 				2DF23C94600F317B51401032 /* d_ctl.c in Sources */,
 				8C4791DC1966643B8C91552B /* d_dac.c in Sources */,
 				4112DA22A38568E370255F1E /* d_delay.c in Sources */,
+				6226AFC11EE835F400A40DBD /* SoundEvent.cpp in Sources */,
 				18052988C8ED707F6DBDBAD4 /* d_fft.c in Sources */,
 				3DF941D4B52123B481FF4A5D /* d_fft_fftsg.c in Sources */,
 				8EF4E7A911554CDF01359582 /* d_filter.c in Sources */,
