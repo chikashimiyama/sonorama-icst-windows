@@ -208,7 +208,7 @@ void ofApp::glSetup(){
 }
 
 void ofApp::loadSoundSpheres(){
-    std::string path = ofToDataPath("sound_spheres.db");
+    std::string path = ofToDataPath(DATA_BASE_FILE);
     sqlite::database db(path);
     db << "select * from sound_sphere;"
     >>[this](int num, std::string name, double latitude, double longitude ){

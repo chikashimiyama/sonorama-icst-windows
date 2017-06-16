@@ -80,7 +80,7 @@ const float AREA_RADIUS = 4000;
 const float CORE_RADIUS = 10;
 const ofColor SPHERE_COLOR = ofColor(100,255,255, 40);
 const ofColor CORE_COLOR = ofColor(100,250,255, 255);
-
+const std::string DATA_BASE_FILE = "sonorama.db";
 
 // building
 const float LEVEL_HEIGHT = 30;
