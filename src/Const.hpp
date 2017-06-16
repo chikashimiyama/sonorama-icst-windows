@@ -74,7 +74,7 @@ const float FAR_W      = FAR_H * ASPECT_RATIO;
 const float HALF_FAR_H = FAR_H/2;
 const float HALF_FAR_W = FAR_W/2;
 const ofVec3f INITIAL_POS = ofVec3f(0,CAMERA_HEIGHT,0);
-const float AREA_RADIUS = 4000;
+const float AREA_RADIUS = 5000;
 
 // sound sphere
 const float CORE_RADIUS = 10;
@@ -83,12 +83,12 @@ const ofColor CORE_COLOR = ofColor(100,250,255, 255);
 const std::string DATA_BASE_FILE = "sonorama.db";
 
 // building
-const float LEVEL_HEIGHT = 30;
+const float LEVEL_HEIGHT = 100;
 const float HALF_LEVEL_HEIGHT = LEVEL_HEIGHT / 2;
 const float LABEL_INDENT = 5;
 const float BUILDING_THRESHOLD = 1000.0;
 const float BUILDING_LABEL_THRESHOLD = 700.0;
-
+const float ANTI_FLICKER_SCALE_DOWN_RATIO = 0.92;
 // street
 const float BULLET_SIZE = 1.5;
 const float STREET_LABEL_THRESHOLD = 1500.0;

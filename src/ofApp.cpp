@@ -81,17 +81,17 @@ void ofApp::draw(){
     tuioAdapter.draw();
     drawCredit();
     
-    syphonAdapter.sendToSyphon();
+    // syphonAdapter.sendToSyphon();
 
 //  drawLog();
 }
 
 void ofApp::drawBorder(){
-    ofSetColor(255, 255, 255, 50);
+    ofSetColor(255, 100, 50, 30);
     ofNoFill();
-    ofSetLineWidth(40);
+    ofSetLineWidth(5);
     ofPushMatrix();
-    ofTranslate(0,600,0);
+    ofTranslate(0,0,0);
     ofRotate(90,1,0,0);
     ofDrawCircle(0, 0, AREA_RADIUS);
     ofPopMatrix();
@@ -211,13 +211,14 @@ void ofApp::loadSoundSpheres(){
     std::string path = ofToDataPath(DATA_BASE_FILE);
     sqlite::database db(path);
     db << "select * from sound_sphere;"
-    >>[this](int num, std::string name, double latitude, double longitude ){
+    >>[this](int num, std::string title, std::string location, double latitude, double longitude, std::string wavfile ){
         Bounds * bounds = Bounds::getSingleton();
         std::vector<ofVec3f> position;
         position.push_back(bounds->scale(latitude, longitude));
         
         std::unordered_map<std::string, std::string> tags;
-        tags.emplace("name", name);
+        tags.emplace("name", title);
+        tags.emplace("location", location);
         soundSphereController.add(num, position, tags);
     };
 }

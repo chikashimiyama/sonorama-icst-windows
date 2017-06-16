@@ -16,6 +16,10 @@ public:
         std::pair<bool, int> area = getArea(model->getPosition());
         if(area.first){
             distribution[area.second].push_back(model);
+            //ofLog() << "added to area " << area.second;
+        }else{
+            ofLog() << "outside of area ";
+
         }
     }
     
