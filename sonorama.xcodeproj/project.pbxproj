@@ -241,6 +241,8 @@
 		6226AFBF1EE835F400A40DBD /* SoundEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEvent.cpp; sourceTree = "<group>"; };
 		6226AFC01EE835F400A40DBD /* SoundEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundEvent.hpp; sourceTree = "<group>"; };
 		62B065AC1EE802E700BF0CDD /* SoundEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SoundEngine.hpp; sourceTree = "<group>"; };
+		62DC1F3C1EF41A6900568185 /* Border.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Border.hpp; sourceTree = "<group>"; };
+		62DC1F3E1EF41B2600568185 /* CardinalDirections.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CardinalDirections.hpp; sourceTree = "<group>"; };
 		63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
 		65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscBundle.cpp; path = ../../../addons/ofxOsc/src/ofxOscBundle.cpp; sourceTree = SOURCE_ROOT; };
 		674D3AA2CD9DDA6D5EFF577B /* d_ctl.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = d_ctl.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/d_ctl.c"; sourceTree = SOURCE_ROOT; };
@@ -678,6 +680,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		62DC1F3D1EF41A7300568185 /* SpecialModel */ = {
+			isa = PBXGroup;
+			children = (
+				62DC1F3C1EF41A6900568185 /* Border.hpp */,
+				62DC1F3E1EF41B2600568185 /* CardinalDirections.hpp */,
+			);
+			name = SpecialModel;
+			sourceTree = "<group>";
+		};
 		641362CA659FAFEE4E81001B /* posix */ = {
 			isa = PBXGroup;
 			children = (
@@ -996,6 +1007,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				62DC1F3D1EF41A7300568185 /* SpecialModel */,
 				701927FFAFFD81C2A7AE9A7F /* Const.hpp */,
 				62B065A11EE7FAAA00BF0CDD /* database */,
 				62B065A41EE7FAFE00BF0CDD /* Style */,
