@@ -42,7 +42,8 @@ public:
     void update(const ofVec3f &cameraPos) {
         float distance = position.distance(cameraPos);
         if(distance <= SOUND_DISTANCE_THRESHOLD){
-            setVolume(1.0 - distance / SOUND_DISTANCE_THRESHOLD);
+            float ratio = 1.0 - (distance / SOUND_DISTANCE_THRESHOLD);
+            setVolume(ratio);
             setAngle(cameraPos.angle(position));
             if(!playing) play();
 

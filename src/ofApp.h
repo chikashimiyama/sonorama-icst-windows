@@ -13,6 +13,8 @@
 #include "TuioAdapter.hpp"
 #include "SyphonAdapter.hpp"
 #include "SoundEngine.hpp"
+#include "Border.hpp"
+#include "CardinalDirections.hpp"
 
 class ofApp : public ofBaseApp{
 
@@ -23,7 +25,6 @@ public:
     void draw();
     void drawContent(const Camera &targetCamera);
     void drawLog();
-    void drawBorder();
     void drawCredit();
     void drawArea();
     void drawGrid();
@@ -50,6 +51,8 @@ private:
     TuioAdapter tuioAdapter;
     SoundEngine soundEngine;
     SyphonAdapter syphonAdapter;
+    Border border;
+    CardinalDirections cardinalDirections;
     ofVec3f position;
 	
 };

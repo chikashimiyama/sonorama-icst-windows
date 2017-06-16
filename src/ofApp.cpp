@@ -57,7 +57,8 @@ void ofApp::warp(){
 void ofApp::drawContent(const Camera &camera){
     mapDataController.draw(camera);
     soundSphereController.draw();
-    drawBorder();
+    border.draw();
+    cardinalDirections.draw(position);
     //drawGrid();
     //drawArea();
 }
@@ -86,18 +87,7 @@ void ofApp::draw(){
 //  drawLog();
 }
 
-void ofApp::drawBorder(){
-    ofSetColor(255, 100, 50, 30);
-    ofNoFill();
-    ofSetLineWidth(5);
-    ofPushMatrix();
-    ofTranslate(0,0,0);
-    ofRotate(90,1,0,0);
-    ofDrawCircle(0, 0, AREA_RADIUS);
-    ofPopMatrix();
-    ofFill();
 
-}
 
 void ofApp::drawCredit(){
     ofSetColor(255);
