@@ -8,7 +8,7 @@
 class SoundEngine : public pd::PdReceiver{
     
 public:
-    void setup();
+    void setup(const std::string &cityName);
     void audioOut(float *output, int bufferSize, int nChannels);
     
     void startPlayback(int sfID);
@@ -21,12 +21,14 @@ public:
     const std::vector<float> &getAmplitude() const{ return amplitude;}
     
 private:
+    void setCity(const std::string &cityname);
+
     ofxPd pd;
     std::vector<float> amplitude;
 };
 
 
-inline void SoundEngine::setup(){
+inline void SoundEngine::setup(const std::string &cityName){
     if(!pd.init(NUM_SPEAKERS, 0, SAMPLE_RATE, TICKS_PER_BUFFER, false)) {
         OF_EXIT_APP(1);
     }
@@ -37,6 +39,8 @@ inline void SoundEngine::setup(){
     
     ofAddListener(SoundEvent::events, this, &SoundEngine::handleEvent);
     amplitude.resize(NUM_PLAYERS);
+    
+    setCity(cityName);
 }
 
 inline void SoundEngine::updateLevels(){
@@ -90,6 +94,12 @@ inline void SoundEngine::stopPlayback(int sfID){
 
 inline void SoundEngine::print(const std::string &mes){
     ofLog() << mes;
+}
+
+inline void SoundEngine::setCity(const std::string &cityname){
+    pd.startMessage();
+    pd.addSymbol(cityname);
+    pd.finishMessage(PD_RECEIVE_NAME, "cityname");
 }
 
 inline void SoundEngine::setVolume(int sfID, float volume){

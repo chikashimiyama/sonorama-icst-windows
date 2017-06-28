@@ -1,13 +1,22 @@
 #pragma once
 
+const std::string CITY_NAME = "karlsruhe";
+//const std::string CITY_NAME = "zurich";
+
+const std::string MAP_DATA_FILE = "maps/" + CITY_NAME+".osm";
+const std::string DATA_BASE_FILE = "pd/soundfiles/"+ CITY_NAME + ".db";
+const std::string SOUND_FILE_PATH = "pd/sounrfiles/"+ CITY_NAME + "/";
+
 #include <utility>
 #define panorama
 #define mini
 
 
+
 #ifdef mini
 const int WIDTH = 640;
 const int HEIGHT = 360;
+
 #else
 const int WIDTH = 1280;
 const int HEIGHT = 720;
@@ -28,7 +37,7 @@ const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(S
 #endif
 
 const float FOV = 360 / NUM_VIEWPORTS;
-const int NUM_SPEAKERS = 8;
+const int NUM_SPEAKERS = 2;
 
 // touch prompter
 const float BLOB_SIZE = 10.0;
@@ -82,7 +91,6 @@ const float CORE_RADIUS = 10;
 const float SPHERE_CAPTION_HEIGHT = 100;
 const ofColor SPHERE_COLOR = ofColor(100,255,255, 40);
 const ofColor CORE_COLOR = ofColor(100,250,255, 255);
-const std::string DATA_BASE_FILE = "sonorama.db";
 
 // building
 const float LEVEL_HEIGHT = 100;

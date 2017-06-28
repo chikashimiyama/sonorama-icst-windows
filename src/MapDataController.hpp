@@ -44,7 +44,7 @@ private:
     
     void loadDataFromXml(){
         ofFile file;
-        file.open("map.osm");
+        file.open(MAP_DATA_FILE);
         ofBuffer buffer = file.readToBuffer();
         xml.loadFromBuffer(buffer.getText());
         xml.setTo("meta");

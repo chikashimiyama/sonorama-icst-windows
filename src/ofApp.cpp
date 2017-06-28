@@ -16,7 +16,7 @@ void ofApp::setup(){
     loadSoundSpheres();
     
     ofSoundStreamSetup(NUM_SPEAKERS, 0, this, SAMPLE_RATE, ofxPd::blockSize()*TICKS_PER_BUFFER, 3);
-    soundEngine.setup();
+    soundEngine.setup(CITY_NAME);
     
     debug = false;
     currentArea = std::make_pair<bool,int>(false,0);
