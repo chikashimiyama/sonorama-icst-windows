@@ -27,7 +27,7 @@ private:
 
 
 inline void SoundEngine::setup(){
-    if(!pd.init(2, 0, SAMPLE_RATE, TICKS_PER_BUFFER, false)) {
+    if(!pd.init(NUM_SPEAKERS, 0, SAMPLE_RATE, TICKS_PER_BUFFER, false)) {
         OF_EXIT_APP(1);
     }
     

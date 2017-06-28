@@ -1,4 +1,4 @@
-#N canvas 609 37 583 295 10;
+#N canvas 609 37 609 380 10;
 #X obj 40 34 loadbang;
 #X msg 38 62 \; pd dsp 1;
 #N canvas 28 140 994 577 test 0;
@@ -137,7 +137,7 @@
 #X connect 55 0 44 0;
 #X connect 56 0 55 0;
 #X connect 57 0 56 0;
-#X restore 309 192 pd test;
+#X restore 190 188 pd test;
 #N canvas 0 22 450 300 speakers 0;
 #X obj 19 250 dac~ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16;
 #X obj 18 52 catch~ bus1;
@@ -164,22 +164,14 @@
 #X connect 7 0 0 14;
 #X connect 8 0 0 7;
 #X connect 8 0 0 15;
-#X restore 309 217 pd speakers;
+#X restore 190 213 pd speakers;
 #X obj 42 125 r fromOF;
 #X text 200 16 start sfID ... start playback file number x stop sfID
 ... stop playback vol sfID x ... change volume of sfID to x (inDB 0-100)
 angle sfID x ... change position of source from 0-360;
-#X obj 309 165 table amplitude 100;
 #X obj 42 169 list trim;
-#X obj 42 217 clone player 100;
-#X msg 145 107 1 start \, 1 vol 1;
-#X msg 148 134 1 stop;
-#X msg 144 166 1 angle \$1;
-#X floatatom 220 138 5 0 0 0 - - -, f 5;
+#X obj 190 160 table amplitude 71;
+#X obj 42 217 clone player 71;
 #X connect 0 0 1 0;
-#X connect 4 0 7 0;
-#X connect 7 0 8 0;
-#X connect 9 0 8 0;
-#X connect 10 0 8 0;
-#X connect 11 0 8 0;
-#X connect 12 0 11 0;
+#X connect 4 0 6 0;
+#X connect 6 0 8 0;

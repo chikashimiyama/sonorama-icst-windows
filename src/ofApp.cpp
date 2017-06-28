@@ -15,7 +15,7 @@ void ofApp::setup(){
     glSetup();
     loadSoundSpheres();
     
-    ofSoundStreamSetup(2, 0, this, SAMPLE_RATE, ofxPd::blockSize()*TICKS_PER_BUFFER, 3);
+    ofSoundStreamSetup(NUM_SPEAKERS, 0, this, SAMPLE_RATE, ofxPd::blockSize()*TICKS_PER_BUFFER, 3);
     soundEngine.setup();
     
     debug = false;
@@ -58,7 +58,7 @@ void ofApp::drawContent(const Camera &camera){
     mapDataController.draw(camera);
     soundSphereController.draw();
     border.draw();
-    cardinalDirections.draw(position);
+    //speakers.draw(position);
     //drawGrid();
     //drawArea();
 }
@@ -80,6 +80,8 @@ void ofApp::draw(){
         }
     }
     tuioAdapter.draw();
+    cardinalDirections.label();
+
     drawCredit();
     
     // syphonAdapter.sendToSyphon();
@@ -87,12 +89,10 @@ void ofApp::draw(){
 //  drawLog();
 }
 
-
-
 void ofApp::drawCredit(){
-    ofSetColor(255);
+    ofSetColor(180);
     FontServer * fontServer = FontServer::getSingleton();
-    fontServer->drawText(ofVec2f(5,10), CREDIT_TEXT);
+    fontServer->drawText(ofVec2f(CREDIT_X,CREDIT_Y), CREDIT_TEXT);
 }
 
 void ofApp::drawLog(){

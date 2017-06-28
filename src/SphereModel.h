@@ -24,15 +24,14 @@ public:
         if(!viewPort.inside(posOnScreen)) return;
         
         ofVec2f captionPos = posOnScreen;
-        captionPos.y -= 200;
+        captionPos.y -= SPHERE_CAPTION_HEIGHT;
         
         ofDrawLine(posOnScreen, captionPos);
         ofDrawCircle(captionPos.x, captionPos.y, BULLET_SIZE);
         captionPos.x += LABEL_INDENT;
         FontServer * fontServer = FontServer::getSingleton();
+        // name += " (" + ofToString(degree) +")"
         fontServer->drawText(captionPos, name);
-        
-
     }
     
     void setRadius(float r){
@@ -41,10 +40,11 @@ public:
     
     void update(const ofVec3f &cameraPos) {
         float distance = position.distance(cameraPos);
+        
         if(distance <= SOUND_DISTANCE_THRESHOLD){
             float ratio = 1.0 - (distance / SOUND_DISTANCE_THRESHOLD);
             setVolume(ratio);
-            setAngle(cameraPos.angle(position));
+            setAngle(calcAngleOn2D(cameraPos, position));
             if(!playing) play();
 
         }else if(distance > SOUND_DISTANCE_THRESHOLD && playing){
@@ -52,10 +52,12 @@ public:
         }
     }
     
+    
 private:
     
     float radius;
     bool playing;
+    int degree;
     
     void play(){
         playing = true;
@@ -75,8 +77,14 @@ private:
     }
     
     void setAngle(float angle){
+        degree = angle;
         SoundEvent soundEvent = SoundEvent(SoundEventType::ANGLE, id, angle);
         ofNotifyEvent(SoundEvent::events, soundEvent);
     }
     
+    float calcAngleOn2D(const ofPoint &p1, const ofPoint &p2){
+        float rad = atan2(p2.z - p1.z, p2.x - p1.x);
+        return rad / PI * 180.0 - 45;
+    }
+
 };

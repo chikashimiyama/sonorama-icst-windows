@@ -241,6 +241,7 @@
 		6226AFBF1EE835F400A40DBD /* SoundEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEvent.cpp; sourceTree = "<group>"; };
 		6226AFC01EE835F400A40DBD /* SoundEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundEvent.hpp; sourceTree = "<group>"; };
 		62B065AC1EE802E700BF0CDD /* SoundEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SoundEngine.hpp; sourceTree = "<group>"; };
+		62C4BBE41EFA8DD60032ABAD /* Speakers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Speakers.hpp; sourceTree = "<group>"; };
 		62DC1F3C1EF41A6900568185 /* Border.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Border.hpp; sourceTree = "<group>"; };
 		62DC1F3E1EF41B2600568185 /* CardinalDirections.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CardinalDirections.hpp; sourceTree = "<group>"; };
 		63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
@@ -685,6 +686,7 @@
 			children = (
 				62DC1F3C1EF41A6900568185 /* Border.hpp */,
 				62DC1F3E1EF41B2600568185 /* CardinalDirections.hpp */,
+				62C4BBE41EFA8DD60032ABAD /* Speakers.hpp */,
 			);
 			name = SpecialModel;
 			sourceTree = "<group>";

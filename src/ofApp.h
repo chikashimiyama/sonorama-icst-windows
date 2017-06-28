@@ -15,6 +15,7 @@
 #include "SoundEngine.hpp"
 #include "Border.hpp"
 #include "CardinalDirections.hpp"
+#include "Speakers.hpp"
 
 class ofApp : public ofBaseApp{
 
@@ -53,6 +54,7 @@ private:
     SyphonAdapter syphonAdapter;
     Border border;
     CardinalDirections cardinalDirections;
+    Speakers speakers;
     ofVec3f position;
 	
 };

@@ -4,6 +4,7 @@
 #define panorama
 #define mini
 
+
 #ifdef mini
 const int WIDTH = 640;
 const int HEIGHT = 360;
@@ -27,7 +28,7 @@ const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(S
 #endif
 
 const float FOV = 360 / NUM_VIEWPORTS;
-
+const int NUM_SPEAKERS = 8;
 
 // touch prompter
 const float BLOB_SIZE = 10.0;
@@ -47,10 +48,10 @@ const int TOUCH_ICON_OFFSET = TOUCH_ICON_DISTANCE / 2;
 
 const std::string PD_PATCH = "pd/main.pd";
 const int TICKS_PER_BUFFER = 8;
-const float SOUND_DISTANCE_THRESHOLD = 2000.0;
+const float SOUND_DISTANCE_THRESHOLD = 1000;
 const std::string PD_RECEIVE_NAME = "fromOF";
 const int NUM_PLAYERS = 64;
-const int SAMPLE_RATE = 44100;
+const int SAMPLE_RATE = 48000;
 
 const int AREA_DIVISION = 50;
 const int NUM_AREA = AREA_DIVISION * AREA_DIVISION;
@@ -78,6 +79,7 @@ const float AREA_RADIUS = 5000;
 
 // sound sphere
 const float CORE_RADIUS = 10;
+const float SPHERE_CAPTION_HEIGHT = 100;
 const ofColor SPHERE_COLOR = ofColor(100,255,255, 40);
 const ofColor CORE_COLOR = ofColor(100,250,255, 255);
 const std::string DATA_BASE_FILE = "sonorama.db";
@@ -95,7 +97,7 @@ const float STREET_LABEL_THRESHOLD = 1500.0;
 
 // font
 const std::string FONT = "zurich.ttf";
-const float FONT_SIZE = 9.5;
+const float FONT_SIZE = 10;
 
 
 // tuio
@@ -113,6 +115,9 @@ const ofColor CIRCLE_COLOR = ofColor(0,255,255,255);
 
 // credit
 const std::string CREDIT_TEXT = "(c) OpenStreetMap";
+const float CREDIT_X = 20;
+const float CREDIT_Y = HEIGHT - 15;
+const ofVec2f CREDIT_POS = ofVec2f(CREDIT_X, CREDIT_Y);
 
 // syphon
 const std::string SYPHON_IP = "224.0.0.1";
