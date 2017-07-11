@@ -11,20 +11,29 @@ public:
     void setup(const std::string &cityName);
     void audioOut(float *output, int bufferSize, int nChannels);
     
-    void startPlayback(int sfID);
-    void stopPlayback(int sfID);
-    void setVolume(int sfID, float volume);
-    void setAngle(int sfID, float angle);
     void print(const std::string &mes);
     void handleEvent(SoundEvent &event);
-    void updateLevels();
+    void update();
     const std::vector<float> &getAmplitude() const{ return amplitude;}
     
 private:
+    void startPlayback(int sfID);
+    void stopPlayback(int sfID);
+
+    void setVolume(int sfID, float vol);
+    void setAngle(int sfID, float ang);
+
+    void updateLevels();
+    void updatePositions();
+    
     void setCity(const std::string &cityname);
 
     ofxPd pd;
+    
+    // vector to be shared with Pd
     std::vector<float> amplitude;
+    std::vector<float> angle;
+    std::vector<float> volume;
 };
 
 
@@ -39,14 +48,28 @@ inline void SoundEngine::setup(const std::string &cityName){
     
     ofAddListener(SoundEvent::events, this, &SoundEngine::handleEvent);
     amplitude.resize(NUM_PLAYERS);
+    angle.resize(NUM_PLAYERS);
+    volume.resize(NUM_PLAYERS);
     
     setCity(cityName);
+}
+
+inline void SoundEngine::update(){
+    updateLevels();
+    updatePositions();
+    
+    pd.sendMessage(PD_RECEIVE_NAME, "update");
+    
 }
 
 inline void SoundEngine::updateLevels(){
     pd.readArray("amplitude", amplitude);
 }
 
+inline void SoundEngine::updatePositions(){
+    pd.writeArray("angle", angle);
+    pd.writeArray("volume", volume);
+}
 
 inline void SoundEngine::handleEvent(SoundEvent &event){
     SoundEventType type = event.getType();
@@ -93,7 +116,7 @@ inline void SoundEngine::stopPlayback(int sfID){
 }
 
 inline void SoundEngine::print(const std::string &mes){
-    ofLog() << mes;
+    ofLog() << "Pd message:" << mes;
 }
 
 inline void SoundEngine::setCity(const std::string &cityname){
@@ -102,18 +125,10 @@ inline void SoundEngine::setCity(const std::string &cityname){
     pd.finishMessage(PD_RECEIVE_NAME, "cityname");
 }
 
-inline void SoundEngine::setVolume(int sfID, float volume){
-    pd.startMessage();
-    pd.addFloat(static_cast<float>(sfID));
-    pd.addSymbol("vol");
-    pd.addFloat(volume);
-    pd.finishList(PD_RECEIVE_NAME);
+inline void SoundEngine::setVolume(int sfID, float vol){
+    volume[sfID] = vol;
 }
 
-inline void SoundEngine::setAngle(int sfID, float angle){
-    pd.startMessage();
-    pd.addFloat(static_cast<float>(sfID));
-    pd.addSymbol("angle");
-    pd.addFloat(angle);
-    pd.finishList(PD_RECEIVE_NAME);
+inline void SoundEngine::setAngle(int sfID, float ang){
+    angle[sfID] = ang;
 }

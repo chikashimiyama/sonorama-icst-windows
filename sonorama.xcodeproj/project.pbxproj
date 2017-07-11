@@ -240,8 +240,10 @@
 		622391B91EE988E2005F9535 /* TouchPrompter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchPrompter.hpp; sourceTree = "<group>"; };
 		6226AFBF1EE835F400A40DBD /* SoundEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEvent.cpp; sourceTree = "<group>"; };
 		6226AFC01EE835F400A40DBD /* SoundEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundEvent.hpp; sourceTree = "<group>"; };
+		6291D7B11F0D143F00EE4AED /* WayController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WayController.hpp; sourceTree = "<group>"; };
 		62B065AC1EE802E700BF0CDD /* SoundEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SoundEngine.hpp; sourceTree = "<group>"; };
 		62C4BBE41EFA8DD60032ABAD /* Speakers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Speakers.hpp; sourceTree = "<group>"; };
+		62D57CB71F05242E0068F65E /* InterSenseController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InterSenseController.hpp; sourceTree = "<group>"; };
 		62DC1F3C1EF41A6900568185 /* Border.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Border.hpp; sourceTree = "<group>"; };
 		62DC1F3E1EF41B2600568185 /* CardinalDirections.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CardinalDirections.hpp; sourceTree = "<group>"; };
 		63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
@@ -582,9 +584,11 @@
 		62B0659E1EE7FA4B00BF0CDD /* Interaction */ = {
 			isa = PBXGroup;
 			children = (
+				6291D7B11F0D143F00EE4AED /* WayController.hpp */,
 				C828FFF228A81A53F586476F /* TuioAdapter.hpp */,
 				28D0BD144AE4A3ABC7144D7A /* Blob.hpp */,
 				622391B91EE988E2005F9535 /* TouchPrompter.hpp */,
+				62D57CB71F05242E0068F65E /* InterSenseController.hpp */,
 			);
 			name = Interaction;
 			sourceTree = "<group>";

@@ -1,16 +1,17 @@
 #pragma once
 
+
+#include <utility>
+
+#define panorama
+#define mini
+
 const std::string CITY_NAME = "karlsruhe";
 //const std::string CITY_NAME = "zurich";
 
 const std::string MAP_DATA_FILE = "maps/" + CITY_NAME+".osm";
 const std::string DATA_BASE_FILE = "pd/soundfiles/"+ CITY_NAME + ".db";
 const std::string SOUND_FILE_PATH = "pd/sounrfiles/"+ CITY_NAME + "/";
-
-#include <utility>
-#define panorama
-#define mini
-
 
 
 #ifdef mini
@@ -22,6 +23,8 @@ const int WIDTH = 1280;
 const int HEIGHT = 720;
 #endif
 
+
+/******* panorama mode *******/
 #ifdef panorama
 const int NUM_VIEWPORTS = 4;
 const int SCREEN_HEIGHT = HEIGHT;
@@ -39,28 +42,8 @@ const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(S
 const float FOV = 360 / NUM_VIEWPORTS;
 const int NUM_SPEAKERS = 2;
 
-// touch prompter
-const float BLOB_SIZE = 10.0;
-const int ABSENCE_TO_DEATH = 5;
-const int BLOB_MATURITY_THRESH = 6;
-const float TOUCH_ICON_VOFFSET = 200;
-const float TOUCH_ICON_SIZE = 70;
 
-const ofColor TOUCH_READY_COLOR = ofColor(170,170,255, 200);
-const ofColor TOUCH_ACTIVE_COLOR = ofColor(255,170,170, 200);
-const ofColor TOUCH_UNAVAILABLE_COLOR = ofColor(80,80,80, 200);
-
-const std::string TOUCH_ICON_IMAGE_FILE = "touch.tiff";
-const int NUMBER_OF_TOUCH_ICONS = 8;
-const int TOUCH_ICON_DISTANCE = SCREEN_WIDTH / NUMBER_OF_TOUCH_ICONS;
-const int TOUCH_ICON_OFFSET = TOUCH_ICON_DISTANCE / 2;
-
-const std::string PD_PATCH = "pd/main.pd";
-const int TICKS_PER_BUFFER = 8;
-const float SOUND_DISTANCE_THRESHOLD = 1000;
-const std::string PD_RECEIVE_NAME = "fromOF";
-const int NUM_PLAYERS = 64;
-const int SAMPLE_RATE = 48000;
+/******* area division for faster rendering *******/
 
 const int AREA_DIVISION = 50;
 const int NUM_AREA = AREA_DIVISION * AREA_DIVISION;
@@ -69,7 +52,7 @@ const float HEIGHT_LIMIT = 1500;
 const float HALF_MAP_SIZE = MAP_SIZE/2.0;
 const float DIVIDER = MAP_SIZE / AREA_DIVISION;
 
-//frustum-camera
+/******* camera setting *******/
 const float CAMERA_HEIGHT = 250;
 const float NEAR_CLIP = 1;
 const float NEAR_H     = 2 * tan(FOV / 2.0) * -NEAR_CLIP;
@@ -86,29 +69,39 @@ const float HALF_FAR_W = FAR_W/2;
 const ofVec3f INITIAL_POS = ofVec3f(0,CAMERA_HEIGHT,0);
 const float AREA_RADIUS = 5000;
 
-// sound sphere
+/******* sound setting *******/
 const float CORE_RADIUS = 10;
 const float SPHERE_CAPTION_HEIGHT = 100;
 const ofColor SPHERE_COLOR = ofColor(100,255,255, 40);
 const ofColor CORE_COLOR = ofColor(100,250,255, 255);
+const std::string PD_PATCH = "pd/main.pd";
+const int TICKS_PER_BUFFER = 8;
+const float SOUND_DISTANCE_THRESHOLD = 2500;
+const std::string PD_RECEIVE_NAME = "fromOF";
+const int NUM_PLAYERS = 64;
+const int SAMPLE_RATE = 48000;
 
-// building
+
+/******* constructions *******/
 const float LEVEL_HEIGHT = 100;
 const float HALF_LEVEL_HEIGHT = LEVEL_HEIGHT / 2;
 const float LABEL_INDENT = 5;
 const float BUILDING_THRESHOLD = 1000.0;
 const float BUILDING_LABEL_THRESHOLD = 700.0;
 const float ANTI_FLICKER_SCALE_DOWN_RATIO = 0.92;
-// street
 const float BULLET_SIZE = 1.5;
 const float STREET_LABEL_THRESHOLD = 1500.0;
 
-// font
+/******* typography *******/
 const std::string FONT = "zurich.ttf";
 const float FONT_SIZE = 10;
 
 
-// tuio
+/******* interaction *******/
+/******* ICST *******/
+
+const bool TUIO_ENABLED = false;
+
 const std::string TRACK_MASTER_IP = "224.0.0.1";
 const int TRACK_MASTER_PORT = 64000;
 const int MY_TUIO_PORT = 23456;
@@ -117,17 +110,34 @@ const float CIRCLE_RADIUS = 55;
 const float HALF_RADIUS = CIRCLE_RADIUS / 2;
 const float CIRCLE_LINE_WIDTH = 2.0;
 const int CIRCLE_RESOLUTION = 40;
+const float BLOB_SIZE = 10.0;
+const int ABSENCE_TO_DEATH = 5;
+const int BLOB_MATURITY_THRESH = 6;
+const float TOUCH_ICON_VOFFSET = 200;
+const float TOUCH_ICON_SIZE = 70;
+
+const ofColor TOUCH_READY_COLOR = ofColor(170,170,255, 200);
+const ofColor TOUCH_ACTIVE_COLOR = ofColor(255,170,170, 200);
+const ofColor TOUCH_UNAVAILABLE_COLOR = ofColor(80,80,80, 200);
+
+const std::string TOUCH_ICON_IMAGE_FILE = "touch.tiff";
+const int NUMBER_OF_TOUCH_ICONS = 8;
+const int TOUCH_ICON_DISTANCE = SCREEN_WIDTH / NUMBER_OF_TOUCH_ICONS;
+const int TOUCH_ICON_OFFSET = TOUCH_ICON_DISTANCE / 2;
 
 const ofColor CIRCLE_COLOR = ofColor(0,255,255,255);
 
+/******* ZKM *******/
+const std::string INERTIA_CUBE_PATH = "/dev/tty.SLAB_USBtoUART";
 
-// credit
+
+/******* credit *******/
 const std::string CREDIT_TEXT = "(c) OpenStreetMap";
 const float CREDIT_X = 20;
 const float CREDIT_Y = HEIGHT - 15;
 const ofVec2f CREDIT_POS = ofVec2f(CREDIT_X, CREDIT_Y);
 
-// syphon
+/******* projection *******/
 const std::string SYPHON_IP = "224.0.0.1";
 const int SYPHON_PORT = 8400;
 

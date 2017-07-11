@@ -30,7 +30,6 @@ public:
         ofDrawCircle(captionPos.x, captionPos.y, BULLET_SIZE);
         captionPos.x += LABEL_INDENT;
         FontServer * fontServer = FontServer::getSingleton();
-        // name += " (" + ofToString(degree) +")"
         fontServer->drawText(captionPos, name);
     }
     
@@ -57,7 +56,6 @@ private:
     
     float radius;
     bool playing;
-    int degree;
     
     void play(){
         playing = true;
@@ -77,7 +75,6 @@ private:
     }
     
     void setAngle(float angle){
-        degree = angle;
         SoundEvent soundEvent = SoundEvent(SoundEventType::ANGLE, id, angle);
         ofNotifyEvent(SoundEvent::events, soundEvent);
     }

@@ -16,6 +16,7 @@
 #include "Border.hpp"
 #include "CardinalDirections.hpp"
 #include "Speakers.hpp"
+#include "InterSenseController.hpp"
 
 class ofApp : public ofBaseApp{
 
@@ -30,13 +31,10 @@ public:
     void drawArea();
     void drawGrid();
     void keyPressed(int key);
-    void keyReleased(int key);
-    void dragEvent(ofDragInfo dragInfo);
-    void gotMessage(ofMessage msg);
     void audioReceived(float * input, int bufferSize, int nChannels);
     void audioRequested(float * output, int bufferSize, int nChannels);
     void warp();
-    
+    void exit();
 private:
     void loadSoundSpheres();
     
@@ -56,5 +54,5 @@ private:
     CardinalDirections cardinalDirections;
     Speakers speakers;
     ofVec3f position;
-	
+    InterSenseControllerThread interSenseControllerThread;
 };

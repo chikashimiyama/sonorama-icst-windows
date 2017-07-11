@@ -49,7 +49,7 @@ public:
         }
     }
 
-    void updateLevel(){
+    void updateLevels(){
         const std::vector<float> &amplitude = soundEngine.getAmplitude();
         
         for(auto &area : distribution){

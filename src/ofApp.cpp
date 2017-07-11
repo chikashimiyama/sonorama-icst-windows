@@ -4,7 +4,7 @@
 #include <tuple>
 #include <array>
 #include "sqlite_modern_cpp.h"
-
+#include "InterSenseController.hpp"
 #pragma mark public functions
 
 ofApp::ofApp():
@@ -25,14 +25,29 @@ void ofApp::setup(){
 		cameras[i].setup(i, position); // ID position
     }
 	
-    tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
+    if(TUIO_ENABLED){
+        tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
+    }else{
+        interSenseControllerThread.startStream();
+    }
+    
     syphonAdapter.setup(SYPHON_IP, SYPHON_PORT);
-
+    ofSetFrameRate(30);
+        
+    
 }
 
 void ofApp::update(){
-    tuioAdapter.processReceivedOSCMessages();
-	tuioAdapter.evaluateTouch();
+    if(TUIO_ENABLED){
+        tuioAdapter.processReceivedOSCMessages();
+        tuioAdapter.evaluateTouch();
+    }else{
+        position.z += interSenseControllerThread.getLeftRight();
+        position.x += interSenseControllerThread.getFrontBack();
+        soundSphereController.updateSound(position);
+
+    }
+    
     ofVec3f pos = cameraGroup.getPosition();
     currentArea = getArea(pos);
     
@@ -41,9 +56,9 @@ void ofApp::update(){
         camera.update();
     }
     
-    soundEngine.updateLevels();
-    soundSphereController.updateLevel();
-    
+    soundEngine.update();
+    soundSphereController.updateLevels();
+
     warp();
     
 }
@@ -58,6 +73,8 @@ void ofApp::drawContent(const Camera &camera){
     mapDataController.draw(camera);
     soundSphereController.draw();
     border.draw();
+    
+
     //speakers.draw(position);
     //drawGrid();
     //drawArea();
@@ -79,7 +96,10 @@ void ofApp::draw(){
             mapDataController.label(cameras[i]);
         }
     }
-    tuioAdapter.draw();
+    
+    
+    if(TUIO_ENABLED) tuioAdapter.draw();
+    
     cardinalDirections.label();
 
     drawCredit();
@@ -161,17 +181,7 @@ void ofApp::keyPressed(int key){
     soundSphereController.updateSound(position);
 }
 
-void ofApp::keyReleased(int key){
 
-}
-
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
 
 #pragma mark private functions
 
@@ -211,6 +221,13 @@ void ofApp::loadSoundSpheres(){
         tags.emplace("location", location);
         soundSphereController.add(num, position, tags);
     };
+}
+
+void ofApp::exit(){
+    if(!TUIO_ENABLED){
+        interSenseControllerThread.stopStream();
+        interSenseControllerThread.close();
+    }
 }
 
 
