@@ -43,6 +43,7 @@
 #X obj 115 67 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 271 76 1;
+#X obj 113 101 del 3;
 #X connect 0 0 4 0;
 #X connect 0 1 5 0;
 #X connect 0 2 6 0;
@@ -95,7 +96,8 @@
 #X connect 38 0 22 0;
 #X connect 39 0 35 0;
 #X connect 39 0 34 0;
-#X connect 40 0 34 0;
-#X connect 40 0 35 0;
 #X connect 40 0 41 0;
+#X connect 40 0 42 0;
 #X connect 41 0 22 0;
+#X connect 42 0 34 0;
+#X connect 42 0 35 0;

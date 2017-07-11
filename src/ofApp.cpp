@@ -48,9 +48,7 @@ void ofApp::update(){
 
     }
     
-    ofVec3f pos = cameraGroup.getPosition();
-    currentArea = getArea(pos);
-    
+    currentArea = getArea(position);
     for(auto &camera: cameras){
         camera.setPosition(position);
         camera.update();
@@ -197,11 +195,7 @@ void ofApp::glSetup(){
         cameras[i].setAspectRatio(ASPECT_RATIO);
         cameras[i].rotate(-90*i,0,1,0);
     }
-    
-    debugCam.setNearClip(1);
-    debugCam.setFarClip(10000);
-    debugCam.disableMouseInput();
-    
+
     ofSetFrameRate(30);
     viewports[0] = ofRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     

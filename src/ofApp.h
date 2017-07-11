@@ -38,8 +38,6 @@ public:
 private:
     void loadSoundSpheres();
     
-    ofEasyCam debugCam;
-    ofNode cameraGroup;
     std::array<Camera, NUM_VIEWPORTS> cameras;
     bool debug;
     std::pair<bool,int> currentArea;
