@@ -52,6 +52,7 @@ inline void SoundEngine::setup(const std::string &cityName){
     volume.resize(NUM_PLAYERS);
     
     setCity(cityName);
+    
 }
 
 inline void SoundEngine::update(){

@@ -18,7 +18,10 @@ public:
     
     
     void threadedFunction(){
-        
+        if(!serial.isInitialized()){
+            ofLog() << "Serial device unavailable. abort thread.";
+            return;
+        }
         while(isThreadRunning()){
             while(serial.available() > 0){
                 int byte = serial.readByte();
