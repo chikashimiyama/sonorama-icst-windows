@@ -76,9 +76,9 @@ const ofColor SPHERE_COLOR = ofColor(100,255,255, 40);
 const ofColor CORE_COLOR = ofColor(100,250,255, 255);
 const std::string PD_PATCH = "pd/main.pd";
 const int TICKS_PER_BUFFER = 8;
-const float SOUND_DISTANCE_THRESHOLD = 2500;
+const float SOUND_DISTANCE_THRESHOLD = 1750;
 const std::string PD_RECEIVE_NAME = "fromOF";
-const int NUM_PLAYERS = 64;
+const int NUM_PLAYERS = 85;
 const int SAMPLE_RATE = 48000;
 
 

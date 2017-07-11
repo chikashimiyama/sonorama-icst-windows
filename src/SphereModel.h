@@ -42,6 +42,9 @@ public:
         
         if(distance <= SOUND_DISTANCE_THRESHOLD){
             float ratio = 1.0 - (distance / SOUND_DISTANCE_THRESHOLD);
+            if(ratio < 0.0){
+                ofLog() << "negative";
+            }
             setVolume(ratio);
             setAngle(calcAngleOn2D(cameraPos, position));
             if(!playing) play();

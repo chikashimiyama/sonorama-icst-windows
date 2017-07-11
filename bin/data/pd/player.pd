@@ -1,4 +1,4 @@
-#N canvas 610 469 698 556 10;
+#N canvas 489 297 698 556 10;
 #X obj 193 447 pan, f 20;
 #X obj 130 -39 inlet, f 7;
 #X floatatom 481 378 5 0 0 0 - - -, f 5;
@@ -29,7 +29,7 @@
 #X obj 310 417 - 45;
 #X obj 480 224 tabread angle;
 #X obj 444 171 f \$1;
-#X obj 373 223 tabread volume;
+#X obj 372 206 tabread volume;
 #X obj 130 -8 route start stop, f 18;
 #X obj 444 129 r update;
 #X obj 480 263 change;
@@ -43,7 +43,6 @@
 #X obj 115 67 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 271 76 1;
-#X obj 113 101 del 3;
 #X connect 0 0 4 0;
 #X connect 0 1 5 0;
 #X connect 0 2 6 0;
@@ -90,6 +89,7 @@
 #X connect 32 0 2 0;
 #X connect 33 0 24 0;
 #X connect 34 0 16 0;
+#X connect 34 1 40 0;
 #X connect 35 0 17 0;
 #X connect 36 0 18 0;
 #X connect 37 0 38 0;
@@ -97,7 +97,6 @@
 #X connect 39 0 35 0;
 #X connect 39 0 34 0;
 #X connect 40 0 41 0;
-#X connect 40 0 42 0;
+#X connect 40 0 34 0;
+#X connect 40 0 35 0;
 #X connect 41 0 22 0;
-#X connect 42 0 34 0;
-#X connect 42 0 35 0;
