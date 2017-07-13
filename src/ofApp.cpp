@@ -11,6 +11,7 @@ ofApp::ofApp():
 soundSphereController(soundEngine){}
 
 void ofApp::setup(){
+	ofSetWindowPosition(-1200, 10);
 
     glSetup();
     loadSoundSpheres();
@@ -27,27 +28,34 @@ void ofApp::setup(){
 	
     if(TUIO_ENABLED){
         tuioAdapter.setup(TRACK_MASTER_IP, TRACK_MASTER_PORT, MY_TUIO_PORT);
-    }else{
+    }else if(INTER_SENSE_ENABLED){
         interSenseControllerThread.startStream();
     }
     
     syphonAdapter.setup(SYPHON_IP, SYPHON_PORT);
-    ofSetFrameRate(30);
-        
+	ofAddListener(TuioAdapter::moveEvent, this, &ofApp::onMoveEvent);
     
 }
+
+void ofApp::onMoveEvent(ofVec2f &movement){
+	float radian = (movement.x/4.0 - 0.5) * TWO_PI;
+	float z = cos(radian);
+	float x = sin(radian);
+	ofLog() << "radian" << radian << " z:" << z << " x:" << x;
+	position.z += z;
+	position.x += x;
+}
+
 
 void ofApp::update(){
     if(TUIO_ENABLED){
         tuioAdapter.processReceivedOSCMessages();
-        tuioAdapter.evaluateTouch();
-    }else{
+    }else if(INTER_SENSE_ENABLED){
         position.z += interSenseControllerThread.getLeftRight();
         position.x += interSenseControllerThread.getFrontBack();
-        soundSphereController.updateSound(position);
-
     }
-    
+	soundSphereController.updateSound(position);
+
     currentArea = getArea(position);
     for(auto &camera: cameras){
         camera.setPosition(position);
@@ -58,7 +66,7 @@ void ofApp::update(){
     soundSphereController.updateLevels();
 
     warp();
-    
+	
 }
 
 void ofApp::warp(){
@@ -79,7 +87,10 @@ void ofApp::drawContent(const Camera &camera){
 }
 
 void ofApp::draw(){
-  
+	
+	//begin captureing to FBO
+	syphonAdapter.begin();
+	ofClear(0);
     for(int i = 0; i < NUM_VIEWPORTS; i++){
         ofPushView();
             ofViewport(ofRectangle(WIDTH * i, 0, WIDTH, SCREEN_HEIGHT));
@@ -97,10 +108,10 @@ void ofApp::draw(){
     
     
     if(TUIO_ENABLED) tuioAdapter.draw();
-    
     cardinalDirections.label();
-
     drawCredit();
+	syphonAdapter.end();
+	
     syphonAdapter.sendToSyphon();
 
 //  drawLog();
@@ -197,7 +208,7 @@ void ofApp::glSetup(){
 
     ofSetFrameRate(30);
     viewports[0] = ofRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    
+	
 }
 
 void ofApp::loadSoundSpheres(){
@@ -217,7 +228,7 @@ void ofApp::loadSoundSpheres(){
 }
 
 void ofApp::exit(){
-    if(!TUIO_ENABLED){
+    if(INTER_SENSE_ENABLED){
         interSenseControllerThread.stopStream();
         interSenseControllerThread.close();
     }

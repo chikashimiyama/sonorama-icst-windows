@@ -4,7 +4,7 @@
 #include <utility>
 
 #define panorama
-#define mini
+//#define mini
 
 //const std::string CITY_NAME = "karlsruhe";
 const std::string CITY_NAME = "zurich";
@@ -40,7 +40,7 @@ const float ASPECT_RATIO = static_cast<float>(SCREEN_WIDTH)/static_cast<float>(S
 #endif
 
 const float FOV = 360 / NUM_VIEWPORTS;
-const int NUM_SPEAKERS = 2;
+const int NUM_SPEAKERS = 16;
 
 
 /******* area division for faster rendering *******/
@@ -78,7 +78,7 @@ const std::string PD_PATCH = "pd/main.pd";
 const int TICKS_PER_BUFFER = 8;
 const float SOUND_DISTANCE_THRESHOLD = 1750;
 const std::string PD_RECEIVE_NAME = "fromOF";
-const int NUM_PLAYERS = 85;
+const int NUM_PLAYERS = 71;
 const int SAMPLE_RATE = 48000;
 
 
@@ -101,18 +101,16 @@ const float FONT_SIZE = 10;
 /******* ICST *******/
 
 const bool TUIO_ENABLED = true;
+const bool INTER_SENSE_ENABLED = false;
 
 const std::string TRACK_MASTER_IP = "224.0.0.1";
 const int TRACK_MASTER_PORT = 64000;
 const int MY_TUIO_PORT = 23456;
-const int MAX_BLOBS = 96;
 const float CIRCLE_RADIUS = 55;
 const float HALF_RADIUS = CIRCLE_RADIUS / 2;
 const float CIRCLE_LINE_WIDTH = 2.0;
 const int CIRCLE_RESOLUTION = 40;
-const float BLOB_SIZE = 10.0;
 const int ABSENCE_TO_DEATH = 5;
-const int BLOB_MATURITY_THRESH = 6;
 const float TOUCH_ICON_VOFFSET = 200;
 const float TOUCH_ICON_SIZE = 70;
 

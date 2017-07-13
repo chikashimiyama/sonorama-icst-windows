@@ -8,8 +8,10 @@ class InterSenseControllerThread : public ofThread{
     
 public:
     InterSenseControllerThread(){
-        
-        if(!serial.setup(INERTIA_CUBE_PATH, 115200)){
+		if(!INTER_SENSE_ENABLED)return;
+		
+		
+		if(!serial.setup(INERTIA_CUBE_PATH, 115200)){
             ofLog(OF_LOG_ERROR) << "could not open serial port";
         }else{
             ofLog() << "opened serial port";

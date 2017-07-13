@@ -8,7 +8,9 @@ class SyphonAdapter{
 public:
     void setup(std::string syphonIP, int syphonPort){
         syphonServer.setName("sonorama");
-        
+
+		fbo.allocate(SCREEN_WIDTH, SCREEN_HEIGHT, GL_RGBA);
+
         oscSender.setup(syphonIP, syphonPort);
         ofxOscMessage mes;
         mes.setAddress( "/SwitchSyphonClient" );
@@ -17,12 +19,18 @@ public:
         mes.addFloatArg( 1.0 );
         oscSender.sendMessage( mes );
         
-        texture.allocate(SCREEN_WIDTH, SCREEN_HEIGHT, GL_RGBA);
     }
-    
+	
+	void begin()noexcept{
+		fbo.begin();
+	}
+	
+	void end() noexcept{
+		fbo.end();
+	}
+	
     void sendToSyphon(){
-        texture.loadScreenData(0,0, SCREEN_WIDTH, SCREEN_HEIGHT);
-        syphonServer.publishTexture(&texture);
+        syphonServer.publishTexture(&fbo.getTexture());
     }
 private:
     ofTexture syphonTexture;
@@ -30,5 +38,5 @@ private:
     ofxOscSender oscSender;
     std::string sendIP;
     int sendPort;
-    ofTexture texture;
+    ofFbo fbo;
 };

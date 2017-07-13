@@ -35,6 +35,9 @@ public:
     void audioRequested(float * output, int bufferSize, int nChannels);
     void warp();
     void exit();
+	
+	void onMoveEvent(ofVec2f &movement);
+
 private:
     void loadSoundSpheres();
     
