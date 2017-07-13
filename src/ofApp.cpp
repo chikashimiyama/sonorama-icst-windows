@@ -101,8 +101,7 @@ void ofApp::draw(){
     cardinalDirections.label();
 
     drawCredit();
-    
-    // syphonAdapter.sendToSyphon();
+    syphonAdapter.sendToSyphon();
 
 //  drawLog();
 }

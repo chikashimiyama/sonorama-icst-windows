@@ -46,6 +46,7 @@ private:
         ofxOscMessage m;
         m.setAddress( "/trackerMaster/requestTuiostream" );
         m.addIntArg( MY_TUIO_PORT );
+        m.addIntArg( 1 );
         oscSender.sendMessage( m );
     }
     

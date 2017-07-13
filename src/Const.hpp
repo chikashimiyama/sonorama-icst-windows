@@ -6,8 +6,8 @@
 #define panorama
 #define mini
 
-const std::string CITY_NAME = "karlsruhe";
-//const std::string CITY_NAME = "zurich";
+//const std::string CITY_NAME = "karlsruhe";
+const std::string CITY_NAME = "zurich";
 
 const std::string MAP_DATA_FILE = "maps/" + CITY_NAME+".osm";
 const std::string DATA_BASE_FILE = "pd/soundfiles/"+ CITY_NAME + ".db";
@@ -100,7 +100,7 @@ const float FONT_SIZE = 10;
 /******* interaction *******/
 /******* ICST *******/
 
-const bool TUIO_ENABLED = false;
+const bool TUIO_ENABLED = true;
 
 const std::string TRACK_MASTER_IP = "224.0.0.1";
 const int TRACK_MASTER_PORT = 64000;
