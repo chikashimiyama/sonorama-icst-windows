@@ -8,17 +8,26 @@
 class SoundEngine : public pd::PdReceiver{
     
 public:
-	SoundEngine():numActivePlayers(0){}
+	SoundEngine():
+	numActivePlayers(0),
+	masterVolume(0.8){}
 	
     void setup(const std::string &cityName);
     void audioOut(float *output, int bufferSize, int nChannels);
-    
+	
+
+	
     void print(const std::string &mes);
     void handleEvent(SoundEvent &event);
     void update();
     const std::vector<float> &getAmplitude() const{ return amplitude;}
 	
 	size_t getNumberOfActivePlayers() const noexcept{return numActivePlayers;}
+	float getMasterVolume() const noexcept{return masterVolume;}
+	
+	void louder();
+	void softer();
+
 private:
     void startPlayback(int sfID);
     void stopPlayback(int sfID);
@@ -28,7 +37,8 @@ private:
 
     void updateLevels();
     void updatePositions();
-    
+	void updateMasterVolume();
+
     void setCity(const std::string &cityname);
 
     ofxPd pd;
@@ -38,6 +48,7 @@ private:
     std::vector<float> angle;
     std::vector<float> volume;
 	
+	float masterVolume;
 	size_t numActivePlayers;
 };
 
@@ -141,3 +152,22 @@ inline void SoundEngine::setVolume(int sfID, float vol){
 inline void SoundEngine::setAngle(int sfID, float ang){
     angle[sfID] = ang;
 }
+
+inline void SoundEngine::updateMasterVolume(){
+	pd.startMessage();
+	pd.addFloat(masterVolume);
+	pd.finishMessage(PD_RECEIVE_NAME, "master");
+}
+
+inline void SoundEngine::louder(){
+	masterVolume += 0.05;
+	masterVolume = ofClamp(masterVolume, 0, 1);
+	updateMasterVolume();
+}
+
+inline void SoundEngine::softer(){
+	masterVolume -= 0.05;
+	masterVolume = ofClamp(masterVolume, 0, 1);
+	updateMasterVolume();
+}
+

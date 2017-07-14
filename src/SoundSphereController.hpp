@@ -1,3 +1,5 @@
+#pragma once
+
 #include "ofMain.h"
 #include "Camera.hpp"
 #include "SphereModel.h"
@@ -61,9 +63,7 @@ public:
         }
     }
 	
-	size_t getNumberOfActiveSpheres() const noexcept{
-		return soundEngine.getNumberOfActivePlayers();
-	}
+
     
 private:
     const SoundEngine &soundEngine;

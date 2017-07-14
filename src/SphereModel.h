@@ -1,3 +1,5 @@
+
+#pragma once
 #include "SoundEvent.hpp"
 
 class SphereModel : public Model{

@@ -9,7 +9,7 @@
 
 ofApp::ofApp():
 soundSphereController(soundEngine),
-logger(cameras, soundSphereController){
+logger(cameras, soundSphereController, soundEngine){
 }
 
 void ofApp::setup(){
@@ -179,6 +179,14 @@ void ofApp::keyPressed(int key){
 		case 'u':
 			syphonAdapter.connectSyphon();
 			break;
+		case '>':{
+			soundEngine.louder();
+			break;
+		}
+		case '<':{
+			soundEngine.softer();
+			break;
+		}
         default:
             return;
     }

@@ -2,11 +2,13 @@
 #include "ofMain.h"
 #include "Const.hpp"
 #include "Camera.hpp"
+#include "SoundSphereController.hpp"
+#include "SoundEngine.hpp"
 
 class Logger{
 	
 public:
-	Logger(const std::array<Camera, NUM_VIEWPORTS> &cameras, const SoundSphereController &soundSphereController);
+	Logger(const std::array<Camera, NUM_VIEWPORTS> &cameras, const SoundSphereController &soundSphereController, const SoundEngine &soundEngine);
 	void update() noexcept;
 	void draw() const noexcept;
 	void onMoveEvent(ofVec2f &mov);
@@ -15,6 +17,7 @@ protected:
 	std::string log;
 	const std::array<Camera, NUM_VIEWPORTS> &cameras;
 	const SoundSphereController &soundSphereController;
+	const SoundEngine &soundEngine;
 private:
 	std::string getCameraLog() const noexcept;
 	std::string getTouchLog() const noexcept;
@@ -25,10 +28,11 @@ private:
 	ofVec2f movement;
 };
 
-inline Logger::Logger(const std::array<Camera, NUM_VIEWPORTS> &cameras, const SoundSphereController &soundSphereController):
+inline Logger::Logger(const std::array<Camera, NUM_VIEWPORTS> &cameras, const SoundSphereController &soundSphereController, const SoundEngine &soundEngine):
 cameras(cameras),
 movement(ofVec2f(0,0)),
-soundSphereController(soundSphereController){
+soundSphereController(soundSphereController),
+soundEngine(soundEngine){
 
 	ofAddListener(TuioAdapter::moveEvent, this, &Logger::onMoveEvent);
 }
@@ -88,8 +92,10 @@ inline std::string Logger::getTouchLog() const noexcept{
 inline std::string Logger::getSoundLog() const noexcept{
 	std::string soundLog ="Sound Spheres:\n";
 	
-	size_t active = soundSphereController.getNumberOfActiveSpheres();
+	size_t active = soundEngine.getNumberOfActivePlayers();
+	float masterVolume = soundEngine.getMasterVolume();
 	soundLog += "   Active spheres: " + ofToString(active);
+	soundLog += "   Master volume: " + ofToString(soundEngine.getMasterVolume());
 	soundLog += "\n\n";
 	return std::move(soundLog);
 }
@@ -101,7 +107,7 @@ inline std::string Logger::getFPSLog() const noexcept{
 }
 
 inline std::string Logger::getManualNavigation() const noexcept{
-	std::string navi = "Key commands: \n   w ... to north\n   a ... to west\n   s ... to south\n   d ... to east\n   u ... reconnect to syphon";
+	std::string navi = "Key commands: \n   w ... to north\n   a ... to west\n   s ... to south\n   d ... to east\n   u ... reconnect to syphon\n   < ... volume softer\n   > ... volume louder";
 	navi += "\n";
 	return std::move(navi);
 }
