@@ -56,7 +56,7 @@ public:
             for(auto &model :area){
                 SphereModel * sphereModel = static_cast<SphereModel*>(model.get());
                 auto idNumber = sphereModel->getId();
-                sphereModel->setRadius(amplitude[idNumber]);
+                sphereModel->setRadius(amplitude[idNumber] * SPHERE_SCALE);
             }
         }
     }

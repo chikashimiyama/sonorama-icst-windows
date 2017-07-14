@@ -56,4 +56,6 @@ private:
     Speakers speakers;
     ofVec3f position;
     InterSenseControllerThread interSenseControllerThread;
+	
+	std::string log;
 };

@@ -8,13 +8,13 @@ class CardinalDirections{
 public:
 
     
-    const std::string direction = "ENWS";
+	const std::array<std::string,4>  directions = {{"South", "West", "North", "East"}};
     void label(){
-        ofSetColor(TOUCH_READY_COLOR);
+        ofSetColor(255);
         FontServer *fontServer = FontServer::getSingleton();
-        float offset = WIDTH / 2.0;
+        float offset = 5;
         for(int i = 0; i < 4; i++){
-            fontServer->drawText(ofVec2f(offset, 20), direction.substr(i,1));
+            fontServer->drawText(ofVec2f(offset, 20), directions[i]);
             offset+=WIDTH;
         }
     }

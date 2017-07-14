@@ -39,13 +39,19 @@ void ofApp::setup(){
 
 void ofApp::onMoveEvent(ofVec2f &movement){
 	float radian = (movement.x/4.0 - 0.5) * TWO_PI;
-	float z = cos(radian);
-	float x = sin(radian);
-	ofLog() << "radian" << radian << " z:" << z << " x:" << x;
+	float y = (movement.y - 0.5) * -2.0;
+	float z = cos(radian) * TOUCH_TO_MOVE;
+	float x = -sin(radian) * TOUCH_TO_MOVE;
+	
+	log = std::string("radian: ") + ofToString(radian) + "\nz: " + ofToString(z) + "\nx: " + ofToString(x);
+	
 	position.z += z;
 	position.x += x;
+	position.y += y;
+	
+	position.y = ofClamp(position.y, 200, 500);
+	
 }
-
 
 void ofApp::update(){
     if(TUIO_ENABLED){
@@ -111,10 +117,10 @@ void ofApp::draw(){
     cardinalDirections.label();
     drawCredit();
 	syphonAdapter.end();
-	
-    syphonAdapter.sendToSyphon();
+	syphonAdapter.sendToSyphon();
 
-//  drawLog();
+	// on console screen
+	drawLog();
 }
 
 void ofApp::drawCredit(){
@@ -124,17 +130,10 @@ void ofApp::drawCredit(){
 }
 
 void ofApp::drawLog(){
-    FontServer * fontServer = FontServer::getSingleton();
-    std::tuple<bool,int,int> areaXY = areaToXY(currentArea);
-    if(std::get<0>(areaXY)){
-        int x = std::get<1>(areaXY);
-        int y = std::get<2>(areaXY);
-        std::string str = "x:" + ofToString(x) + " y:" + ofToString(y);
-        ofSetColor(ofColor::white);
-        fontServer->drawText(ofVec2f(10,20), str);
-//        fontServer->drawText(ofVec2f(10,40), ofToString(camera.getPosition()));
-//        fontServer->drawText(ofVec2f(10,60), "visible area: " + ofToString(camera.getNumVisibleAreas()));
-    }
+	if(!log.empty()){
+		ofDrawBitmapString(log,50,100);
+		log.clear();
+	}
 }
 
 void ofApp::drawGrid(){
@@ -203,7 +202,7 @@ void ofApp::glSetup(){
         cameras[i].setFov(FOV);
         cameras[i].setForceAspectRatio(true);
         cameras[i].setAspectRatio(ASPECT_RATIO);
-        cameras[i].rotate(-90*i,0,1,0);
+        cameras[i].rotate(-90*i -45,0,1,0);
     }
 
     ofSetFrameRate(30);

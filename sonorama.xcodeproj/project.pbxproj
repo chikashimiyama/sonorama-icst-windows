@@ -74,6 +74,7 @@
 		879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */; };
 		87DBAD2CF0EF3C931CA0EB27 /* m_class.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FE113A1032ECB638E24AF1C /* m_class.c */; };
 		89A7DDAAC596E94D0BC906E0 /* m_binbuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 11FDFBEE0118F4F0FFBC8F4B /* m_binbuf.c */; };
+		89B875481F17D3210053E41F /* TuioAdapter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89B875471F17D3210053E41F /* TuioAdapter.cpp */; };
 		8A66555E250D916BE02C75B9 /* x_scalar.c in Sources */ = {isa = PBXBuildFile; fileRef = BC8923D9E506707DE397F553 /* x_scalar.c */; };
 		8C4791DC1966643B8C91552B /* d_dac.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F51CC084414F693A2BDD127 /* d_dac.c */; };
 		8D0AE1788C0B1BE0DBF2D219 /* x_gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 51D837462D91A0E2799F53D4 /* x_gui.c */; };
@@ -197,7 +198,6 @@
 		2834D88A62CD23F3DE2C47D1 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxButton.h; path = ../../../addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
 		28774F114D90A84348384CBA /* m_sched.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = m_sched.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/m_sched.c"; sourceTree = SOURCE_ROOT; };
 		288F7169CFEB722BB4EEAF07 /* m_conf.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = m_conf.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/m_conf.c"; sourceTree = SOURCE_ROOT; };
-		28D0BD144AE4A3ABC7144D7A /* Blob.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Blob.hpp; path = src/Blob.hpp; sourceTree = SOURCE_ROOT; };
 		2BCE517343637B7D81B1DEB4 /* s_utf8.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = s_utf8.h; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/s_utf8.h"; sourceTree = SOURCE_ROOT; };
 		2BFCC35A339F99DA2DD9A047 /* s_path.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = s_path.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/s_path.c"; sourceTree = SOURCE_ROOT; };
 		2C9954F28EA0AA54DDDEBF9D /* ringbuffer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ringbuffer.h; path = ../../../addons/ofxPd/libs/libpd/libpd_wrapper/util/ringbuffer.h; sourceTree = SOURCE_ROOT; };
@@ -237,7 +237,6 @@
 		59F628DE75E715DA81DABB03 /* d_resample.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = d_resample.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/d_resample.c"; sourceTree = SOURCE_ROOT; };
 		5FDBB0B1AB551B8E8BAB7EFE /* ModelController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ModelController.hpp; path = src/ModelController.hpp; sourceTree = SOURCE_ROOT; };
 		617194FA95231E474992737C /* g_traversal.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = g_traversal.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/src/g_traversal.c"; sourceTree = SOURCE_ROOT; };
-		622391B91EE988E2005F9535 /* TouchPrompter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchPrompter.hpp; sourceTree = "<group>"; };
 		6226AFBF1EE835F400A40DBD /* SoundEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEvent.cpp; sourceTree = "<group>"; };
 		6226AFC01EE835F400A40DBD /* SoundEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundEvent.hpp; sourceTree = "<group>"; };
 		6291D7B11F0D143F00EE4AED /* WayController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WayController.hpp; sourceTree = "<group>"; };
@@ -275,6 +274,7 @@
 		87C6F9279A2560DDAC6D0B2D /* fiddle~.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = "fiddle~.c"; path = "../../../addons/ofxPd/libs/libpd/pure-data/extra/fiddle~/fiddle~.c"; sourceTree = SOURCE_ROOT; };
 		87F26B4B24CBD428AD9EEBAA /* ofxBaseGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBaseGui.h; path = ../../../addons/ofxGui/src/ofxBaseGui.h; sourceTree = SOURCE_ROOT; };
 		89449E3044D456F7DE7BEA14 /* ofxPanel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxPanel.h; path = ../../../addons/ofxGui/src/ofxPanel.h; sourceTree = SOURCE_ROOT; };
+		89B875471F17D3210053E41F /* TuioAdapter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TuioAdapter.cpp; sourceTree = "<group>"; };
 		89F84ADD268FA369026A2843 /* pdsched.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = pdsched.c; path = "../../../addons/ofxPd/libs/libpd/pure-data/extra/pd~/pdsched.c"; sourceTree = SOURCE_ROOT; };
 		8B25670AEE747862AA563976 /* WayController.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = WayController.hpp; path = src/WayController.hpp; sourceTree = SOURCE_ROOT; };
 		8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscBundle.h; path = ../../../addons/ofxOsc/src/ofxOscBundle.h; sourceTree = SOURCE_ROOT; };
@@ -584,11 +584,9 @@
 		62B0659E1EE7FA4B00BF0CDD /* Interaction */ = {
 			isa = PBXGroup;
 			children = (
-				6291D7B11F0D143F00EE4AED /* WayController.hpp */,
 				C828FFF228A81A53F586476F /* TuioAdapter.hpp */,
-				28D0BD144AE4A3ABC7144D7A /* Blob.hpp */,
-				622391B91EE988E2005F9535 /* TouchPrompter.hpp */,
 				62D57CB71F05242E0068F65E /* InterSenseController.hpp */,
+				89B875471F17D3210053E41F /* TuioAdapter.cpp */,
 			);
 			name = Interaction;
 			sourceTree = "<group>";
@@ -596,6 +594,7 @@
 		62B065A01EE7FA7100BF0CDD /* city */ = {
 			isa = PBXGroup;
 			children = (
+				6291D7B11F0D143F00EE4AED /* WayController.hpp */,
 				62B065A71EE7FB6600BF0CDD /* Renderer */,
 				62B065AA1EE7FB7C00BF0CDD /* Models */,
 				62B065A91EE7FB7300BF0CDD /* Controller */,
@@ -1185,6 +1184,7 @@
 				A7F75B701E2BF4C71379D4A4 /* bob~.c in Sources */,
 				90F3886C34910F6655634FDB /* bonk~.c in Sources */,
 				AB6A1E0EB79546A10936EAC0 /* choice.c in Sources */,
+				89B875481F17D3210053E41F /* TuioAdapter.cpp in Sources */,
 				1D7B9BAA73D029B7D342BD10 /* fiddle~.c in Sources */,
 				717BB86366F08623F5524BDF /* loop~.c in Sources */,
 				1EC960D751D8E0563978C717 /* lrshift~.c in Sources */,

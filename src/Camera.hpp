@@ -90,7 +90,6 @@ private:
         }
     }
 
-    
     Plane top;
     Plane bottom;
     Plane left;

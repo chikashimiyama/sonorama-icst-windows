@@ -47,8 +47,8 @@ const int NUM_SPEAKERS = 16;
 
 const int AREA_DIVISION = 50;
 const int NUM_AREA = AREA_DIVISION * AREA_DIVISION;
-const float MAP_SIZE = 10000.0;
-const float HEIGHT_LIMIT = 1500;
+const float MAP_SIZE = 25000;
+const float HEIGHT_LIMIT = 2500;
 const float HALF_MAP_SIZE = MAP_SIZE/2.0;
 const float DIVIDER = MAP_SIZE / AREA_DIVISION;
 
@@ -60,41 +60,38 @@ const float NEAR_W     = NEAR_H * ASPECT_RATIO;
 const float HALF_NEAR_H = NEAR_H/2;
 const float HALF_NEAR_W = NEAR_W/2;
 
-const float FAR_CLIP = 20000;
-const float LABEL_FAR_CLIP = 1000;
+const float FAR_CLIP = 400000;
+const float LABEL_FAR_CLIP = 3000;
 const float FAR_H      = 2 * tan(FOV / 2.0) * -LABEL_FAR_CLIP;
 const float FAR_W      = FAR_H * ASPECT_RATIO;
 const float HALF_FAR_H = FAR_H/2;
 const float HALF_FAR_W = FAR_W/2;
 const ofVec3f INITIAL_POS = ofVec3f(0,CAMERA_HEIGHT,0);
-const float AREA_RADIUS = 5000;
+const float AREA_RADIUS = 20000;
 
 /******* sound setting *******/
 const float CORE_RADIUS = 10;
-const float SPHERE_CAPTION_HEIGHT = 100;
+const float SPHERE_SCALE = 2.0;
+const float SPHERE_CAPTION_HEIGHT = 120;
 const ofColor SPHERE_COLOR = ofColor(100,255,255, 40);
 const ofColor CORE_COLOR = ofColor(100,250,255, 255);
 const std::string PD_PATCH = "pd/main.pd";
 const int TICKS_PER_BUFFER = 8;
-const float SOUND_DISTANCE_THRESHOLD = 1750;
+const float SOUND_DISTANCE_THRESHOLD = 2500;
 const std::string PD_RECEIVE_NAME = "fromOF";
 const int NUM_PLAYERS = 71;
 const int SAMPLE_RATE = 48000;
 
 
 /******* constructions *******/
-const float LEVEL_HEIGHT = 100;
-const float HALF_LEVEL_HEIGHT = LEVEL_HEIGHT / 2;
+const float LEVEL_HEIGHT = 300;
 const float LABEL_INDENT = 5;
-const float BUILDING_THRESHOLD = 1000.0;
-const float BUILDING_LABEL_THRESHOLD = 700.0;
-const float ANTI_FLICKER_SCALE_DOWN_RATIO = 0.92;
-const float BULLET_SIZE = 1.5;
-const float STREET_LABEL_THRESHOLD = 1500.0;
+const float ANTI_FLICKER_SCALE_DOWN_RATIO = 0.93;
+const float BULLET_SIZE = 2;
 
 /******* typography *******/
 const std::string FONT = "zurich.ttf";
-const float FONT_SIZE = 10;
+const float FONT_SIZE = 12;
 
 
 /******* interaction *******/
@@ -102,29 +99,12 @@ const float FONT_SIZE = 10;
 
 const bool TUIO_ENABLED = true;
 const bool INTER_SENSE_ENABLED = false;
+const int CIRCLE_RESOLUTION = 50;
 
 const std::string TRACK_MASTER_IP = "224.0.0.1";
 const int TRACK_MASTER_PORT = 64000;
 const int MY_TUIO_PORT = 23456;
-const float CIRCLE_RADIUS = 55;
-const float HALF_RADIUS = CIRCLE_RADIUS / 2;
-const float CIRCLE_LINE_WIDTH = 2.0;
-const int CIRCLE_RESOLUTION = 40;
-const int ABSENCE_TO_DEATH = 5;
-const float TOUCH_ICON_VOFFSET = 200;
-const float TOUCH_ICON_SIZE = 70;
-
-const ofColor TOUCH_READY_COLOR = ofColor(170,170,255, 200);
-const ofColor TOUCH_ACTIVE_COLOR = ofColor(255,170,170, 200);
-const ofColor TOUCH_UNAVAILABLE_COLOR = ofColor(80,80,80, 200);
-
-const std::string TOUCH_ICON_IMAGE_FILE = "touch.tiff";
-const int NUMBER_OF_TOUCH_ICONS = 8;
-const int TOUCH_ICON_DISTANCE = SCREEN_WIDTH / NUMBER_OF_TOUCH_ICONS;
-const int TOUCH_ICON_OFFSET = TOUCH_ICON_DISTANCE / 2;
-
-const ofColor CIRCLE_COLOR = ofColor(0,255,255,255);
-
+const float TOUCH_TO_MOVE = 2.5;
 /******* ZKM *******/
 const std::string INERTIA_CUBE_PATH = "/dev/tty.SLAB_USBtoUART";
 
