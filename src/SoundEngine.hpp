@@ -8,6 +8,8 @@
 class SoundEngine : public pd::PdReceiver{
     
 public:
+	SoundEngine():numActivePlayers(0){}
+	
     void setup(const std::string &cityName);
     void audioOut(float *output, int bufferSize, int nChannels);
     
@@ -15,7 +17,8 @@ public:
     void handleEvent(SoundEvent &event);
     void update();
     const std::vector<float> &getAmplitude() const{ return amplitude;}
-    
+	
+	size_t getNumberOfActivePlayers() const noexcept{return numActivePlayers;}
 private:
     void startPlayback(int sfID);
     void stopPlayback(int sfID);
@@ -34,7 +37,10 @@ private:
     std::vector<float> amplitude;
     std::vector<float> angle;
     std::vector<float> volume;
+	
+	size_t numActivePlayers;
 };
+
 
 
 inline void SoundEngine::setup(const std::string &cityName){
@@ -77,10 +83,12 @@ inline void SoundEngine::handleEvent(SoundEvent &event){
     switch(type){
         case SoundEventType::PLAY:{
             startPlayback(event.getSoundFileID());
+			numActivePlayers++;
             break;
         }
         case SoundEventType::STOP:{
             stopPlayback(event.getSoundFileID());
+			numActivePlayers--;
             break;
         }
         case SoundEventType::VOLUME:{

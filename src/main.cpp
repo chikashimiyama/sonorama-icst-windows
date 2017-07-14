@@ -5,7 +5,8 @@
 
 
 int main( ){
-    
+	ofLog() << APP_NAME;
+	// main window as debug window
 	ofSetupOpenGL(400,400,OF_WINDOW);			// <-------- setup the GL context
 
 	// this kicks off the running of my app

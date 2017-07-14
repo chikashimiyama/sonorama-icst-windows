@@ -60,6 +60,10 @@ public:
             }
         }
     }
+	
+	size_t getNumberOfActiveSpheres() const noexcept{
+		return soundEngine.getNumberOfActivePlayers();
+	}
     
 private:
     const SoundEngine &soundEngine;

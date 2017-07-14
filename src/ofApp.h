@@ -17,6 +17,7 @@
 #include "CardinalDirections.hpp"
 #include "Speakers.hpp"
 #include "InterSenseController.hpp"
+#include "Logger.h"
 
 class ofApp : public ofBaseApp{
 
@@ -26,7 +27,6 @@ public:
     void update();
     void draw();
     void drawContent(const Camera &targetCamera);
-    void drawLog();
     void drawCredit();
     void drawArea();
     void drawGrid();
@@ -57,5 +57,5 @@ private:
     ofVec3f position;
     InterSenseControllerThread interSenseControllerThread;
 	
-	std::string log;
+	Logger logger;
 };

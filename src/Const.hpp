@@ -1,10 +1,16 @@
 #pragma once
 
-
 #include <utility>
 
 #define panorama
 //#define mini
+
+#ifdef DEBUG
+const std::string APP_NAME = "sonoramaDebug";
+#else
+const std::string APP_NAME = "sonorama";
+#endif
+
 
 //const std::string CITY_NAME = "karlsruhe";
 const std::string CITY_NAME = "zurich";
@@ -45,7 +51,7 @@ const int NUM_SPEAKERS = 16;
 
 /******* area division for faster rendering *******/
 
-const int AREA_DIVISION = 50;
+const int AREA_DIVISION = 100;
 const int NUM_AREA = AREA_DIVISION * AREA_DIVISION;
 const float MAP_SIZE = 25000;
 const float HEIGHT_LIMIT = 2500;
@@ -116,8 +122,10 @@ const float CREDIT_Y = HEIGHT - 15;
 const ofVec2f CREDIT_POS = ofVec2f(CREDIT_X, CREDIT_Y);
 
 /******* projection *******/
-const std::string SYPHON_IP = "224.0.0.1";
+const std::string SYPHON_IP = "localhost";
 const int SYPHON_PORT = 8400;
+
+
 
 inline std::pair<bool, int> getArea(const ofVec3f &pos){
     if(pos.x < -HALF_MAP_SIZE || HALF_MAP_SIZE < pos.x) return std::make_pair(false,-1);
@@ -141,3 +149,8 @@ inline std::tuple<bool, int, int> areaToXY(std::pair<bool,int> area){
 inline std::tuple<bool, int, int> getAreaXY(ofVec3f &pos){
     return areaToXY(getArea(pos));
 }
+
+/********* misc ************/
+
+const std::array<std::string, 4> CARDINAL_DIRECTIONS = {{"South", "West", "North" ,"East"}};
+

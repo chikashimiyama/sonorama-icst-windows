@@ -9,6 +9,12 @@ public:
 	void setup(int camID, ofVec3f position){
 		this->camID = camID;
 		setPosition(position);
+		setNearClip(NEAR_CLIP);
+		setFarClip(FAR_CLIP);
+		setFov(FOV);
+		setForceAspectRatio(true);
+		setAspectRatio(ASPECT_RATIO);
+		rotate(-90*camID -45,0,1,0);
 
 	}
 	int getCameraID() const{

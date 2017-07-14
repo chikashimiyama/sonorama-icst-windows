@@ -8,7 +8,9 @@
 #pragma mark public functions
 
 ofApp::ofApp():
-soundSphereController(soundEngine){}
+soundSphereController(soundEngine),
+logger(cameras, soundSphereController){
+}
 
 void ofApp::setup(){
 	ofSetWindowPosition(-1200, 10);
@@ -43,8 +45,6 @@ void ofApp::onMoveEvent(ofVec2f &movement){
 	float z = cos(radian) * TOUCH_TO_MOVE;
 	float x = -sin(radian) * TOUCH_TO_MOVE;
 	
-	log = std::string("radian: ") + ofToString(radian) + "\nz: " + ofToString(z) + "\nx: " + ofToString(x);
-	
 	position.z += z;
 	position.x += x;
 	position.y += y;
@@ -72,7 +72,7 @@ void ofApp::update(){
     soundSphereController.updateLevels();
 
     warp();
-	
+	logger.update();
 }
 
 void ofApp::warp(){
@@ -85,7 +85,6 @@ void ofApp::drawContent(const Camera &camera){
     mapDataController.draw(camera);
     soundSphereController.draw();
     border.draw();
-    
 
     //speakers.draw(position);
     //drawGrid();
@@ -120,7 +119,7 @@ void ofApp::draw(){
 	syphonAdapter.sendToSyphon();
 
 	// on console screen
-	drawLog();
+	logger.draw();
 }
 
 void ofApp::drawCredit(){
@@ -129,12 +128,7 @@ void ofApp::drawCredit(){
     fontServer->drawText(ofVec2f(CREDIT_X,CREDIT_Y), CREDIT_TEXT);
 }
 
-void ofApp::drawLog(){
-	if(!log.empty()){
-		ofDrawBitmapString(log,50,100);
-		log.clear();
-	}
-}
+
 
 void ofApp::drawGrid(){
     ofSetColor(100,100,200,100);
@@ -174,14 +168,17 @@ void ofApp::keyPressed(int key){
             position.z += 10.0;
             break;
         case 'a':
-            position.x -= 10.0;
+            position.x += 10.0;
             break;
         case 'd':
-            position.x += 10.0;
+            position.x -= 10.0;
             break;
         case 's':
             position.z -= 10.0;
             break;
+		case 'u':
+			syphonAdapter.connectSyphon();
+			break;
         default:
             return;
     }
@@ -196,14 +193,6 @@ void ofApp::glSetup(){
     ofBackground(ofColor::black);
     ofSetCircleResolution(CIRCLE_RESOLUTION);
 
-    for(int i = 0; i < cameras.size(); i ++){
-        cameras[i].setNearClip(NEAR_CLIP);
-        cameras[i].setFarClip(FAR_CLIP);
-        cameras[i].setFov(FOV);
-        cameras[i].setForceAspectRatio(true);
-        cameras[i].setAspectRatio(ASPECT_RATIO);
-        cameras[i].rotate(-90*i -45,0,1,0);
-    }
 
     ofSetFrameRate(30);
     viewports[0] = ofRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
