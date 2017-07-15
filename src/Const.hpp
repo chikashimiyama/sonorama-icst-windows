@@ -85,7 +85,7 @@ const std::string PD_PATCH = "pd/main.pd";
 const int TICKS_PER_BUFFER = 8;
 const float SOUND_DISTANCE_THRESHOLD = 2500;
 const std::string PD_RECEIVE_NAME = "fromOF";
-const int NUM_PLAYERS = 71;
+const int NUM_PLAYERS = 95;
 const int SAMPLE_RATE = 48000;
 
 
