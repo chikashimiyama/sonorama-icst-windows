@@ -5,11 +5,11 @@
 
 class NodeController{
 public:
-    void add(SInt64 id, float lat, float lon, std::unordered_map<std::string, std::string> tags){
+    void add(long long id, float lat, float lon, std::unordered_map<std::string, std::string> tags){
        nodes.emplace(id, Node(lat, lon, tags));
     }
     
-    ofVec3f getVertex(SInt64 id){
+    ofVec3f getVertex(long long id){
         Node node = nodes.at(id);
         Bounds *bounds = Bounds::getSingleton();
         return bounds->scale(node.getLat(), node.getLon());
@@ -20,5 +20,5 @@ public:
     }
     
 private:
-    std::unordered_map<UInt64, Node> nodes;
+    std::unordered_map<long long, Node> nodes;
 };

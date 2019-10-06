@@ -95,7 +95,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxPd\libs;..\..\..\addons\ofxPd\libs\libpd;..\..\..\addons\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\stdout;..\..\..\addons\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxPd\src;..\..\..\addons\ofxSyphon\libs;..\..\..\addons\ofxSyphon\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxPd\libs;..\..\..\addons\ofxPd\libs\libpd;..\..\..\addons\ofxPd\libs\libpd\include;..\..\..\addons\ofxPd\libs\libpd\include\libpd;..\..\..\addons\ofxPd\libs\libpd\include\libpd\util;..\..\..\addons\ofxPd\libs\libpd\lib;..\..\..\addons\ofxPd\src;..\..\..\addons\ofxSyphon\libs;..\..\..\addons\ofxSyphon\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalOptions>-DHAVE_UNISTD_H</AdditionalOptions>
     </ClCompile>
@@ -115,7 +115,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxPd\libs;..\..\..\addons\ofxPd\libs\libpd;..\..\..\addons\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\stdout;..\..\..\addons\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxPd\src;..\..\..\addons\ofxSyphon\libs;..\..\..\addons\ofxSyphon\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxPd\libs;..\..\..\addons\ofxPd\libs\libpd;..\..\..\addons\ofxPd\libs\libpd\include;..\..\..\addons\ofxPd\libs\libpd\include\libpd;..\..\..\addons\ofxPd\libs\libpd\include\libpd\util;..\..\..\addons\ofxPd\libs\libpd\lib;..\..\..\addons\ofxPd\src;..\..\..\addons\ofxSyphon\libs;..\..\..\addons\ofxSyphon\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>-DHAVE_UNISTD_H</AdditionalOptions>
@@ -135,7 +135,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxPd\libs;..\..\..\addons\ofxPd\libs\libpd;..\..\..\addons\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\stdout;..\..\..\addons\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxPd\src;..\..\..\addons\ofxSyphon\libs;..\..\..\addons\ofxSyphon\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxPd\libs;..\..\..\addons\ofxPd\libs\libpd;..\..\..\addons\ofxPd\libs\libpd\include;..\..\..\addons\ofxPd\libs\libpd\include\libpd;..\..\..\addons\ofxPd\libs\libpd\include\libpd\util;..\..\..\addons\ofxPd\libs\libpd\lib;..\..\..\addons\ofxPd\src;..\..\..\addons\ofxSyphon\libs;..\..\..\addons\ofxSyphon\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>-DHAVE_UNISTD_H</AdditionalOptions>
@@ -158,7 +158,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxPd\libs;..\..\..\addons\ofxPd\libs\libpd;..\..\..\addons\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\stdout;..\..\..\addons\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxPd\src;..\..\..\addons\ofxSyphon\libs;..\..\..\addons\ofxSyphon\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxPd\libs;..\..\..\addons\ofxPd\libs\libpd;..\..\..\addons\ofxPd\libs\libpd\include;..\..\..\addons\ofxPd\libs\libpd\include\libpd;..\..\..\addons\ofxPd\libs\libpd\include\libpd\util;..\..\..\addons\ofxPd\libs\libpd\lib;..\..\..\addons\ofxPd\src;..\..\..\addons\ofxSyphon\libs;..\..\..\addons\ofxSyphon\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <AdditionalOptions>-DHAVE_UNISTD_H</AdditionalOptions>
     </ClCompile>
@@ -180,11 +180,14 @@
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\SoundEvent.cpp" />
     <ClCompile Include="src\sqlite3.c">
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
     </ClCompile>
     <ClCompile Include="src\StylizerFactory.cpp" />
     <ClCompile Include="src\TuioAdapter.cpp" />
@@ -209,96 +212,6 @@
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
     <ClCompile Include="..\..\..\addons\ofxPd\src\ofxPd.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\s_libpdmidi.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\ringbuffer.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\z_print_util.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\z_queued.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\x_libpdreceive.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\z_hooks.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\z_libpd.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bob~\bob~.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bonk~\bonk~.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\choice\choice.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\fiddle~\fiddle~.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\loop~\loop~.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\lrshift~\lrshift~.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~\binarymsg.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~\pdsched.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~\pd~.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pique\pique.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\sigmund~\sigmund~.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\stdout\stdout.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_arithmetic.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_array.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_ctl.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_dac.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_delay.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_fft.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_fft_fftsg.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_filter.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_global.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_math.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_misc.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_osc.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_resample.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_soundfile.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_ugen.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_all_guis.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_array.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_bang.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_canvas.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_clone.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_editor.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_graph.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_guiconnect.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_hdial.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_hslider.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_io.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_mycanvas.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_numbox.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_readwrite.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_rtext.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_scalar.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_template.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_text.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_toggle.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_traversal.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_vdial.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_vslider.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_vumeter.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_atom.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_binbuf.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_class.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_conf.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_glob.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_memory.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_obj.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_pd.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_sched.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_audio.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_audio_dummy.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_inter.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_loader.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_main.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_path.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_print.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_utf8.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_acoustics.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_arithmetic.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_array.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_connective.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_gui.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_interface.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_list.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_midi.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_misc.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_net.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_scalar.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_text.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_time.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_vexp.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_vexp_fun.c" />
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_vexp_if.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h" />
@@ -367,23 +280,14 @@
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
     <ClInclude Include="..\..\..\addons\ofxPd\src\ofxPd.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\cpp\PdBase.hpp" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\cpp\PdMidiReceiver.hpp" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\cpp\PdReceiver.hpp" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\cpp\PdTypes.hpp" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\ringbuffer.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\z_print_util.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\z_queued.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\x_libpdreceive.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\z_hooks.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\z_libpd.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_all_guis.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_canvas.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_imp.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_pd.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_stuff.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_utf8.h" />
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_vexp.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\m_pd.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdBase.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdMidiReceiver.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdReceiver.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdTypes.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\util\z_print_util.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\util\z_queued.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\z_libpd.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

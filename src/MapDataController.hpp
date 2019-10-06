@@ -69,7 +69,7 @@ private:
     }
     void addNode(ofXml &xml){
         
-        SInt64 id = std::strtoll(xml.getAttribute("id").c_str(), nullptr, 10);
+		long long id = std::strtoll(xml.getAttribute("id").c_str(), nullptr, 10);
         float lat = ofToFloat(xml.getAttribute("lat"));
         float lon = ofToFloat(xml.getAttribute("lon"));
         std::unordered_map<std::string, std::string> tags;
@@ -99,7 +99,7 @@ private:
     }
     
     void addModel(ofXml &xml){
-        SInt64 id = std::strtoll(xml.getAttribute("id").c_str(), nullptr, 10);
+        long long id = std::strtoll(xml.getAttribute("id").c_str(), nullptr, 10);
         if(xml.getNumChildren() > 0){
             
             xml.setToChild(0);
@@ -109,7 +109,7 @@ private:
                 std::string innerName = xml.getName();
                 if(innerName == "nd"){
                     std::string idStr = xml.getAttribute("ref");
-                    SInt64 id = std::strtoll(idStr.c_str(), nullptr, 10);
+					long long id = std::strtoll(idStr.c_str(), nullptr, 10);
                     vertices.push_back(nodeController.getVertex(id));
                 }else if(innerName == "tag"){
                     std::string k = xml.getAttribute("k");

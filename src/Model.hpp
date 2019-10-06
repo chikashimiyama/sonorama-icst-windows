@@ -15,14 +15,14 @@
 class Model : public TagController {
 public:
  
-    Model(SInt64 id, std::vector<ofVec3f> vertices, std::unordered_map<std::string, std::string> tags):
+    Model(long long id, std::vector<ofVec3f> vertices, std::unordered_map<std::string, std::string> tags):
     TagController(tags),
     id(id),
     visible(true),
     position(calcAverage(vertices)){}
     
 
-    SInt64 getId() const{
+	long long getId() const{
         return id;
     }
     
@@ -47,7 +47,7 @@ public:
     }
     
 protected:
-    const UInt64 id;
+    const long long id;
     ofVec3f position;
     bool visible;
 

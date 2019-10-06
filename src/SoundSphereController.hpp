@@ -12,7 +12,7 @@ public:
     SoundSphereController(const SoundEngine &se):
     soundEngine(se){}
     
-    virtual void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) override{
+    virtual void add(long long id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) override{
         auto model = std::make_shared<SphereModel>(id, vertices, tags);
         ofVec3f pos = model->getPosition();
         std::pair<bool, int> area = getArea(model->getPosition());

@@ -177,7 +177,7 @@ void ofApp::keyPressed(int key){
             position.z -= 10.0;
             break;
 		case 'u':
-			syphonAdapter.connectSyphon();
+			//syphonAdapter.connectSyphon();
 			break;
 		case '>':{
 			soundEngine.louder();

@@ -1,723 +1,384 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Singleton.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SoundEvent.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StylizerFactory.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TuioAdapter.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxLabel.cpp">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxPanel.cpp">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\src\ofxPd.cpp">
-      <Filter>addons\ofxPd\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\s_libpdmidi.c">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\ringbuffer.c">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\z_print_util.c">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\z_queued.c">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\x_libpdreceive.c">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\z_hooks.c">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\z_libpd.c">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bob~\bob~.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\bob~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\bonk~\bonk~.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\bonk~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\choice\choice.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\choice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\fiddle~\fiddle~.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\fiddle~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\loop~\loop~.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\loop~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\lrshift~\lrshift~.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\lrshift~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~\binarymsg.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\pd~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~\pdsched.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\pd~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pd~\pd~.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\pd~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\pique\pique.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\pique</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\sigmund~\sigmund~.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\sigmund~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\extra\stdout\stdout.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\extra\stdout</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_arithmetic.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_array.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_ctl.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_dac.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_delay.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_fft.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_fft_fftsg.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_filter.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_global.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_math.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_misc.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_osc.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_resample.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_soundfile.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\d_ugen.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_all_guis.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_array.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_bang.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_canvas.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_clone.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_editor.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_graph.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_guiconnect.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_hdial.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_hslider.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_io.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_mycanvas.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_numbox.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_readwrite.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_rtext.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_scalar.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_template.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_text.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_toggle.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_traversal.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_vdial.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_vslider.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_vumeter.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_atom.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_binbuf.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_class.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_conf.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_glob.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_memory.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_obj.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_pd.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_sched.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_audio.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_audio_dummy.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_inter.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_loader.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_main.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_path.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_print.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_utf8.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_acoustics.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_arithmetic.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_array.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_connective.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_gui.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_interface.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_list.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_midi.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_misc.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_net.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_scalar.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_text.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_time.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_vexp.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_vexp_fun.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_vexp_if.c">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sqlite3.c">
-      <Filter>src\sqlite</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons">
-      <UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxGui">
-      <UniqueIdentifier>{4F2A59AF-5F4E-704B-D067-EC13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxGui\src">
-      <UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc">
-      <UniqueIdentifier>{D91DCA33-6E5D-4481-2AEC-9FBB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc\src">
-      <UniqueIdentifier>{B9DD339A-D93D-92A1-0A2F-4B41}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc\libs">
-      <UniqueIdentifier>{99ECA1D9-873F-4622-8FC0-FC7B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc\libs\oscpack">
-      <UniqueIdentifier>{D3A98534-1602-4FEF-57A6-6593}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc\libs\oscpack\src">
-      <UniqueIdentifier>{BFB5BB47-98C8-BBCB-3066-1046}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc\libs\oscpack\src\ip">
-      <UniqueIdentifier>{5A029128-EB41-95C5-CBC0-CDED}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc\libs\oscpack\src\ip\win32">
-      <UniqueIdentifier>{79DFDFE2-400B-8654-3675-01A3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOsc\libs\oscpack\src\osc">
-      <UniqueIdentifier>{EDACB89C-9768-9551-4D41-B590}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd">
-      <UniqueIdentifier>{C15BC443-2F80-913B-3F4A-62DA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\src">
-      <UniqueIdentifier>{12C2B9A1-428D-660D-94B0-E520}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs">
-      <UniqueIdentifier>{25AB3362-AFD0-4746-02A2-DEE6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd">
-      <UniqueIdentifier>{CE6124ED-1A8F-0BB7-EE1F-EB2A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\cpp">
-      <UniqueIdentifier>{F8473EA0-3F25-74CA-6492-2217}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\libpd_wrapper">
-      <UniqueIdentifier>{07B51601-BF26-2981-99E8-E3B2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\libpd_wrapper\util">
-      <UniqueIdentifier>{7CA259A6-C295-4B9B-B43E-4274}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data">
-      <UniqueIdentifier>{592C33B9-E3AA-739A-82F5-A222}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra">
-      <UniqueIdentifier>{9EC5395D-CBAF-5BC7-6208-C722}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\bob~">
-      <UniqueIdentifier>{18802971-0D22-2E2A-B876-2B43}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\bonk~">
-      <UniqueIdentifier>{33D1C1F8-CA8C-815C-7983-6961}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\choice">
-      <UniqueIdentifier>{C76502D0-9D10-E2D7-5C05-0331}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\fiddle~">
-      <UniqueIdentifier>{37FABB31-E57F-010B-AD11-A30D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\loop~">
-      <UniqueIdentifier>{07F04937-9228-C7DA-69D4-DD40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\lrshift~">
-      <UniqueIdentifier>{1E886539-5C9F-7752-78A2-B97A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\pd~">
-      <UniqueIdentifier>{651086F9-C3EE-51B6-B48C-FEE7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\pique">
-      <UniqueIdentifier>{6CFFF3C9-8EBF-D2B7-BC32-39F1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\sigmund~">
-      <UniqueIdentifier>{34562A20-7D56-F5C3-CCA1-7897}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\extra\stdout">
-      <UniqueIdentifier>{D6CA9085-5F8F-23CF-0253-D4A2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxPd\libs\libpd\pure-data\src">
-      <UniqueIdentifier>{E0A0A9A7-79A9-BB2C-ED56-DB08}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\sqlite">
-      <UniqueIdentifier>{42a8a234-27ec-45b3-99e2-ed3f2fb2a18e}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Border.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Bounds.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\BuildingController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\BuildingRenderer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Camera.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CardinalDirections.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Const.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\FontServer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\function_traits.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\InterSenseController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Logger.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MapDataController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Model.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ModelController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Node.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\NodeController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Plane.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SoundEngine.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SoundEvent.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SoundSphereController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SoundSphereRenderer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Speakers.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SphereModel.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sqlite3.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sqlite_modern_cpp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\StreetNameDictionary.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Stylizer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\StylizerFactory.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SyphonAdapter.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TagController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TuioAdapter.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\VboModelController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\VboRenderer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\WayController.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\WayRenderer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h">
-      <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
-      <Filter>addons\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
-      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\src\ofxPd.h">
-      <Filter>addons\ofxPd\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\cpp\PdBase.hpp">
-      <Filter>addons\ofxPd\libs\libpd\cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\cpp\PdMidiReceiver.hpp">
-      <Filter>addons\ofxPd\libs\libpd\cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\cpp\PdReceiver.hpp">
-      <Filter>addons\ofxPd\libs\libpd\cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\cpp\PdTypes.hpp">
-      <Filter>addons\ofxPd\libs\libpd\cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\ringbuffer.h">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\z_print_util.h">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\util\z_queued.h">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\x_libpdreceive.h">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\z_hooks.h">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\libpd_wrapper\z_libpd.h">
-      <Filter>addons\ofxPd\libs\libpd\libpd_wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_all_guis.h">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\g_canvas.h">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_imp.h">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\m_pd.h">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_stuff.h">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\s_utf8.h">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\pure-data\src\x_vexp.h">
-      <Filter>addons\ofxPd\libs\libpd\pure-data\src</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="icon.rc" />
-  </ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Singleton.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\SoundEvent.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\sqlite3.c">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\StylizerFactory.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\TuioAdapter.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxLabel.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxPanel.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxPd\src\ofxPd.cpp">
+			<Filter>addons\ofxPd\src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons">
+			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxGui">
+			<UniqueIdentifier>{4F2A59AF-5F4E-704B-D067-EC13}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxGui\src">
+			<UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc">
+			<UniqueIdentifier>{D91DCA33-6E5D-4481-2AEC-9FBB}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\src">
+			<UniqueIdentifier>{B9DD339A-D93D-92A1-0A2F-4B41}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs">
+			<UniqueIdentifier>{99ECA1D9-873F-4622-8FC0-FC7B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack">
+			<UniqueIdentifier>{D3A98534-1602-4FEF-57A6-6593}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack\src">
+			<UniqueIdentifier>{BFB5BB47-98C8-BBCB-3066-1046}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack\src\ip">
+			<UniqueIdentifier>{5A029128-EB41-95C5-CBC0-CDED}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack\src\ip\win32">
+			<UniqueIdentifier>{79DFDFE2-400B-8654-3675-01A3}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack\src\osc">
+			<UniqueIdentifier>{EDACB89C-9768-9551-4D41-B590}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxPd">
+			<UniqueIdentifier>{C15BC443-2F80-913B-3F4A-62DA}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxPd\src">
+			<UniqueIdentifier>{12C2B9A1-428D-660D-94B0-E520}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxPd\libs">
+			<UniqueIdentifier>{25AB3362-AFD0-4746-02A2-DEE6}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxPd\libs\libpd">
+			<UniqueIdentifier>{CE6124ED-1A8F-0BB7-EE1F-EB2A}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxPd\libs\libpd\include">
+			<UniqueIdentifier>{D21C4902-8804-A165-A2CD-E29E}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxPd\libs\libpd\include\libpd">
+			<UniqueIdentifier>{5494FA33-B4E1-F7E0-3F2B-270D}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxPd\libs\libpd\include\libpd\util">
+			<UniqueIdentifier>{D82DEE4D-C3EB-A1A4-6CCC-1975}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Border.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Bounds.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\BuildingController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\BuildingRenderer.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Camera.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CardinalDirections.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Const.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\FontServer.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\function_traits.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\InterSenseController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Logger.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\MapDataController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Model.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ModelController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Node.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\NodeController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Plane.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\SoundEngine.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\SoundEvent.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\SoundSphereController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\SoundSphereRenderer.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Speakers.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\SphereModel.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\sqlite3.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\sqlite_modern_cpp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\StreetNameDictionary.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Stylizer.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\StylizerFactory.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\SyphonAdapter.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\TagController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\TuioAdapter.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\VboModelController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\VboRenderer.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\WayController.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\WayRenderer.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h">
+			<Filter>addons\ofxGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\src\ofxPd.h">
+			<Filter>addons\ofxPd\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\m_pd.h">
+			<Filter>addons\ofxPd\libs\libpd\include\libpd</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdBase.hpp">
+			<Filter>addons\ofxPd\libs\libpd\include\libpd</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdMidiReceiver.hpp">
+			<Filter>addons\ofxPd\libs\libpd\include\libpd</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdReceiver.hpp">
+			<Filter>addons\ofxPd\libs\libpd\include\libpd</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdTypes.hpp">
+			<Filter>addons\ofxPd\libs\libpd\include\libpd</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\util\z_print_util.h">
+			<Filter>addons\ofxPd\libs\libpd\include\libpd\util</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\util\z_queued.h">
+			<Filter>addons\ofxPd\libs\libpd\include\libpd\util</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\z_libpd.h">
+			<Filter>addons\ofxPd\libs\libpd\include\libpd</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
 </Project>

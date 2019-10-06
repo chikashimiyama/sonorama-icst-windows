@@ -7,7 +7,7 @@ public:
     WayController(const std::string &styleName):
     VboModelController(styleName){}
     
-    void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) override{
+    void add(long long id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) override{
         
 		std::shared_ptr<Model> model = std::make_shared<Model>(id, vertices, tags);
         std::vector<ofIndexType> indices = createIndices(allVertices.size(), vertices.size());

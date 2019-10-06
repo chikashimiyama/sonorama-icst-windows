@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofxOscSender.h"
-#include "ofxSyphon.h"
 
 class SyphonAdapter{
     
@@ -12,12 +11,13 @@ public:
 		fbo.allocate(SCREEN_WIDTH, SCREEN_HEIGHT, GL_RGBA);
 
 
-		syphonServer.setName("sonorama");
-		syphonServer.publishTexture(&fbo.getTexture());
-		connectSyphon();
+		//syphonServer.setName("sonorama");
+		//syphonServer.publishTexture(&fbo.getTexture());
+		//connectSyphon();
 
     }
 	
+	/*
 	void connectSyphon()  noexcept{
 		ofxOscMessage mes;
 		mes.setAddress("/SwitchSyphonClient");
@@ -26,6 +26,7 @@ public:
 		mes.addFloatArg( 1.0 );
 		oscSender.sendMessage( mes ,false);
 	}
+	*/
 	
 	void begin()noexcept{
 		fbo.begin();
@@ -36,11 +37,11 @@ public:
 	}
 	
     void sendToSyphon(){
-        syphonServer.publishTexture(&fbo.getTexture());
+        //syphonServer.publishTexture(&fbo.getTexture());
     }
 private:
     ofTexture syphonTexture;
-    ofxSyphonServer syphonServer;
+    //ofxSyphonServer syphonServer;
     ofxOscSender oscSender;
     std::string sendIP;
     int sendPort;

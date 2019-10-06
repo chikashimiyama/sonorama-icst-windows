@@ -11,7 +11,7 @@ public:
     ModelController(){}
     
     // add a new model
-    virtual void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) = 0;
+    virtual void add(long long id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) = 0;
     
     // draw all models
     virtual void draw() const = 0;

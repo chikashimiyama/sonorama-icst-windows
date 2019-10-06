@@ -30,8 +30,8 @@ public:
         bottom.draw();
         left.draw();
         right.draw();
-        near.draw();
-        far.draw();
+        nearPlane.draw();
+        farPlane.draw();
     }
     
     bool isInsideFrustum(const ofVec3f &point){
@@ -39,8 +39,8 @@ public:
         if (bottom.distance(point) < 0) return false;
         if (left.distance(point) < 100) return false;
         if (right.distance(point) < 100) return false;
-        if (near.distance(point) < 0) return false;
-        if (far.distance(point) < 0) return false;
+        if (nearPlane.distance(point) < 0) return false;
+        if (farPlane.distance(point) < 0) return false;
         return true;
     }
     
@@ -65,24 +65,24 @@ private:
         ofVec3f upDirection  = getUpDir();
         ofVec3f rightDirection = getXAxis();
         
-        ofVec3f farCenter = position + lookAt * LABEL_FAR_CLIP;
-        ofVec3f ftl = farCenter + (upDirection * HALF_FAR_H) - (rightDirection * HALF_FAR_W);
-        ofVec3f ftr = farCenter + (upDirection * HALF_FAR_H) + (rightDirection * HALF_FAR_W);
-        ofVec3f fbl = farCenter - (upDirection * HALF_FAR_H) - (rightDirection * HALF_FAR_W);
-        ofVec3f fbr = farCenter - (upDirection * HALF_FAR_H) + (rightDirection * HALF_FAR_W);
+        ofVec3f farPlaneCenter = position + lookAt * LABEL_FAR_CLIP;
+        ofVec3f ftl = farPlaneCenter + (upDirection * HALF_FAR_H) - (rightDirection * HALF_FAR_W);
+        ofVec3f ftr = farPlaneCenter + (upDirection * HALF_FAR_H) + (rightDirection * HALF_FAR_W);
+        ofVec3f fbl = farPlaneCenter - (upDirection * HALF_FAR_H) - (rightDirection * HALF_FAR_W);
+        ofVec3f fbr = farPlaneCenter - (upDirection * HALF_FAR_H) + (rightDirection * HALF_FAR_W);
         
-        ofVec3f nearCenter = position + lookAt * NEAR_CLIP;
-        ofVec3f ntl = nearCenter + (upDirection * HALF_NEAR_H) - (rightDirection * HALF_NEAR_W);
-        ofVec3f ntr = nearCenter + (upDirection * HALF_NEAR_H) + (rightDirection * HALF_NEAR_W);
-        ofVec3f nbl = nearCenter - (upDirection * HALF_NEAR_H) - (rightDirection * HALF_NEAR_W);
-        ofVec3f nbr = nearCenter - (upDirection * HALF_NEAR_H) + (rightDirection * HALF_NEAR_W);
+        ofVec3f nearPlaneCenter = position + lookAt * NEAR_CLIP;
+        ofVec3f ntl = nearPlaneCenter + (upDirection * HALF_NEAR_H) - (rightDirection * HALF_NEAR_W);
+        ofVec3f ntr = nearPlaneCenter + (upDirection * HALF_NEAR_H) + (rightDirection * HALF_NEAR_W);
+        ofVec3f nbl = nearPlaneCenter - (upDirection * HALF_NEAR_H) - (rightDirection * HALF_NEAR_W);
+        ofVec3f nbr = nearPlaneCenter - (upDirection * HALF_NEAR_H) + (rightDirection * HALF_NEAR_W);
         
         top.update(ntr,ntl,ftl,ftr);
         bottom.update(nbl,nbr,fbr,fbl);
         left.update(ntl,nbl,fbl,ftl);
         right.update(nbr,ntr,ftr,fbr);
-        near.update(ntl,ntr,nbr,nbl);
-        far.update(ftr,ftl,fbl,fbr);
+        nearPlane.update(ntl,ntr,nbr,nbl);
+        farPlane.update(ftr,ftl,fbl,fbr);
     }
     
     void updateVisibleArea(){
@@ -100,8 +100,8 @@ private:
     Plane bottom;
     Plane left;
     Plane right;
-    Plane near;
-    Plane far;
+    Plane nearPlane;
+    Plane farPlane;
     int camID;
   
     std::array<bool, NUM_AREA> visibleAreas;

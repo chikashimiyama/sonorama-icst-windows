@@ -8,7 +8,7 @@ public:
     BuildingController(const std::string &styleName):
     VboModelController(styleName){}
     
-    void add(SInt64 id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) override{
+    void add(long long id, std::vector<ofVec3f> vertices, unordered_map<std::string, std::string>tags) override{
         
         auto model = std::make_shared<Model>(id, vertices, tags);
         ofVec3f pos = model->getPosition();

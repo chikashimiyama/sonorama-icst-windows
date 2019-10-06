@@ -60,9 +60,9 @@ private:
 			string firstArg = mes.getArgAsString( 0 );
 			
 			if(firstArg == "set") { // format: set ID x y accel-x accel-y
-				if(mes.getNumArgs() != 6) return -1;
-				if(mes.getArgType(2) != OFXOSC_TYPE_FLOAT) return -1;
-				if(mes.getArgType(3) != OFXOSC_TYPE_FLOAT) return -1;
+				if(mes.getNumArgs() != 6) return;
+				if(mes.getArgType(2) != OFXOSC_TYPE_FLOAT) return;
+				if(mes.getArgType(3) != OFXOSC_TYPE_FLOAT) return;
 				float x = mes.getArgAsFloat(2);
 				float y = mes.getArgAsFloat(3);
 				ofVec2f p = ofVec2f(x,y);

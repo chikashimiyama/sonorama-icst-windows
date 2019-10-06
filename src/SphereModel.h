@@ -5,7 +5,7 @@
 class SphereModel : public Model{
 
 public:
-    SphereModel(SInt64 id, std::vector<ofVec3f> vertices, std::unordered_map<std::string, std::string> tags):
+    SphereModel(long long id, std::vector<ofVec3f> vertices, std::unordered_map<std::string, std::string> tags):
     Model(id,vertices,tags),
     radius(100.0),
     playing(false){}
