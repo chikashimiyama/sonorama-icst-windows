@@ -13,7 +13,7 @@ logger(cameras, soundSphereController, soundEngine){
 }
 
 void ofApp::setup(){
-	ofSetWindowPosition(-1200, 10);
+	ofSetWindowPosition(0, 10);  // monitor window
 
     glSetup();
     loadSoundSpheres();
