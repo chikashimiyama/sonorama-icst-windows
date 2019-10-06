@@ -1,2 +1,4 @@
 bin
 res
+.vs/sonorama-icst-windows
+obj/Debug
